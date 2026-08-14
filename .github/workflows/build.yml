@@ -26,12 +26,13 @@ jobs:
       # (e.g. before the repo owner adds them), assembleRelease still works
       # by falling back to the debug keystore — see app/build.gradle.kts.
       - name: Decode release keystore
-        if: ${{ secrets.GUNSTAIRS_KEYSTORE_BASE64 != '' }}
         env:
           GUNSTAIRS_KEYSTORE_BASE64: ${{ secrets.GUNSTAIRS_KEYSTORE_BASE64 }}
         run: |
-          echo "$GUNSTAIRS_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.keystore"
-          echo "GUNSTAIRS_KEYSTORE_PATH=$RUNNER_TEMP/release.keystore" >> "$GITHUB_ENV"
+          if [ -n "$GUNSTAIRS_KEYSTORE_BASE64" ]; then
+            echo "$GUNSTAIRS_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.keystore"
+            echo "GUNSTAIRS_KEYSTORE_PATH=$RUNNER_TEMP/release.keystore" >> "$GITHUB_ENV"
+          fi
 
       - name: Build, test, lint
         env:
