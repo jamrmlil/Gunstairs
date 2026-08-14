@@ -12,7 +12,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.isActive
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
@@ -34,6 +33,7 @@ import cz.novotny.gunstairs.domain.GamePhase
 import cz.novotny.gunstairs.domain.ShotOutcome
 import kotlin.math.cos
 import kotlin.math.sin
+import kotlinx.coroutines.isActive
 
 @Composable
 fun GameScreen(
