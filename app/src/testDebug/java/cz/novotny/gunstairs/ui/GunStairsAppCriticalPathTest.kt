@@ -25,12 +25,14 @@ import org.robolectric.annotation.Config
  * Runs as a JVM unit test via Robolectric (./gradlew test) since CI has no
  * Android emulator for instrumented androidTest.
  *
- * The barrel's angle is a pure function of elapsed time (see BarrelOscillator),
- * so instead of racing the real Compose frame clock, the test drives it
- * directly via GameViewModel.onFrame(...) — the same entry point the real
- * frame loop uses — to land on a deterministic hit, then relies on the
- * barrel resetting near its start angle (far from the ideal aim angle) for
- * a deterministic miss on the very next shot.
+ * The game screen runs a perpetual per-frame loop (the barrel's swing), so
+ * the test clock is kept off auto-advance — otherwise Compose's idle wait
+ * never finishes, since there's always another frame pending. Instead, each
+ * step that needs a fresh layout/draw pass to become visible is advanced by
+ * exactly one frame via [advanceOneFrame]. The barrel's angle is a pure
+ * function of elapsed time, so hit/miss timing is driven deterministically
+ * through [cz.novotny.gunstairs.ui.GameViewModel.onFrame] (the same entry
+ * point the real loop uses) rather than by racing the frame clock.
  */
 // Pinned to API 28: newer Compose (1.7+) has a known Robolectric rendering/
 // event regression on API 27 and 29-34 (see robolectric/robolectric#9595).
@@ -52,25 +54,23 @@ class GunStairsAppCriticalPathTest {
         composeTestRule.setContent {
             GunStairsTheme { GunStairsApp(viewModel) }
         }
-        // The game screen's frame loop mutates state on every frame it's
-        // given, so leaving the clock on auto-advance means Compose's idle
-        // wait never finishes (it just keeps seeing more pending frames).
-        // Drive timing manually via GameViewModel.onFrame(...) instead.
         composeTestRule.mainClock.autoAdvance = false
+        advanceOneFrame() // let the initial menu composition measure/layout/draw
     }
 
     @Test
     fun startShootHitShootMissGameOverThenRestart() {
         composeTestRule.onNodeWithText("Start").performClick()
-        composeTestRule.waitForIdle()
+        advanceOneFrame() // mount the game screen (its frame loop's first tick is a no-op timing-wise)
 
         composeTestRule.onNodeWithTag("game_surface").assertIsDisplayed()
 
-        // Advance the barrel to exactly the ideal aim angle for a guaranteed hit.
-        composeTestRule.runOnIdle { viewModel.onFrame(millisToIdealAngle(stair = 0)) }
-        composeTestRule.waitForIdle()
+        // Position the barrel at exactly the ideal aim angle for a guaranteed hit.
+        // This is a direct call, not a frame-clock tick, so it doesn't disturb
+        // the "first tick is a no-op" accounting above.
+        viewModel.onFrame(millisToIdealAngle(stair = 0))
         composeTestRule.onNodeWithTag("game_surface").performClick()
-        composeTestRule.waitForIdle()
+        advanceOneFrame() // render the post-hit score
 
         composeTestRule.onNodeWithText("1").assertIsDisplayed() // score after the hit
 
@@ -80,19 +80,25 @@ class GunStairsAppCriticalPathTest {
 
         // The miss keeps the game screen up briefly for the death animation
         // before flipping to Game Over; advance real (Robolectric) time so
-        // that delay-based transition fires.
+        // that delay-based transition fires. This is independent of the
+        // paused Compose frame clock above.
         shadowOf(Looper.getMainLooper()).idleFor(Duration.ofMillis(1_000))
-        composeTestRule.waitForIdle()
+        advanceOneFrame() // render the game-over screen
 
         composeTestRule.onNodeWithText("Game Over").assertIsDisplayed()
         composeTestRule.onNodeWithText("Score: 1").assertIsDisplayed()
         composeTestRule.onNodeWithText("Best: 1").assertIsDisplayed()
 
         composeTestRule.onNodeWithText("Restart").performClick()
-        composeTestRule.waitForIdle()
+        advanceOneFrame() // mount the fresh game screen for the new run
 
         composeTestRule.onNodeWithTag("game_surface").assertIsDisplayed()
         composeTestRule.onNodeWithText("0").assertIsDisplayed() // score reset for the new run
+    }
+
+    /** Renders exactly one frame's worth of recomposition/measure/layout/draw. */
+    private fun advanceOneFrame() {
+        composeTestRule.mainClock.advanceTimeByFrame()
     }
 
     private fun millisToIdealAngle(stair: Int): Long {
