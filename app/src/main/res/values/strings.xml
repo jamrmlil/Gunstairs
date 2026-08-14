@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Gun Stairs</string>
+
+    <string name="menu_title">Gun Stairs</string>
+    <string name="menu_best_score">Best: %1$d</string>
+    <string name="menu_start">Start</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_settings_cd">Open settings</string>
+
+    <string name="game_score_cd">Current score: %1$d</string>
+    <string name="game_surface_cd">Tap anywhere to shoot</string>
+
+    <string name="gameover_title">Game Over</string>
+    <string name="gameover_score">Score: %1$d</string>
+    <string name="gameover_best">Best: %1$d</string>
+    <string name="gameover_restart">Restart</string>
+    <string name="gameover_menu">Menu</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_sound">Sound effects</string>
+    <string name="settings_sound_cd">Toggle sound effects</string>
+    <string name="settings_reset_best">Reset best score</string>
+    <string name="settings_reset_best_cd">Reset the saved best score to zero</string>
+    <string name="settings_back">Back</string>
+    <string name="settings_back_cd">Return to menu</string>
+</resources>

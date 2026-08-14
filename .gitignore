@@ -1,0 +1,20 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+# App/domain module build output
+app/build/
+domain/build/
+
+# Signing (public repo: keystore + secrets never committed, see README)
+*.jks
+*.keystore
+keystore.properties
