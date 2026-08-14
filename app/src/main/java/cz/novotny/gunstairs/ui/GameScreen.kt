@@ -16,10 +16,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.testTag
@@ -29,6 +32,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cz.novotny.gunstairs.R
+import cz.novotny.gunstairs.domain.GameConfig
 import cz.novotny.gunstairs.domain.GamePhase
 import cz.novotny.gunstairs.domain.ShotOutcome
 import kotlin.math.cos
@@ -104,6 +108,12 @@ fun GameScreen(
     }
 }
 
+// The enemy's on-screen position is derived directly from the domain's ideal
+// aim angle (rather than a separately hand-picked layout), so that "the
+// barrel visually points at the enemy" and "the shot is a hit" are always
+// the same thing. Placing the two independently previously meant the enemy
+// rendered almost on top of the player while the angle that actually
+// counted as a hit pointed somewhere else entirely — reliably unplayable.
 private fun DrawScope.drawGameScene(
     barrelAngleDeg: Float,
     lastShotOutcome: ShotOutcome?,
@@ -119,43 +129,58 @@ private fun DrawScope.drawGameScene(
     val w = size.width
     val h = size.height
 
-    // Three ascending stairs: player's current stair (bottom), the enemy's
-    // stair one level up, and a hint of the stair above that.
-    val stepHeight = h * 0.16f
-    val stepDepth = w * 0.55f
+    val legLength = h * 0.095f
+    val playerPivot = Offset(w * 0.26f, h * 0.68f)
 
-    val playerStepTop = h * 0.78f
-    val enemyStepTop = playerStepTop - stepHeight
-    val topStepTop = enemyStepTop - stepHeight
+    val idealAngleRad = Math.toRadians(GameConfig.IDEAL_AIM_ANGLE_DEG.toDouble())
+    val aimDistance = w * 0.78f
+    val enemyPivot = Offset(
+        x = playerPivot.x + (aimDistance * cos(idealAngleRad)).toFloat(),
+        y = playerPivot.y - (aimDistance * sin(idealAngleRad)).toFloat(),
+    )
 
-    drawRect(stepColor, topLeft = Offset(0f, topStepTop), size = Size(stepDepth * 0.55f, h - topStepTop))
-    drawRect(stepHighlight, topLeft = Offset(0f, enemyStepTop), size = Size(stepDepth * 0.8f, h - enemyStepTop))
-    drawRect(stepColor, topLeft = Offset(0f, playerStepTop), size = Size(w, h - playerStepTop))
+    val playerFeetY = playerPivot.y + legLength * 1.85f
+    val enemyFeetY = enemyPivot.y + legLength * 1.85f
+    val enemyStepLeft = (enemyPivot.x - w * 0.24f).coerceAtLeast(0f)
+    val topStepLeft = (enemyPivot.x - w * 0.42f).coerceAtLeast(0f)
+    val topStepTop = enemyFeetY - (playerFeetY - enemyFeetY)
 
-    // Enemy figure, one stair up.
-    val enemyX = stepDepth * 0.65f
-    drawStickFigure(enemyX, feetY = enemyStepTop, bodyHeight = h * 0.09f, color = enemyColor, isFalling = isDying)
+    // A hint of the stair above the enemy, purely for depth.
+    drawRect(stepColor, topLeft = Offset(topStepLeft, topStepTop), size = Size(w - topStepLeft, enemyFeetY - topStepTop))
+    // The enemy's stair.
+    drawRect(stepHighlight, topLeft = Offset(enemyStepLeft, enemyFeetY), size = Size(w - enemyStepLeft, playerFeetY - enemyFeetY))
+    // The player's stair.
+    drawRect(stepColor, topLeft = Offset(0f, playerFeetY), size = Size(w, h - playerFeetY))
 
-    // Player figure and rotating gun barrel, bottom stair.
-    val playerX = w * 0.28f
-    val playerFeetY = playerStepTop
-    val shoulderY = playerFeetY - h * 0.09f
-    drawStickFigure(playerX, feetY = playerFeetY, bodyHeight = h * 0.09f, color = playerColor, isFalling = false)
+    // A faint always-visible target ring so the player has something concrete
+    // to aim the barrel at, rather than guessing where "on target" is.
+    drawCircle(
+        color = muzzleColor.copy(alpha = 0.22f),
+        radius = legLength * 1.1f,
+        center = enemyPivot,
+        style = Stroke(width = 3f),
+    )
 
-    val barrelLength = w * 0.22f
-    rotate(degrees = -barrelAngleDeg, pivot = Offset(playerX, shoulderY)) {
+    drawCharacter(playerPivot, legLength, playerColor, isEnemy = false, collapseFraction = 0f)
+    drawCharacter(enemyPivot, legLength, enemyColor, isEnemy = true, collapseFraction = if (isDying) 1f else 0f)
+
+    // Matches aimDistance exactly so a perfectly aimed shot's muzzle flash
+    // lands right on the target ring, not short of or past it.
+    val barrelLength = aimDistance
+    rotate(degrees = -barrelAngleDeg, pivot = playerPivot) {
         drawLine(
             color = playerColor,
-            start = Offset(playerX, shoulderY),
-            end = Offset(playerX + barrelLength, shoulderY),
-            strokeWidth = 6f,
+            start = playerPivot,
+            end = Offset(playerPivot.x + barrelLength, playerPivot.y),
+            strokeWidth = 7f,
+            cap = StrokeCap.Round,
         )
     }
 
     if (flashAlpha > 0f) {
         val angleRad = Math.toRadians(barrelAngleDeg.toDouble())
-        val tipX = playerX + barrelLength * cos(angleRad).toFloat()
-        val tipY = shoulderY - barrelLength * sin(angleRad).toFloat()
+        val tipX = playerPivot.x + barrelLength * cos(angleRad).toFloat()
+        val tipY = playerPivot.y - barrelLength * sin(angleRad).toFloat()
         val flashColor = if (lastShotOutcome == ShotOutcome.HIT) muzzleColor else Color(0xFFE84855)
         drawCircle(
             color = flashColor.copy(alpha = flashAlpha),
@@ -165,20 +190,64 @@ private fun DrawScope.drawGameScene(
     }
 }
 
-private fun DrawScope.drawStickFigure(
-    x: Float,
-    feetY: Float,
-    bodyHeight: Float,
+/** A small, moderately detailed stylized figure: hat, head, torso, arms, legs. */
+private fun DrawScope.drawCharacter(
+    pivot: Offset,
+    legLength: Float,
     color: Color,
-    isFalling: Boolean,
+    isEnemy: Boolean,
+    collapseFraction: Float,
 ) {
-    val headRadius = bodyHeight * 0.35f
-    // A falling figure's body collapses toward the step instead of standing tall.
-    val effectiveFeetY = if (isFalling) feetY - bodyHeight * 0.4f else feetY
-    val shoulderY = effectiveFeetY - bodyHeight + (if (isFalling) bodyHeight * 0.6f else 0f)
+    val headRadius = legLength * 0.5f
+    val torsoWidth = legLength * 0.62f
+    val torsoHeight = legLength * 0.85f
+    val hip = Offset(pivot.x, pivot.y + torsoHeight)
+    val feet = Offset(pivot.x, hip.y + legLength)
 
-    drawCircle(color, radius = headRadius, center = Offset(x, shoulderY - headRadius * 1.6f))
-    drawLine(color, Offset(x, shoulderY - headRadius * 0.3f), Offset(x, effectiveFeetY), strokeWidth = 8f)
-    drawLine(color, Offset(x, effectiveFeetY), Offset(x - headRadius, effectiveFeetY + headRadius * 0.6f), strokeWidth = 8f)
-    drawLine(color, Offset(x, effectiveFeetY), Offset(x + headRadius, effectiveFeetY + headRadius * 0.6f), strokeWidth = 8f)
+    // A hit enemy topples sideways around its feet instead of just fading out.
+    rotate(degrees = 80f * collapseFraction, pivot = feet) {
+        drawLine(color, hip, Offset(feet.x - legLength * 0.28f, feet.y), strokeWidth = 9f, cap = StrokeCap.Round)
+        drawLine(color, hip, Offset(feet.x + legLength * 0.28f, feet.y), strokeWidth = 9f, cap = StrokeCap.Round)
+
+        drawRoundRect(
+            color = color,
+            topLeft = Offset(pivot.x - torsoWidth / 2f, pivot.y),
+            size = Size(torsoWidth, torsoHeight),
+            cornerRadius = CornerRadius(torsoWidth * 0.35f),
+        )
+        drawLine(
+            color = Color.Black.copy(alpha = 0.25f),
+            start = Offset(pivot.x - torsoWidth / 2f, hip.y - torsoHeight * 0.12f),
+            end = Offset(pivot.x + torsoWidth / 2f, hip.y - torsoHeight * 0.12f),
+            strokeWidth = 3f,
+        )
+
+        val headCenter = Offset(pivot.x, pivot.y - headRadius * 1.15f)
+        drawCircle(color, radius = headRadius, center = headCenter)
+        drawLine(
+            color = color,
+            start = Offset(headCenter.x - headRadius * 1.3f, headCenter.y - headRadius * 0.15f),
+            end = Offset(headCenter.x + headRadius * 1.3f, headCenter.y - headRadius * 0.15f),
+            strokeWidth = 5f,
+            cap = StrokeCap.Round,
+        )
+
+        if (isEnemy) {
+            // Both arms angled toward the player, holding a small pistol.
+            val elbow = Offset(pivot.x - torsoWidth * 0.4f, pivot.y + torsoHeight * 0.25f)
+            val gunHand = Offset(pivot.x - torsoWidth * 0.95f, hip.y - torsoHeight * 0.05f)
+            drawLine(color, Offset(pivot.x - torsoWidth * 0.3f, pivot.y + torsoHeight * 0.1f), elbow, strokeWidth = 7f, cap = StrokeCap.Round)
+            drawLine(color, elbow, gunHand, strokeWidth = 7f, cap = StrokeCap.Round)
+            drawLine(color, gunHand, Offset(gunHand.x - legLength * 0.32f, gunHand.y - legLength * 0.05f), strokeWidth = 8f, cap = StrokeCap.Round)
+        } else {
+            // Off-hand only; the rotating gun/arm is drawn separately by the caller.
+            drawLine(
+                color = color,
+                start = Offset(pivot.x + torsoWidth * 0.4f, pivot.y + torsoHeight * 0.2f),
+                end = Offset(pivot.x + torsoWidth * 0.5f, hip.y),
+                strokeWidth = 7f,
+                cap = StrokeCap.Round,
+            )
+        }
+    }
 }
