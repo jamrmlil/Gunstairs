@@ -1,7 +1,7 @@
 package cz.novotny.gunstairs.ui
 
 import android.os.Looper
-import androidx.compose.ui.test.assertExists
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -60,7 +60,7 @@ class GunStairsAppCriticalPathTest {
         composeTestRule.onNodeWithText("Start").performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("game_surface").assertExists()
+        composeTestRule.onNodeWithTag("game_surface").assertIsDisplayed()
 
         // Advance the barrel to exactly the ideal aim angle for a guaranteed hit.
         composeTestRule.runOnIdle { viewModel.onFrame(millisToIdealAngle(stair = 0)) }
@@ -68,7 +68,7 @@ class GunStairsAppCriticalPathTest {
         composeTestRule.onNodeWithTag("game_surface").performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithText("1").assertExists() // score after the hit
+        composeTestRule.onNodeWithText("1").assertIsDisplayed() // score after the hit
 
         // The barrel resets to its minimum angle on every hit, far outside
         // tolerance of the ideal aim angle, so an immediate second shot misses.
@@ -80,15 +80,15 @@ class GunStairsAppCriticalPathTest {
         shadowOf(Looper.getMainLooper()).idleFor(Duration.ofMillis(1_000))
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithText("Game Over").assertExists()
-        composeTestRule.onNodeWithText("Score: 1").assertExists()
-        composeTestRule.onNodeWithText("Best: 1").assertExists()
+        composeTestRule.onNodeWithText("Game Over").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Score: 1").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Best: 1").assertIsDisplayed()
 
         composeTestRule.onNodeWithText("Restart").performClick()
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("game_surface").assertExists()
-        composeTestRule.onNodeWithText("0").assertExists() // score reset for the new run
+        composeTestRule.onNodeWithTag("game_surface").assertIsDisplayed()
+        composeTestRule.onNodeWithText("0").assertIsDisplayed() // score reset for the new run
     }
 
     private fun millisToIdealAngle(stair: Int): Long {
