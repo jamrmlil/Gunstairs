@@ -69,13 +69,16 @@ logic lives in `GameViewModel` and `:domain`.
   difficulty progression, hit/miss boundary conditions, and the game
   engine's state machine (start / shoot / miss / return to menu / best-score
   tracking).
-- **Compose UI test** (`:app`, `src/test`, Robolectric) exercises the
+- **Compose UI test** (`:app`, `src/testDebug`, Robolectric) exercises the
   critical path through the real UI: Start → shoot (hit) → shoot (miss) →
   Game Over → Restart. It runs as a JVM unit test rather than an
   instrumented `androidTest`, because CI has no Android emulator — see
   `.github/workflows/build.yml`, which only ever runs `./gradlew test`, not
-  `connectedAndroidTest`. The barrel's angle is a pure function of elapsed
-  time, so the test drives it deterministically through
+  `connectedAndroidTest`. It lives in the debug-only `testDebug` source set
+  (rather than the shared `test`) because Robolectric's Compose host activity
+  comes from `ui-test-manifest`, a `debugImplementation` dependency whose
+  manifest only merges into the debug variant. The barrel's angle is a pure
+  function of elapsed time, so the test drives it deterministically through
   `GameViewModel.onFrame(...)` (the same entry point the real per-frame loop
   uses) instead of racing Compose's frame clock for an exact hit.
 
