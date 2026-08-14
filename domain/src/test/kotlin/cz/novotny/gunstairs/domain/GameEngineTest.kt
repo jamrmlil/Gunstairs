@@ -96,4 +96,25 @@ class GameEngineTest {
         engine.advanceTime(500)
         assertEquals(0f, engine.currentBarrelAngleDeg(), 0.001f)
     }
+
+    @Test
+    fun `returnToMenu resets the run but keeps best score`() {
+        val engine = newEngine(initialBestScore = 4)
+        engine.start()
+        engine.shoot()
+
+        engine.returnToMenu()
+
+        assertEquals(GamePhase.MENU, engine.state.phase)
+        assertEquals(0, engine.state.stair)
+        assertEquals(0, engine.state.score)
+        assertEquals(4, engine.state.bestScore)
+    }
+
+    @Test
+    fun `setBestScore overwrites the known best score`() {
+        val engine = newEngine(initialBestScore = 0)
+        engine.setBestScore(12)
+        assertEquals(12, engine.state.bestScore)
+    }
 }

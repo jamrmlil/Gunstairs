@@ -30,6 +30,17 @@ class GameEngine(
         elapsedInStairMillis = 0L
     }
 
+    /** Leaves the current run's stair/score behind and returns to the menu. */
+    fun returnToMenu() {
+        state = GameState(bestScore = state.bestScore)
+        elapsedInStairMillis = 0L
+    }
+
+    /** Overwrites the known best score, e.g. once it has loaded from persistence. */
+    fun setBestScore(bestScore: Int) {
+        state = state.copy(bestScore = bestScore)
+    }
+
     fun advanceTime(deltaMillis: Long) {
         require(deltaMillis >= 0) { "deltaMillis must not be negative" }
         if (state.phase == GamePhase.PLAYING) {
