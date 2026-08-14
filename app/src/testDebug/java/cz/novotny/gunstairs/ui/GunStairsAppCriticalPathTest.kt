@@ -32,8 +32,10 @@ import org.robolectric.annotation.Config
  * barrel resetting near its start angle (far from the ideal aim angle) for
  * a deterministic miss on the very next shot.
  */
+// Pinned to API 28: newer Compose (1.7+) has a known Robolectric rendering/
+// event regression on API 27 and 29-34 (see robolectric/robolectric#9595).
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [34])
+@Config(sdk = [28])
 class GunStairsAppCriticalPathTest {
 
     @get:Rule
@@ -50,9 +52,6 @@ class GunStairsAppCriticalPathTest {
         composeTestRule.setContent {
             GunStairsTheme { GunStairsApp(viewModel) }
         }
-        // Drive timing manually so the background frame loop never sneaks in
-        // extra, non-deterministic onFrame calls during the test.
-        composeTestRule.mainClock.autoAdvance = false
     }
 
     @Test
