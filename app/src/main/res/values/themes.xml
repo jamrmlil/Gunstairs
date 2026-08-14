@@ -1,8 +1,12 @@
 <resources>
     <!-- Gun Stairs is deliberately dark-only (see README): a shooting-range/night
          staircase aesthetic reads better than a light theme, and it avoids
-         diluting effort across two palettes for a small arcade game. -->
-    <style name="Theme.GunStairs" parent="Theme.Material3.Dark.NoActionBar">
+         diluting effort across two palettes for a small arcade game.
+
+         All actual UI is Jetpack Compose (see ui/theme/Theme.kt), so this XML
+         theme only needs to cover the window before Compose takes over — a
+         plain framework style, no com.google.android.material dependency. -->
+    <style name="Theme.GunStairs" parent="android:Theme.Material.NoActionBar">
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:navigationBarColor">@color/background</item>
         <item name="android:windowBackground">@color/background</item>

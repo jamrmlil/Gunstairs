@@ -39,7 +39,7 @@ jobs:
           GUNSTAIRS_KEYSTORE_PASSWORD: ${{ secrets.GUNSTAIRS_KEYSTORE_PASSWORD }}
           GUNSTAIRS_KEY_ALIAS: ${{ secrets.GUNSTAIRS_KEY_ALIAS }}
           GUNSTAIRS_KEY_PASSWORD: ${{ secrets.GUNSTAIRS_KEY_PASSWORD }}
-        run: ./gradlew assembleDebug assembleRelease test lint --stacktrace
+        run: ./gradlew assembleDebug assembleRelease test lint --stacktrace --continue
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
