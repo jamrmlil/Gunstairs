@@ -52,6 +52,11 @@ class GunStairsAppCriticalPathTest {
         composeTestRule.setContent {
             GunStairsTheme { GunStairsApp(viewModel) }
         }
+        // The game screen's frame loop mutates state on every frame it's
+        // given, so leaving the clock on auto-advance means Compose's idle
+        // wait never finishes (it just keeps seeing more pending frames).
+        // Drive timing manually via GameViewModel.onFrame(...) instead.
+        composeTestRule.mainClock.autoAdvance = false
     }
 
     @Test
