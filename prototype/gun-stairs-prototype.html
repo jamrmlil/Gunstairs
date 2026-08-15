@@ -246,6 +246,43 @@
 (function () {
   "use strict";
 
+  // Sandboxed embeds (shared/published artifact frames, some in-app browsers)
+  // can throw on any localStorage access rather than just being unavailable —
+  // reading it at module load time with no guard used to abort this whole
+  // script before the Start button's click listener was ever attached.
+  // Fall back to an in-memory value so the rest of the game still runs.
+  const safeStorage = (function () {
+    let memory = {};
+    let ok = false;
+    try {
+      const testKey = "__gunstairs_test__";
+      window.localStorage.setItem(testKey, "1");
+      window.localStorage.removeItem(testKey);
+      ok = true;
+    } catch (e) {
+      ok = false;
+    }
+    return {
+      get(key) {
+        if (!ok) return memory[key];
+        try {
+          return window.localStorage.getItem(key);
+        } catch (e) {
+          return memory[key];
+        }
+      },
+      set(key, value) {
+        memory[key] = value;
+        if (!ok) return;
+        try {
+          window.localStorage.setItem(key, value);
+        } catch (e) {
+          // Ignore — memory fallback above already holds the value.
+        }
+      },
+    };
+  })();
+
   // ---- Domain constants (mirrors the Kotlin :domain module, retuned per feedback) ----
   const MIN_ANGLE = -10;
   const MAX_ANGLE = 80;
@@ -286,7 +323,7 @@
     phase: PHASE.MENU,
     stair: 0,
     score: 0,
-    best: Number(localStorage.getItem("gunstairs_best") || 0),
+    best: Number(safeStorage.get("gunstairs_best") || 0),
     elapsedInStair: 0,
     barrelAngle: MIN_ANGLE,
     idealAngle: MIN_ANGLE + 40,
@@ -799,7 +836,7 @@
     state.phase = PHASE.GAME_OVER;
     if (state.score > state.best) {
       state.best = state.score;
-      localStorage.setItem("gunstairs_best", String(state.best));
+      safeStorage.set("gunstairs_best", String(state.best));
     }
     document.getElementById("finalScore").textContent = state.score;
     document.getElementById("finalBest").textContent = state.best;
