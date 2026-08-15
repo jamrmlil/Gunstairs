@@ -1,0 +1,827 @@
+<title>Gun Stairs Prototype</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --surface: #151822;
+    --surface-line: #262b3a;
+    --stair-far: #1c202c;
+    --stair-mid: #232838;
+    --stair-near: #2e3446;
+    --player: #3e8fb0;
+    --player-bright: #6bb8d8;
+    --enemy: #b0463b;
+    --enemy-bright: #e15c46;
+    --accent: #e8a33d;
+    --danger: #e8443d;
+    --text: #edeff2;
+    --text-dim: #8d96a8;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  #stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--bg);
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: manipulation;
+  }
+
+  .hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 18px 20px;
+    pointer-events: none;
+  }
+
+  .hud-score {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 2px 12px rgba(232, 163, 61, 0.25);
+  }
+
+  .hud-round {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    background: linear-gradient(180deg, rgba(11, 13, 18, 0.72), rgba(11, 13, 18, 0.92));
+    backdrop-filter: blur(2px);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .overlay.hidden { display: none; }
+
+  .title {
+    font-size: 15px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .title strong {
+    display: block;
+    font-size: 40px;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    margin-top: 6px;
+  }
+
+  .title strong span { color: var(--accent); }
+
+  .stat-row {
+    display: flex;
+    gap: 28px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .stat-value {
+    font-size: 30px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-dim);
+  }
+
+  .stat.best .stat-value { color: var(--player-bright); }
+  .stat.score .stat-value { color: var(--accent); }
+
+  button {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--bg);
+    background: var(--accent);
+    border: none;
+    border-radius: 3px;
+    padding: 14px 40px;
+    cursor: pointer;
+    transition: transform 0.08s ease, filter 0.15s ease;
+  }
+
+  button:hover { filter: brightness(1.08); }
+  button:active { transform: scale(0.97); }
+
+  button.secondary {
+    background: transparent;
+    color: var(--text-dim);
+    border: 1px solid var(--surface-line);
+    padding: 10px 28px;
+    font-size: 13px;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: var(--text-dim);
+    max-width: 260px;
+    line-height: 1.5;
+  }
+
+  .gameover .title strong { color: var(--danger); }
+
+  .flash {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: var(--danger);
+    mix-blend-mode: screen;
+  }
+
+  .knobs {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+</style>
+
+<div id="stage">
+  <canvas id="game"></canvas>
+  <div class="flash" id="flash"></div>
+
+  <div class="hud">
+    <div>
+      <div class="hud-score mono" id="scoreLabel">0</div>
+      <div class="hud-round" id="roundLabel">STAIR 0</div>
+    </div>
+  </div>
+
+  <div class="overlay" id="menu">
+    <div class="title">GUN&nbsp;&middot;&nbsp;STAIRS
+      <strong>Prototype <span>v2</span></strong>
+    </div>
+    <div class="stat-row">
+      <div class="stat best">
+        <div class="stat-value mono" id="bestValue">0</div>
+        <div class="stat-label">Best</div>
+      </div>
+    </div>
+    <button id="startBtn">Start</button>
+    <div class="hint">Tap anywhere to fire. The target moves to a new spot every round — follow the laser sight. Hit the small inner ring for a headshot (2×).</div>
+  </div>
+
+  <div class="overlay gameover hidden" id="gameover">
+    <div class="title">Game Over</div>
+    <div class="stat-row">
+      <div class="stat score">
+        <div class="stat-value mono" id="finalScore">0</div>
+        <div class="stat-label">Score</div>
+      </div>
+      <div class="stat best">
+        <div class="stat-value mono" id="finalBest">0</div>
+        <div class="stat-label">Best</div>
+      </div>
+    </div>
+    <button id="restartBtn">Restart</button>
+    <button class="secondary" id="menuBtn">Menu</button>
+  </div>
+
+  <div class="knobs" id="knobs"></div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- Domain constants (mirrors the Kotlin :domain module, retuned per feedback) ----
+  const MIN_ANGLE = -10;
+  const MAX_ANGLE = 80;
+  const ANGLE_MARGIN = 8; // keep the randomized target off the barrel's hard limits
+
+  const BASE_PERIOD_MS = 2400;
+  const MIN_PERIOD_MS = 650;
+  const BASE_TOLERANCE_DEG = 9;
+  const MIN_TOLERANCE_DEG = 2.4;
+  const HEADSHOT_FRACTION = 0.38; // inner slice of the tolerance zone that counts as a headshot
+  const RAMP_STAIRS = 12; // reaches max difficulty sooner, and each round's step is bigger/more noticeable
+
+  function rampProgress(stair) {
+    return Math.max(0, Math.min(1, stair / RAMP_STAIRS));
+  }
+  function periodForStair(stair) {
+    const p = rampProgress(stair);
+    return BASE_PERIOD_MS - (BASE_PERIOD_MS - MIN_PERIOD_MS) * p;
+  }
+  function toleranceForStair(stair) {
+    const p = rampProgress(stair);
+    return BASE_TOLERANCE_DEG - (BASE_TOLERANCE_DEG - MIN_TOLERANCE_DEG) * p;
+  }
+  function angleAt(elapsedMs, periodMs) {
+    const range = MAX_ANGLE - MIN_ANGLE;
+    const t = ((elapsedMs % periodMs) + periodMs) % periodMs / periodMs;
+    const tri = t < 0.5 ? t * 2 : 2 - t * 2;
+    return MIN_ANGLE + tri * range;
+  }
+  function randomIdealAngle() {
+    return MIN_ANGLE + ANGLE_MARGIN + Math.random() * (MAX_ANGLE - MIN_ANGLE - ANGLE_MARGIN * 2);
+  }
+
+  // ---- State ----
+  const PHASE = { MENU: "menu", PLAYING: "playing", CLIMB: "climb", DYING: "dying", GAME_OVER: "gameover" };
+
+  const state = {
+    phase: PHASE.MENU,
+    stair: 0,
+    score: 0,
+    best: Number(localStorage.getItem("gunstairs_best") || 0),
+    elapsedInStair: 0,
+    barrelAngle: MIN_ANGLE,
+    idealAngle: MIN_ANGLE + 40,
+    pendingIdealAngle: MIN_ANGLE + 40,
+    facing: 1, // 1 = enemy to the right, -1 = enemy to the left (flips each round, "the 180")
+    lastOutcome: null,
+    flashT: 0,
+    climbT: 0,
+    dyingT: 0,
+    popupText: "",
+    popupT: 0,
+    enemyHitsTaken: 0,
+    enemyMaxHealth: 1,
+    pendingEnemyMaxHealth: 1,
+    enemyFlinchT: 0,
+  };
+
+  // Every 10 points the enemy needs one more hit to go down.
+  function healthForScore(score) {
+    return 1 + Math.floor(score / 10);
+  }
+
+  // Every 10 stairs climbed, the enemy's look changes — a visible marker of progress.
+  const ENEMY_TIERS = [
+    { body: "#b0463b", accent: "#e15c46", scale: 1.0, spikes: 0 },
+    { body: "#7a3fae", accent: "#c08bf0", scale: 1.14, spikes: 2 },
+    { body: "#2f7d5b", accent: "#5fd6a0", scale: 1.28, spikes: 3 },
+    { body: "#c98a1c", accent: "#ffd76a", scale: 1.42, spikes: 4 },
+  ];
+  function enemyTier(stair) {
+    return ENEMY_TIERS[Math.floor(stair / 10) % ENEMY_TIERS.length];
+  }
+
+  document.getElementById("bestValue").textContent = state.best;
+
+  // ---- Canvas setup ----
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+  let W = 0, H = 0, DPR = 1;
+
+  function resize() {
+    const stage = document.getElementById("stage");
+    const rect = stage.getBoundingClientRect();
+    DPR = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = rect.width;
+    H = rect.height;
+    canvas.width = Math.round(W * DPR);
+    canvas.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  // ---- Layout: tiny figures anchored to real stair surfaces, camera-follow scroll ----
+  // Everything is built from FEET positions (where a figure actually stands),
+  // with the shoulder/gun pivot derived from that — previously the stairs were
+  // drawn against the shoulder pivot while figures were anchored at their feet,
+  // so both figures visually sank below their own step.
+  function layout() {
+    const legLen = H * 0.022; // tiny figures
+    const shoulderDrop = legLen * 1.8; // matches drawCharacter's hip(+0.8L)+leg(+1L) offsets
+    const hopHeight = legLen * 1.7;
+    const hopOffset = state.phase === PHASE.CLIMB ? -Math.sin(Math.min(1, state.climbT) * Math.PI) * hopHeight : 0;
+
+    const playerFeet = { x: W * 0.24, y: H * 0.84 };
+    const playerShoulder = { x: playerFeet.x, y: playerFeet.y - shoulderDrop + hopOffset };
+
+    const aimRad = (state.idealAngle * Math.PI) / 180;
+    const aimDist = W * 0.44;
+    const enemyShoulder = {
+      x: playerFeet.x + aimDist * Math.cos(aimRad),
+      y: (playerFeet.y - shoulderDrop) - aimDist * Math.sin(aimRad),
+    };
+    const enemyFeet = { x: enemyShoulder.x, y: enemyShoulder.y + shoulderDrop };
+
+    const stepRise = playerFeet.y - enemyFeet.y; // world px per stair climbed
+    return { legLen, shoulderDrop, playerFeet, playerShoulder, aimDist, enemyShoulder, enemyFeet, stepRise };
+  }
+
+  function drawStaircase(L, scrollOffset) {
+    // Steps recede up-and-right from the player toward and past the enemy;
+    // each step's top surface is exactly where a figure's feet would land.
+    const steps = 11;
+    const stepRun = L.enemyFeet.x - L.playerFeet.x;
+    for (let i = -1; i <= steps; i++) {
+      const topY = L.playerFeet.y - i * L.stepRise + scrollOffset;
+      const bottomY = L.playerFeet.y - (i - 1) * L.stepRise + scrollOffset;
+      const leftX = Math.max(0, L.playerFeet.x + i * stepRun - W * 0.22);
+      if (topY > H + 40 || bottomY < -40) continue;
+      const depth = Math.max(0, Math.min(1, 1 - i / (steps + 1)));
+      const fog = Math.max(0, Math.min(1, i / (steps + 2))); // distant steps fade into the backdrop
+      const shade = 0.10 + depth * 0.10;
+      ctx.save();
+      ctx.globalAlpha = 1 - fog * 0.6;
+      ctx.fillStyle = `rgb(${Math.round(22 + shade * 130)}, ${Math.round(25 + shade * 140)}, ${Math.round(36 + shade * 160)})`;
+      ctx.fillRect(leftX, topY, W - leftX, bottomY - topY);
+      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      ctx.fillRect(leftX, topY, W - leftX, 1.5);
+      ctx.restore();
+    }
+  }
+
+  // feetPos is where the figure actually stands; the skeleton is built
+  // upward from there (feet -> hip -> shoulder -> head).
+  function drawCharacter(feetPos, legLen, color, isEnemy, collapseT, alpha, tier, flinchT) {
+    ctx.save();
+    ctx.globalAlpha = alpha === undefined ? 1 : alpha;
+    const shakeX = flinchT ? Math.sin(flinchT * 40) * legLen * 0.35 * flinchT : 0;
+    const torsoW = legLen * 0.60;
+    const torsoH = legLen * 0.80;
+    const headR = legLen * 0.42;
+    const feet = { x: feetPos.x, y: feetPos.y };
+    const hip = { x: feetPos.x + shakeX, y: feet.y - legLen };
+    const shoulderY = hip.y - torsoH;
+
+    ctx.translate(feet.x, feet.y);
+    ctx.rotate(((isEnemy ? 85 : 0) * collapseT * Math.PI) / 180);
+    ctx.translate(-feet.x, -feet.y);
+
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineCap = "round";
+
+    // legs
+    ctx.lineWidth = Math.max(1, legLen * 0.14);
+    ctx.beginPath();
+    ctx.moveTo(hip.x, hip.y);
+    ctx.lineTo(feet.x - legLen * 0.24, feet.y);
+    ctx.moveTo(hip.x, hip.y);
+    ctx.lineTo(feet.x + legLen * 0.24, feet.y);
+    ctx.stroke();
+
+    // torso
+    const r = torsoW * 0.32;
+    roundRect(hip.x - torsoW / 2, shoulderY, torsoW, torsoH, r);
+    ctx.fill();
+    if (tier && tier.accent) {
+      ctx.strokeStyle = tier.accent;
+      ctx.lineWidth = Math.max(0.8, legLen * 0.06);
+      ctx.beginPath();
+      ctx.moveTo(hip.x - torsoW / 2 + 1, shoulderY + torsoH * 0.55);
+      ctx.lineTo(hip.x + torsoW / 2 - 1, shoulderY + torsoH * 0.55);
+      ctx.stroke();
+    }
+
+    // head + brim
+    const headC = { x: hip.x, y: shoulderY - headR * 1.1 };
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(headC.x, headC.y, headR, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.lineWidth = Math.max(0.9, legLen * 0.08);
+    ctx.beginPath();
+    ctx.moveTo(headC.x - headR * 1.25, headC.y - headR * 0.1);
+    ctx.lineTo(headC.x + headR * 1.25, headC.y - headR * 0.1);
+    ctx.stroke();
+
+    // Higher enemy tiers get a spikier silhouette — a visible "you're deeper in" marker.
+    if (isEnemy && tier && tier.spikes > 0) {
+      ctx.fillStyle = tier.accent;
+      const n = tier.spikes;
+      for (let s = 0; s < n; s++) {
+        const t = n === 1 ? 0.5 : s / (n - 1);
+        const sx = headC.x - headR * 0.9 + t * headR * 1.8;
+        ctx.beginPath();
+        ctx.moveTo(sx, headC.y - headR * 0.55);
+        ctx.lineTo(sx - headR * 0.16, headC.y - headR * 1.15);
+        ctx.lineTo(sx + headR * 0.16, headC.y - headR * 1.15);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    // arms
+    ctx.strokeStyle = color;
+    ctx.lineWidth = Math.max(1, legLen * 0.12);
+    if (isEnemy) {
+      const elbow = { x: hip.x - torsoW * 0.35, y: shoulderY + torsoH * 0.3 };
+      const hand = { x: hip.x - torsoW * 0.95, y: hip.y - torsoH * 0.05 };
+      ctx.beginPath();
+      ctx.moveTo(hip.x - torsoW * 0.25, shoulderY + torsoH * 0.15);
+      ctx.lineTo(elbow.x, elbow.y);
+      ctx.lineTo(hand.x, hand.y);
+      ctx.stroke();
+      ctx.lineWidth = Math.max(1.2, legLen * 0.16);
+      ctx.beginPath();
+      ctx.moveTo(hand.x, hand.y);
+      ctx.lineTo(hand.x - legLen * 0.3, hand.y - legLen * 0.04);
+      ctx.stroke();
+    } else {
+      ctx.beginPath();
+      ctx.moveTo(hip.x + torsoW * 0.35, shoulderY + torsoH * 0.2);
+      ctx.lineTo(hip.x + torsoW * 0.48, hip.y);
+      ctx.stroke();
+    }
+
+    if (flinchT > 0) {
+      ctx.globalAlpha = flinchT * 0.6;
+      ctx.fillStyle = "#ffffff";
+      ctx.beginPath();
+      ctx.arc(hip.x, shoulderY + torsoH * 0.4, torsoW * 0.65, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }
+
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  // A handful of fixed "stars" for atmosphere — seeded once, not random per frame.
+  const STARS = Array.from({ length: 46 }, (_, i) => ({
+    x: (i * 61 % 97) / 97,
+    y: (i * 37 % 83) / 83 * 0.7,
+    r: 0.5 + (i % 3) * 0.35,
+    a: 0.15 + (i % 4) * 0.09,
+  }));
+
+  function drawBackground() {
+    const grad = ctx.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0, "#12172a");
+    grad.addColorStop(0.55, "#0d1120");
+    grad.addColorStop(1, "#08090f");
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.fillStyle = "#ffffff";
+    for (const s of STARS) {
+      ctx.globalAlpha = s.a;
+      ctx.beginPath();
+      ctx.arc(s.x * W, s.y * H, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawVignette() {
+    const r = ctx.createRadialGradient(W / 2, H * 0.6, H * 0.25, W / 2, H * 0.6, H * 0.75);
+    r.addColorStop(0, "rgba(0,0,0,0)");
+    r.addColorStop(1, "rgba(0,0,0,0.45)");
+    ctx.fillStyle = r;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    drawBackground();
+
+    ctx.save();
+    // "Do a 180": every other round the whole scene mirrors, so the next
+    // enemy appears on the opposite side from where the last one fell.
+    if (state.facing < 0) {
+      ctx.translate(W, 0);
+      ctx.scale(-1, 1);
+    }
+
+    const L = layout();
+    const scrollOffset = state.phase === PHASE.CLIMB ? state.climbT * L.stepRise : 0;
+    const tier = enemyTier(state.stair);
+    const enemyLegLen = L.legLen * tier.scale;
+
+    // World (stairs + enemy) scrolls down toward the fixed player, "camera follows player".
+    drawStaircase(L, scrollOffset);
+
+    // Old (just-killed) enemy falls away with its stair as the camera climbs past it.
+    if (state.phase === PHASE.CLIMB) {
+      const oldFeet = { x: L.enemyFeet.x, y: L.enemyFeet.y + scrollOffset };
+      drawCharacter(oldFeet, enemyLegLen, tier.body, true, 1, Math.max(0, 1 - state.climbT * 1.6), tier, 0);
+    }
+
+    // The next enemy slides in from off-screen above down to its resting spot.
+    const enemyAlpha = state.phase === PHASE.CLIMB ? Math.min(1, state.climbT * 1.4) : 1;
+    const enemyFeetNow = state.phase === PHASE.CLIMB
+      ? { x: L.enemyFeet.x, y: L.enemyFeet.y - L.stepRise * (1 - state.climbT) }
+      : { x: L.enemyFeet.x, y: L.enemyFeet.y };
+    if (state.phase !== PHASE.MENU) {
+      const collapseT = state.phase === PHASE.DYING ? Math.min(1, state.dyingT * 2.2) : 0;
+      drawCharacter(enemyFeetNow, enemyLegLen, tier.body, true, collapseT, enemyAlpha, tier, state.enemyFlinchT);
+
+      const ringY = enemyFeetNow.y - enemyLegLen * 1.8;
+      // Body-hit ring (outer) and headshot ring (inner) — a concrete aim point.
+      ctx.save();
+      ctx.globalAlpha = 0.30 * enemyAlpha;
+      ctx.strokeStyle = "#e8a33d";
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.arc(enemyFeetNow.x, ringY, enemyLegLen * 1.15, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.globalAlpha = 0.45 * enemyAlpha;
+      ctx.strokeStyle = "#ffd27a";
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.arc(enemyFeetNow.x, ringY, enemyLegLen * 1.15 * HEADSHOT_FRACTION, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+
+      // Health pips when the enemy needs more than one hit.
+      if (state.enemyMaxHealth > 1 && state.phase !== PHASE.CLIMB) {
+        const pipR = Math.max(1.4, L.legLen * 0.22);
+        const gap = pipR * 2.6;
+        const totalW = (state.enemyMaxHealth - 1) * gap;
+        for (let p = 0; p < state.enemyMaxHealth; p++) {
+          const px = enemyFeetNow.x - totalW / 2 + p * gap;
+          const py = ringY - enemyLegLen * 1.35;
+          ctx.beginPath();
+          ctx.arc(px, py, pipR, 0, Math.PI * 2);
+          ctx.fillStyle = p < state.enemyHitsTaken ? "rgba(255,255,255,0.18)" : "#ffd27a";
+          ctx.fill();
+        }
+      }
+    }
+
+    // Player stays fixed on screen; hop offset is baked into L.playerShoulder.
+    if (state.phase !== PHASE.MENU) {
+      const playerFeetNow = { x: L.playerFeet.x, y: L.playerShoulder.y + L.shoulderDrop };
+      drawCharacter(playerFeetNow, L.legLen, "#3e8fb0", false, 0, 1, null, 0);
+
+      if (state.phase === PHASE.PLAYING) {
+        const gunLen = L.legLen * 3.2; // small, proportionate arm+gun
+        const laserLen = L.aimDist * 1.05; // laser sight reaches well past the target
+        const angleRad = (state.barrelAngle * Math.PI) / 180;
+        const dirX = Math.cos(angleRad);
+        const dirY = -Math.sin(angleRad);
+        const tipX = L.playerShoulder.x + gunLen * dirX;
+        const tipY = L.playerShoulder.y + gunLen * dirY;
+
+        ctx.save();
+        ctx.strokeStyle = "#6bb8d8";
+        ctx.lineWidth = Math.max(1.2, L.legLen * 0.22);
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(L.playerShoulder.x, L.playerShoulder.y);
+        ctx.lineTo(tipX, tipY);
+        ctx.stroke();
+        ctx.restore();
+
+        // Laser sight: a thin dashed line extending well beyond the gun itself.
+        ctx.save();
+        ctx.globalAlpha = 0.5;
+        ctx.strokeStyle = "#ffe9b3";
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 5]);
+        ctx.beginPath();
+        ctx.moveTo(tipX, tipY);
+        ctx.lineTo(L.playerShoulder.x + laserLen * dirX, L.playerShoulder.y + laserLen * dirY);
+        ctx.stroke();
+        ctx.restore();
+
+        if (state.flashT > 0) {
+          const flashColor = state.lastOutcome === "miss" ? "#e8443d" : state.lastOutcome === "headshot" ? "#ffd27a" : "#e8a33d";
+          ctx.save();
+          ctx.globalAlpha = state.flashT * 0.35;
+          ctx.fillStyle = flashColor;
+          ctx.beginPath();
+          ctx.arc(tipX, tipY, 12 + 10 * state.flashT, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = state.flashT;
+          ctx.beginPath();
+          ctx.arc(tipX, tipY, 4 + 5 * state.flashT, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+    }
+
+    if (state.popupT > 0) {
+      ctx.save();
+      ctx.globalAlpha = Math.min(1, state.popupT * 2);
+      ctx.fillStyle = state.lastOutcome === "headshot" ? "#ffd27a" : "#e8a33d";
+      ctx.font = "700 15px ui-monospace, Menlo, Consolas, monospace";
+      ctx.textAlign = "center";
+      const rise = (1 - state.popupT) * 26;
+      ctx.fillText(state.popupText, L.enemyFeet.x, L.enemyFeet.y - L.legLen * 3.2 - rise);
+      ctx.restore();
+    }
+
+    ctx.restore();
+    drawVignette();
+  }
+
+  // ---- Loop ----
+  let lastTs = null;
+  function frame(ts) {
+    if (lastTs === null) lastTs = ts;
+    const dt = Math.min(48, ts - lastTs);
+    lastTs = ts;
+
+    if (state.phase === PHASE.PLAYING) {
+      state.elapsedInStair += dt;
+      state.barrelAngle = angleAt(state.elapsedInStair, periodForStair(state.stair));
+    } else if (state.phase === PHASE.CLIMB) {
+      state.climbT += dt / 380;
+      if (state.climbT >= 1) {
+        state.stair += 1;
+        state.elapsedInStair = 0;
+        // The target's new spot, the 180 turn, and the next enemy's health
+        // all land exactly when play resumes.
+        state.idealAngle = state.pendingIdealAngle;
+        state.facing *= -1;
+        state.enemyHitsTaken = 0;
+        state.enemyMaxHealth = state.pendingEnemyMaxHealth;
+        state.phase = PHASE.PLAYING;
+        updateHud();
+      }
+    } else if (state.phase === PHASE.DYING) {
+      state.dyingT += dt / 450;
+      if (state.dyingT >= 1) {
+        finishGameOver();
+      }
+    }
+
+    if (state.flashT > 0) {
+      state.flashT = Math.max(0, state.flashT - dt / 300);
+    }
+    if (state.enemyFlinchT > 0) {
+      state.enemyFlinchT = Math.max(0, state.enemyFlinchT - dt / 220);
+    }
+    if (state.popupT > 0) {
+      // Matches the climb duration so it's fully gone before idealAngle/facing
+      // flip for the next round — otherwise it'd render mid-fade at a stale spot.
+      state.popupT = Math.max(0, state.popupT - dt / 380);
+    }
+
+    draw();
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // ---- Flow ----
+  function updateHud() {
+    document.getElementById("scoreLabel").textContent = state.score;
+    document.getElementById("roundLabel").textContent = "STAIR " + state.stair;
+  }
+
+  function startGame() {
+    state.phase = PHASE.PLAYING;
+    state.stair = 0;
+    state.score = 0;
+    state.elapsedInStair = 0;
+    state.barrelAngle = MIN_ANGLE;
+    state.idealAngle = randomIdealAngle();
+    state.facing = 1;
+    state.lastOutcome = null;
+    state.popupT = 0;
+    state.enemyHitsTaken = 0;
+    state.enemyMaxHealth = healthForScore(0);
+    state.pendingEnemyMaxHealth = state.enemyMaxHealth;
+    state.enemyFlinchT = 0;
+    document.getElementById("menu").classList.add("hidden");
+    document.getElementById("gameover").classList.add("hidden");
+    updateHud();
+  }
+
+  function shoot() {
+    if (state.phase !== PHASE.PLAYING) return;
+    const tolerance = toleranceForStair(state.stair);
+    const headTolerance = tolerance * HEADSHOT_FRACTION;
+    const diff = Math.abs(state.barrelAngle - state.idealAngle);
+    const outcome = diff <= headTolerance ? "headshot" : diff <= tolerance ? "hit" : "miss";
+    state.lastOutcome = outcome;
+    state.flashT = 1;
+
+    if (outcome !== "miss") {
+      const gained = outcome === "headshot" ? 2 : 1;
+      state.score += gained;
+      state.enemyHitsTaken += 1;
+      state.popupText = outcome === "headshot" ? "HEADSHOT +2" : "+1";
+      state.popupT = 1;
+      updateHud();
+
+      if (state.enemyHitsTaken < state.enemyMaxHealth) {
+        // Wounded but still standing — it flinches and the fight continues.
+        state.enemyFlinchT = 1;
+        return;
+      }
+
+      state.climbT = 0;
+      state.phase = PHASE.CLIMB;
+      state.pendingEnemyMaxHealth = healthForScore(state.score);
+      // The next round's randomized target is locked in now so the incoming
+      // enemy has a real destination to slide into; it (and the 180 turn)
+      // only become visible once the climb transition finishes.
+      state.pendingIdealAngle = randomIdealAngle();
+      updateHud();
+    } else {
+      state.dyingT = 0;
+      state.phase = PHASE.DYING;
+      flashScreen();
+    }
+  }
+
+  function flashScreen() {
+    const el = document.getElementById("flash");
+    el.style.transition = "none";
+    el.style.opacity = "0.35";
+    requestAnimationFrame(() => {
+      el.style.transition = "opacity 0.45s ease";
+      el.style.opacity = "0";
+    });
+  }
+
+  function finishGameOver() {
+    state.phase = PHASE.GAME_OVER;
+    if (state.score > state.best) {
+      state.best = state.score;
+      localStorage.setItem("gunstairs_best", String(state.best));
+    }
+    document.getElementById("finalScore").textContent = state.score;
+    document.getElementById("finalBest").textContent = state.best;
+    document.getElementById("bestValue").textContent = state.best;
+    document.getElementById("gameover").classList.remove("hidden");
+  }
+
+  document.getElementById("startBtn").addEventListener("click", startGame);
+  document.getElementById("restartBtn").addEventListener("click", startGame);
+  document.getElementById("menuBtn").addEventListener("click", () => {
+    state.phase = PHASE.MENU;
+    document.getElementById("gameover").classList.add("hidden");
+    document.getElementById("menu").classList.remove("hidden");
+  });
+
+  canvas.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    shoot();
+  });
+
+  document.getElementById("knobs").textContent =
+    "period " + BASE_PERIOD_MS + "→" + MIN_PERIOD_MS + "ms · tol " + BASE_TOLERANCE_DEG + "→" + MIN_TOLERANCE_DEG +
+    "° · ramp " + RAMP_STAIRS + " stairs · headshot " + Math.round(HEADSHOT_FRACTION * 100) + "%";
+})();
+</script>
