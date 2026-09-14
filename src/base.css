@@ -458,7 +458,15 @@ details.more[open] > summary{ margin-bottom:.5rem; border-bottom:1px dashed var(
   border:1px solid var(--c-border-strong); background:var(--c-surface); color:var(--c-ink);
 }
 .searchbox svg{ position:absolute; left:.55rem; top:50%; transform:translateY(-50%); opacity:.55; pointer-events:none; }
-@media (max-width:720px){ .searchbox{ flex-basis:9rem; } }
+@media (max-width:720px){ .searchbox{ flex-basis:8rem; min-width:0; } }
+/* užší displeje: horní lišta se musí vejít bez vodorovného posuvu */
+.hide-sm{ display:inline; }
+@media (max-width:640px){
+  .hide-sm{ display:none; }
+  .topbar{ gap:.4rem; padding:0 .6rem; }
+  .topbar__brand span{ display:none; }
+  .searchbox{ flex:1 1 auto; min-width:0; }
+}
 #results{
   position:absolute; z-index:100; top:calc(100% + .4rem); right:0; width:min(34rem,92vw);
   max-height:min(68vh,34rem); overflow-y:auto;

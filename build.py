@@ -130,8 +130,9 @@ def build():
 def check(doc):
     errs, warns = [], []
     ids = set(re.findall(r'\bid="([^"]+)"', doc))
-    # kotvy
-    anchors = set(a for a in re.findall(r'href="#([^"]+)"', doc) if a)
+    # kotvy — jen z HTML, nikoli z vloženého JavaScriptu (kde jsou href sestavovány za běhu)
+    doc_html = re.sub(r'<script\b.*?</script>', '', doc, flags=re.S)
+    anchors = set(a for a in re.findall(r'href="#([^"]+)"', doc_html) if a)
     js_ids = set()
     # id generovaná JS: gl-<slug>, gl-abc-<L>, tref-*, ix*
     gl = read('data', 'glossary.js')
@@ -167,6 +168,10 @@ def stats(doc):
     txt = re.sub(r'<script.*?</script>|<style.*?</style>', '', doc, flags=re.S)
     txt = re.sub(r'<[^>]+>', ' ', txt)
     words = len(txt.split())
+    # slovník a testová banka jsou v <script>, ale jsou to studijní texty — počítají se
+    for f in ('glossary.js', 'quiz.js', 'remedies.js'):
+        data = re.sub(r'<[^>]+>', ' ', read('data', f))
+        words += len(re.findall(r"[^\s'\"]+", data)) // 1
     quiz = read('data', 'quiz.js')
     return {
         'bytes': len(doc.encode('utf-8')),

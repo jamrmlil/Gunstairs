@@ -1,0 +1,433 @@
+<section class="view chapter" id="view-ch10" aria-labelledby="ch10-h1">
+ <div class="wrap">
+  <h1 id="ch10-h1">Okruh 10 — Výzkum a evidence</h1>
+  <p class="lead">Toto je okruh, na kterém se pozná odborník. Zkušební komise zde netestuje, zda adept homeopatii obhájí — testuje, zda <b>umí férově referovat i evidenci, která je proti</b>. Kdo zamlčí NHMRC a EASAC, prozradí, že literaturu nečetl nebo že ji čte selektivně. Kdo naopak nedokáže pojmenovat metodologické problémy studií na obou stranách, prozradí, že ji nečte kriticky. Cílem této kapitoly je dovést adepta k tomu, aby o evidenci mluvil přesně a bez nadsazení v žádném směru.</p>
+
+  <div class="box box--goals">
+    <p class="box__t">Cíle učení</p>
+    <ul>
+      <li>Znát hierarchii úrovní evidence a umět do ní zařadit typ studie.</li>
+      <li>Jmenovat klíčové meta-analýzy homeopatie, jejich výsledky a jejich hlavní kritiku — na obou stranách.</li>
+      <li>Vysvětlit, co je placebový a kontextový efekt a proč je homeopatická konzultace jeho ideálním prostředím.</li>
+      <li>Popsat základní výzkum vysokých ředění, jeho hlavní pokusy a důvody, proč nejsou přijímány.</li>
+      <li>Referovat stanoviska NHMRC, EASAC, WHO a britského parlamentního výboru bez zkreslení.</li>
+      <li>Pojmenovat metodologické výzvy, které individualizovaná léčba představuje pro RCT, a znát alternativní designy.</li>
+      <li>Kriticky přečíst studii podle kontrolního seznamu a odhalit obvyklé slabiny.</li>
+      <li>Formulovat stanovisko k evidenci, které je pravdivé, obhajitelné a použitelné před pacientem i před komisí.</li>
+    </ul>
+  </div>
+
+  <h2 id="ch10-1">10.1 Východisko</h2>
+  <p>Začneme přímou odpovědí, protože právě ta bude u zkoušky vyžadována:</p>
+  <div class="box box--crit">
+    <p class="box__t">Stav evidence — souhrn, který má adept umět odříkat</p>
+    <p><b>Převažující vědecké stanovisko</b> zní, že specifická účinnost homeopatických přípravků nad rámec placeba <b>není prokázána</b>. Tento závěr opírají instituce o tři pozorování: (1) meta-analýzy ukazují, že s rostoucí metodologickou kvalitou studií se efekt zmenšuje k nule; (2) neexistuje reprodukovaný mechanismus ani reprodukovaný laboratorní efekt vysokých ředění; (3) u žádné konkrétní diagnózy neexistuje soubor kvalitních studií, který by konzistentně prokázal přínos.</p>
+    <p><b>Co je zároveň pravda a co se často zamlčuje z opačné strany:</b> „neprokázáno“ není totožné s „prokázáno, že nepůsobí“. Část meta-analýz, zejména těch omezených na individualizovanou léčbu, nalézá malý efekt s hranicí statistické významnosti; jejich autoři jej sami označují za nejistý pro nízkou kvalitu podkladových studií. Existují také specifické oblasti (například snížení spotřeby antibiotik při opakovaných infekcích dýchacích cest, doplňková péče v onkologii), kde jsou data smíšená a debata pokračuje. Homeopatické přípravky ve vysokých potencích jsou navíc samy o sobě bezpečné — rizika jsou nepřímá (odklad účinné léčby) a farmaceutická u nízkých potencí.</p>
+    <p><b>Formulace, kterou lze použít vždy:</b> <i>„Účinnost nad rámec placeba není podle převažujícího vědeckého stanoviska prokázána. Jednotlivé meta-analýzy individualizované homeopatie nacházejí malý efekt, který sami jejich autoři pro nízkou kvalitu podkladových studií označují za nejistý. V praxi proto pracuji s předem stanovenými kritérii a s časovým limitem, a nikdy nenahrazuji indikovanou léčbu.“</i></p>
+  </div>
+
+  <h2 id="ch10-2">10.2 Typy studií a hierarchie evidence</h2>
+  <div class="figframe">
+  <figure>
+    <svg viewBox="0 0 860 420" role="img" aria-labelledby="f101t f101d">
+      <title id="f101t">Hierarchie úrovní evidence</title>
+      <desc id="f101d">Pyramida úrovní evidence od kazuistik a názoru experta přes observační studie, randomizované studie, systematické přehledy až po meta-analýzy vysoké kvality, s vyznačením, kde se nachází většina homeopatické literatury.</desc>
+      <text x="24" y="26" class="s-ttl">Hierarchie evidence — a kde leží homeopatická literatura</text>
+      <polygon points="330,44 530,44 560,96 300,96" class="s-box-o"/>
+      <text x="430" y="66" text-anchor="middle" class="s-lblb">Systematický přehled a meta-analýza</text>
+      <text x="430" y="86" text-anchor="middle" class="s-sm">nejvyšší úroveň — pokud vstupní studie mají kvalitu</text>
+
+      <polygon points="300,102 560,102 590,154 270,154" class="s-box-b"/>
+      <text x="430" y="124" text-anchor="middle" class="s-lblb">Randomizovaná kontrolovaná studie (RCT)</text>
+      <text x="430" y="144" text-anchor="middle" class="s-sm">zaslepení, alokační utajení, analýza podle původního zařazení</text>
+
+      <polygon points="270,160 590,160 620,212 240,212" class="s-box"/>
+      <text x="430" y="182" text-anchor="middle" class="s-lblb">Kohortové a případové-kontrolní studie</text>
+      <text x="430" y="202" text-anchor="middle" class="s-sm">observační; riziko zkreslení volbou a zaměňujícími faktory</text>
+
+      <polygon points="240,218 620,218 650,270 210,270" class="s-box"/>
+      <text x="430" y="240" text-anchor="middle" class="s-lblb">Průřezové studie, registry, studie spokojenosti</text>
+      <text x="430" y="260" text-anchor="middle" class="s-sm">popisují, nedokazují příčinu</text>
+
+      <polygon points="210,276 650,276 680,336 180,336" class="s-box-c"/>
+      <text x="430" y="298" text-anchor="middle" class="s-lblb">Kazuistiky, série případů, klinická zkušenost, názor autority</text>
+      <text x="430" y="318" text-anchor="middle" class="s-sm">nezastupitelné pro generování hypotéz — nedostatečné pro tvrzení o účinnosti</text>
+
+      <path class="s-arrow" d="M700 310 H760 V120 H616" marker-end="url(#ar101)" stroke="var(--c-crit)"/>
+      <text x="766" y="220" class="s-sm" fill="var(--c-crit)">většina</text>
+      <text x="766" y="234" class="s-sm" fill="var(--c-crit)">homeopatické</text>
+      <text x="766" y="248" class="s-sm" fill="var(--c-crit)">literatury je</text>
+      <text x="766" y="262" class="s-sm" fill="var(--c-crit)">v této vrstvě</text>
+
+      <rect x="24" y="352" width="812" height="58" rx="8" class="s-box"/>
+      <text x="40" y="374" class="s-lblb">DVĚ PASTI, KTERÉ SE U ZKOUŠKY TRESTAJÍ</text>
+      <text x="40" y="392" class="s-lbl">1. „Meta-analýza je nejvyšší evidence“ — jen tehdy, mají-li vstupní studie kvalitu. Meta-analýza slabých studií je slabá evidence (GIGO).</text>
+      <text x="40" y="406" class="s-lbl">2. „Dvě stě let klinické zkušenosti“ — zkušenost není kontrolované pozorování. Puštění žilou mělo za sebou dva tisíce let zkušenosti.</text>
+      <defs><marker id="ar101" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--c-crit)"/></marker></defs>
+    </svg>
+    <figcaption>Obr. 10.1 — Hierarchie evidence. Pyramida neříká, že nižší úrovně jsou bezcenné — kazuistika je nezastupitelná pro objevení jevu. Říká, že <b>tvrzení o účinnosti</b> potřebuje úroveň, na které lze odečíst placebo, přirozený průběh a zkreslení pozorovatele.</figcaption>
+  </figure>
+  </div>
+
+  <h2 id="ch10-3">10.3 Meta-analýzy a systematická review</h2>
+  <div class="tablewrap">
+    <table>
+      <caption>Klíčové práce, které má adept umět jmenovat</caption>
+      <thead><tr><th>Práce</th><th>Co zkoumala</th><th>Výsledek</th><th>Kritika a kontext</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Kleijnen, Knipschild, ter Riet</b><br>BMJ 1991</td>
+          <td>Přehled 107 kontrolovaných studií homeopatie.</td>
+          <td>Ve většině studií byl výsledek příznivý, ale <b>metodologická kvalita byla převážně nízká</b>. Autoři uzavřeli, že evidence je nedostatečná k závěru v obou směrech, a doporučili kvalitnější studie.</td>
+          <td>Historicky první velký přehled. Často citován obhájci jako „pozitivní“ — což je zkreslení: autoři výslovně odmítli vyvodit závěr o účinnosti.</td>
+        </tr>
+        <tr>
+          <td><b>Linde a kol.</b><br>Lancet 1997</td>
+          <td>Meta-analýza 89 placebem kontrolovaných studií.</td>
+          <td>Souhrnný poměr šancí ve prospěch homeopatie (uváděno přibližně OR 2,45; 95% CI cca 2,05–2,93). Autoři uzavřeli, že výsledky <b>nejsou kompatibilní s hypotézou, že efekty jsou zcela placebové</b> — a současně, že evidence pro žádnou konkrétní indikaci není dostatečná.</td>
+          <td>Nejcitovanější „pozitivní“ meta-analýza. Její autoři sami o dva roky později zjištění relativizovali.</td>
+        </tr>
+        <tr>
+          <td><b>Linde a kol.</b><br>J Clin Epidemiol 1999</td>
+          <td>Reanalýza vlastního souboru s ohledem na kvalitu studií.</td>
+          <td><b>Čím kvalitnější studie, tím menší efekt.</b> Autoři konstatovali, že jejich původní meta-analýza pravděpodobně <b>nadhodnotila</b> účinek homeopatie.</td>
+          <td>Zásadní práce, kterou obhájci citují zřídka a kritici často. Adept ji má znát — je to doklad poctivosti autorů, ne argument proti oboru jako takovému.</td>
+        </tr>
+        <tr>
+          <td><b>Shang a kol.</b><br>Lancet 2005</td>
+          <td>110 studií homeopatie párovaných se 110 studiemi konvenční léčby; analýza vlivu velikosti a kvality studie (funnel plot).</td>
+          <td>Po omezení na <b>velké studie vysoké kvality</b> se efekt homeopatie stlačil k nule (uváděno přibližně OR 0,88; 95% CI cca 0,65–1,19), zatímco u konvenční léčby zůstal. Závěr: nálezy jsou kompatibilní s hypotézou placebového efektu.</td>
+          <td>Nejcitovanější „negativní“ meta-analýza; doprovodný editorial Lancetu s titulkem o „konci homeopatie“. <b>Oprávněná kritika:</b> klíčová analýza se opírala o pouze 8 vybraných studií, jejichž identita nebyla v původní publikaci uvedena, a kritéria výběru byla stanovena post hoc. Tato slabina je reálná a adept ji má umět pojmenovat — nevyvrací však závěr, pouze snižuje jeho sílu.</td>
+        </tr>
+        <tr>
+          <td><b>Mathie a kol.</b><br>Systematic Reviews 2014</td>
+          <td>Meta-analýza RCT <b>individualizované</b> homeopatie (32 studií vhodných k analýze).</td>
+          <td>Malý, statisticky významný efekt (uváděno přibližně OR 1,53; 95% CI cca 1,22–1,91); u podskupiny studií s nízkým rizikem zkreslení efekt zůstal, ale se širokým intervalem. Autoři výslovně uvedli, že <b>kvalita podkladových dat je nízká</b> a závěr nejistý.</td>
+          <td>Nejlepší argument obhájců: je-li hodnocena jen individualizovaná léčba, efekt se objeví. <b>Protiargument:</b> počet vysoce kvalitních studií byl velmi malý (jednotky), takže interval spolehlivosti je široký a výsledek labilní.</td>
+        </tr>
+        <tr>
+          <td><b>Mathie a kol.</b><br>2017 a další</td>
+          <td>Meta-analýza RCT <b>neindividualizované</b> homeopatie.</td>
+          <td>Byl nalezen malý souhrnný efekt, který však po omezení na studie s nízkým rizikem zkreslení <b>nebyl spolehlivý</b>.</td>
+          <td>Podporuje tezi, že „homeopatie“ jako jednotná kategorie neexistuje a že hodnotit je třeba konkrétní postup.</td>
+        </tr>
+        <tr>
+          <td><b>Cochrane reviews</b><br>(jednotlivé indikace)</td>
+          <td><span class="rx">Oscillococcinum</span> u chřipky; homeopatie u ADHD, astmatu, demence, indukce porodu, nežádoucích účinků onkologické léčby.</td>
+          <td>Prakticky ve všech: <b>nedostatečná evidence</b> pro doporučení; kvalita studií nízká; v některých oblastech (např. zmírnění stomatitidy po chemoterapii) slabý signál vyžadující potvrzení.</td>
+          <td>Cochrane přehledy jsou pro zkoušku nejlepším zdrojem, protože mají standardizovanou metodiku a explicitní hodnocení rizika zkreslení.</td>
+        </tr>
+        <tr>
+          <td><b>Švýcarská HTA zpráva</b><br>(Bornhöft, Matthiessen, 2011)</td>
+          <td>Hodnocení homeopatie v rámci švýcarského programu PEK.</td>
+          <td>Dospěla k příznivému hodnocení účinnosti a nákladové efektivity.</td>
+          <td><b>Silně kritizována</b> pro zaujatost autorů (sami zastánci metody), pro nestandardní metodologii a pro to, že byla prezentována jako oficiální vládní zpráva, ačkoli jí nebyla. Adept, který ji cituje jako důkaz, poškodí svou pozici; adept, který ji zná včetně kritiky, ukáže přehled.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small"><b>Poznámka k číslům:</b> uvedené hodnoty jsou orientační a slouží k tomu, aby adept věděl, o jaké řádové velikosti se mluví. U zkoušky je bezpečnější uvádět <em>směr a interpretaci</em> („efekt malý, s rostoucí kvalitou studií mizející“) než přesná čísla, pokud si jimi není jistý — nesprávně citované číslo působí horším dojmem než jeho absence.</p>
+
+  <h2 id="ch10-4">10.4 Placebo, kontext a specifický efekt</h2>
+  <p><a class="term" data-term="placebo">Placebo</a> není „nic“. Výzkum placebových a kontextových efektů dokumentuje měřitelné fyziologické změny: aktivaci endogenních opioidních systémů při placebové analgezii, změny dopaminergní aktivity u Parkinsonovy nemoci, změny kortizolu, měřitelné zlepšení subjektivních symptomů. Tyto efekty nejsou artefaktem měření, ale skutečnou biologickou odpovědí na kontext léčby.</p>
+  <div class="tablewrap">
+    <table>
+      <caption>Faktory nespecifického efektu a jejich naplnění v homeopatické konzultaci</caption>
+      <thead><tr><th>Faktor</th><th>Doložený vliv</th><th>Jak je naplněn v homeopatické praxi</th></tr></thead>
+      <tbody>
+        <tr><td><b>Délka a kvalita kontaktu</b></td><td>Delší konzultace a empatické chování lékaře zvyšují hlášené zlepšení u subjektivních symptomů.</td><td>60–120 minut prvního odběru — mnohonásobně více než běžná ambulantní konzultace.</td></tr>
+        <tr><td><b>Pozornost k celé osobě</b></td><td>Pocit „byl jsem vyslechnut“ koreluje se zlepšením i s adherencí.</td><td>Odběr pokrývá spánek, jídlo, emoce, biografii — pacient poprvé zažije, že jeho popis má váhu.</td></tr>
+        <tr><td><b>Koherentní vysvětlení nemoci</b></td><td>Narativ, který dává obtížím smysl, snižuje úzkost a zvyšuje sebeúčinnost.</td><td>Vitální síla, miasma, potlačení — silný a vnitřně konzistentní vysvětlovací rámec.</td></tr>
+        <tr><td><b>Rituál a očekávání</b></td><td>Složitější rituál a zdůvodněná pravidla podávání zvyšují očekávaný efekt.</td><td>Podání nalačno, pod jazyk, bez dotyku rukou, s omezením kávy a mentolu.</td></tr>
+        <tr><td><b>Nepřítomnost nežádoucích účinků</b></td><td>Bez nežádoucích účinků se léčba dobře snáší a pacient v ní pokračuje.</td><td>Vysoké potence nemají farmakologické nežádoucí účinky ani interakce.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box box--crit">
+    <p class="box__t">Dvě poctivá čtení téhož faktu</p>
+    <p><b>Čtení kritické:</b> homeopatická konzultace je téměř ideální konstrukce pro maximalizaci nespecifického efektu. Pozorované zlepšení pacientů je proto vysvětlitelné bez jakéhokoli specifického účinku přípravku — a tím je vysvětleno i to, proč jsou pacienti spokojeni a terapeuti přesvědčeni.</p>
+    <p><b>Čtení obhájců:</b> jestliže je právě tento způsob práce tím, co pacientům pomáhá, je to argument pro jeho zachování, nikoli proti. Nespecifický efekt je legitimní součást léčby a systém, který ho dokáže vyvolat, má klinickou hodnotu.</p>
+    <p><b>Kde je hranice, kterou musí adept vidět:</b> druhé čtení je přijatelné pod dvěma podmínkami. (1) <b>Nelze při něm tvrdit, že působí přípravek</b> — to by bylo uvedení pacienta v omyl. (2) <b>Nelze je použít u stavů, kde existuje účinná léčba</b>, protože tam by nespecifický efekt nahradil specifický. Etika placebového působení v otevřené podobě (tzv. open-label placebo) je aktivní oblast výzkumu a část dat ukazuje, že efekt zůstává i tehdy, když pacient ví, že jde o placebo. To je pro obor zajímavější cesta než obhajoba mechanismu.</p>
+  </div>
+
+  <h2 id="ch10-5">10.5 Základní výzkum vysokých ředění</h2>
+  <div class="tablewrap">
+    <table>
+      <caption>Hlavní směry a jejich status</caption>
+      <thead><tr><th>Směr / práce</th><th>Tvrzení</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><b>Benveniste a kol.</b>, Nature 1988<br>(degranulace basofilů vysokým ředěním)</td><td>Vysoce naředěný roztok anti-IgE vyvolával degranulaci basofilů — „paměť vody“.</td><td><b>Nereprodukováno.</b> Nature publikoval článek s vyhrazenou poznámkou a vyslal vyšetřovací tým (včetně Jamese Randiho), který při zaslepení efekt nenalezl. Benveniste o laboratoř a financování přišel. Citovat toto jako důkaz je u zkoušky fatální.</td></tr>
+        <tr><td><b>Ennis a kol.</b> (multicentrická studie basofilů, 2004)</td><td>Několik laboratoří nalezlo efekt vysokého ředění histaminu na aktivaci basofilů.</td><td>Část laboratoří efekt nalezla, část ne; nezávislé zaslepené replikace (např. BBC Horizon) selhaly. Nepřijato jako doklad.</td></tr>
+        <tr><td><b>Termoluminiscence</b> (Rey 2003)</td><td>Zmrazené vysoce naředěné roztoky vykazovaly odlišné termoluminiscenční spektrum.</td><td>Nedostatečně reprodukováno; interpretace sporná.</td></tr>
+        <tr><td><b>Nanočástice</b> (Chikramane a kol. 2010)</td><td>V komerčních vysokých potencích kovů byly nalezeny nanočástice původní látky, přetrvávající díky flotaci na hladině.</td><td>Nález nanočástic je zajímavý a byl opakován. <b>Nevysvětluje však</b>, jak by měly být specifické podle symptomové podobnosti, ani proč je účinek přisuzován i potencím nekovových a organických látek. Neřeší také rozpor s výpočtem ředění u 200C a výše.</td></tr>
+        <tr><td><b>Montagnier</b> (2009+)</td><td>DNA sekvence vysílají elektromagnetické signály, které přetrvávají ve vysokém ředění.</td><td>Publikováno mimo standardní recenzní proces, nereprodukováno, odborně odmítnuto. Nobelova cena za jinou práci není argumentem.</td></tr>
+        <tr><td><b>Modely na rostlinách a buňkách</b></td><td>Vysoké potence ovlivňují klíčivost, růst semen, buněčné kultury.</td><td>Výsledky nekonzistentní; metaanalýzy takových studií nacházejí signál, který mizí s rostoucí metodologickou kvalitou a se zaslepením. Základní problém je stejný jako u klinických studií.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Souhrnné hodnocení:</b> žádný z těchto směrů nepředložil <b>nezávisle reprodukovaný</b> efekt vysokého ředění, který by byl navíc <b>specifický pro danou látku</b> a <b>stabilní</b>. Tyto tři podmínky současně jsou minimem, které by mechanistické tvrzení muselo splnit. Adept má znát jména a tvrzení, a zároveň umět tuto trojici podmínek vyslovit — tím ukáže, že rozumí, co by vlastně důkaz musel prokázat.</p>
+
+  <h2 id="ch10-6">10.6 Stanoviska institucí</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Instituce, rok</th><th>Obsah stanoviska</th><th>Co je třeba dodat</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>NHMRC</b> (Australian National Health and Medical Research Council), 2015</td>
+          <td>Přehled evidence pro 61 zdravotních stavů. Závěr: <b>neexistuje spolehlivý důkaz, že homeopatie je účinná u žádného z hodnocených stavů</b>. Doporučení: nepoužívat ji u stavů chronických, závažných nebo takových, kde by mohla vést k odkladu účinné léčby.</td>
+          <td>Homeopatické organizace zpochybnily metodiku (vyloučení studií s méně než 150 účastníky, existence nepublikované první verze zprávy). Nezávislé přezkoumání australským ombudsmanem ovšem zásadní procesní pochybení nepotvrdilo. Zprávu je třeba citovat jako to, čím je: nejrozsáhlejší institucionální přehled.</td>
+        </tr>
+        <tr>
+          <td><b>EASAC</b> (European Academies' Science Advisory Council), 2017</td>
+          <td>Stanovisko akademií věd EU: tvrzení o účinnosti homeopatie nejsou vědecky podložena; doporučeno <b>nehrazení z veřejných prostředků</b>, jasné označování absence důkazu účinnosti na obalech a regulace reklamy.</td>
+          <td>Jde o stanovisko poradního sboru, nikoli o regulatorní akt. Významné politicky i odborně.</td>
+        </tr>
+        <tr>
+          <td><b>WHO</b>, 2009 a dále</td>
+          <td>Varování před používáním homeopatie u <b>HIV, tuberkulózy, malárie, chřipky a průjmových onemocnění u dětí</b> jako náhrady standardní léčby. Současně WHO ve strategii tradiční medicíny uznává potřebu regulace a bezpečnosti tradičních a komplementárních postupů.</td>
+          <td><b>Pozor na obě jednostrannosti:</b> WHO homeopatii „neuznává“ jako účinnou léčbu, ale ani ji plošně nezakazuje — zabývá se regulací a bezpečností. Citovat WHO jako podporu účinnosti je nesprávné.</td>
+        </tr>
+        <tr>
+          <td><b>Britský parlamentní výbor</b> (House of Commons Science and Technology Committee), <i>Evidence Check 2: Homeopathy</i>, 2010</td>
+          <td>Závěr: homeopatie nepůsobí lépe než placebo; NHS by ji neměla financovat; principy nejsou vědecky obhajitelné.</td>
+          <td>NHS England v roce 2017 doporučila ukončit předepisování homeopatik.</td>
+        </tr>
+        <tr>
+          <td><b>Francie</b>, 2019–2021</td>
+          <td>Na základě stanoviska Haute Autorité de Santé (nedostatečná účinnost) bylo <b>ukončeno proplácení</b> homeopatik z veřejného pojištění (plně od roku 2021).</td>
+          <td>Symbolicky významné, protože Francie byla zemí s nejsilnější homeopatickou tradicí a výrobou.</td>
+        </tr>
+        <tr>
+          <td><b>Česká republika</b></td>
+          <td>Homeopatie není uznanou lékařskou specializací; Česká lékařská komora ji nepovažuje za metodu odpovídající současnému stavu lékařské vědy. Přípravky jsou registrovány ve zjednodušeném režimu (→ <a class="xref" href="#ch7-10">okruh 7.10</a>) a hrazeny nejsou.</td>
+          <td><b>Registrace není uznáním účinnosti</b> — zjednodušená registrace doklad o účinnosti výslovně nevyžaduje.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="ch10-7">10.7 Metodologické výzvy</h2>
+  <div class="tablewrap">
+    <table>
+      <caption>Námitky oboru proti designu studií — a jejich hodnocení</caption>
+      <thead><tr><th>Námitka</th><th>Obsah</th><th>Nakolik je platná</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>RCT s fixním lékem netestuje homeopatii</b></td>
+          <td>Podstatou metody je individualizovaný lék měněný podle reakce. Studie, kde všichni dostanou <span class="rx">Arnica</span> 30C, netestuje homeopatii, nýbrž jednu látku u nesourodé skupiny.</td>
+          <td><b>Platná</b> a metodologicky uznaná. Právě proto jsou meta-analýzy individualizované homeopatie (Mathie 2014) relevantnější než souhrny všeho. Řešení existuje: studie, kde homeopat volí lék individuálně a randomizuje se přípravek versus placebo — takové studie proběhly a jsou zahrnuty.</td>
+        </tr>
+        <tr>
+          <td><b>Účinek je individuální, průměr ho zředí</b></td>
+          <td>Reaguje jen část pacientů — ti „citliví“; průměrování signál ztratí.</td>
+          <td><b>Částečně platná</b>, ale s vážným důsledkem: jestliže nelze dopředu určit, kdo bude reagovat, není hypotéza prakticky testovatelná. Řešením by byly designy <b>N-of-1</b> (opakované zaslepené střídání léku a placeba u jednoho pacienta) nebo <b>enriched enrolment randomised withdrawal</b>. Tyto designy jsou dostupné a obor je využívá jen okrajově — což je věcná výtka směrem k oboru.</td>
+        </tr>
+        <tr>
+          <td><b>Zaslepení ruší terapeutický vztah</b></td>
+          <td>Součástí léčby je konzultace; zaslepení ji nemůže zachytit.</td>
+          <td><b>Zavádějící.</b> Zaslepení se týká přípravku, nikoli konzultace — obě skupiny konzultaci dostanou. Tvrdit, že bez znalosti přípravku nepůsobí ani konzultace, znamená přiznat, že působí očekávání.</td>
+        </tr>
+        <tr>
+          <td><b>Cílové ukazatele neodpovídají</b></td>
+          <td>Homeopatie sleduje celkový stav a energii, studie sledují jeden parametr.</td>
+          <td><b>Platná a řešitelná.</b> Existují validované nástroje pro globální hodnocení a kvalitu života (např. ORIDL/ODI, MYMOP, SF-36), které lze použít jako primární ukazatel. Používat je je povinností oboru, ne jeho výmluvou.</td>
+        </tr>
+        <tr>
+          <td><b>Pragmatické studie jsou vhodnější</b></td>
+          <td>Srovnat homeopatickou péči s běžnou péčí v reálných podmínkách.</td>
+          <td><b>Platná pro otázku užitečnosti celé péče</b>, ale nikoli pro otázku, zda působí přípravek. Bez zaslepení nelze oddělit specifický efekt od kontextového. Adept musí obě otázky odlišit — je to nejcennější rozlišení celého okruhu.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="ch10-8">10.8 Jak číst studii kriticky</h2>
+  <div class="box box--exam">
+    <p class="box__t">Kontrolní seznam — použitelný na jakoukoli studii, homeopatickou i konvenční</p>
+    <ol>
+      <li><b>PICO:</b> kdo byli pacienti (P), jaká intervence (I), proti čemu (C), jaký ukazatel (O)? Pokud studie neuvádí jasně, je to varovný signál.</li>
+      <li><b>Randomizace a alokační utajení:</b> jak byla provedena? „Randomizováno“ bez popisu metody je bezcenné. Alokační utajení (osoba zařazující pacienta nesmí znát další přidělení) je silnějším prediktorem nadhodnoceného efektu než samotné zaslepení.</li>
+      <li><b>Zaslepení:</b> kdo byl zaslepen — pacient, terapeut, hodnotitel, statistik? U subjektivních ukazatelů je zaslepení hodnotitele kritické.</li>
+      <li><b>Primární ukazatel byl určen předem?</b> Studie registrovaná předem (protokol v registru) je nesrovnatelně důvěryhodnější. Změna primárního ukazatele po odslepení je zásadní vada.</li>
+      <li><b>Velikost vzorku a analýza síly:</b> byla studie dost velká, aby efekt zjistila? Malé studie systematicky nadhodnocují efekt.</li>
+      <li><b>Analýza podle původního zařazení</b> (intention-to-treat) versus analýza jen dokončivších (per-protocol). Druhá nadhodnocuje.</li>
+      <li><b>Ztráty ze sledování:</b> kolik pacientů vypadlo a proč? Nad ~20 % se výsledek stává nejistým.</li>
+      <li><b>Velikost efektu a interval spolehlivosti,</b> nikoli jen hodnota p. „Statisticky významné“ neznamená „klinicky významné“. Hledejte, zda je efekt větší než minimální klinicky významný rozdíl.</li>
+      <li><b>Mnohonásobné testování:</b> kolik ukazatelů bylo testováno? Při dvaceti ukazatelích a hladině 0,05 je jeden „významný“ nález očekávatelný náhodou.</li>
+      <li><b>Publikační zkreslení:</b> u meta-analýz hledejte funnel plot a testy asymetrie. Jsou zahrnuty i nepublikované a negativní studie?</li>
+      <li><b>Konflikt zájmů a financování:</b> uvedeno? Kdo studii platil a kdo ji analyzoval?</li>
+      <li><b>Hodnocení jistoty evidence</b> (například GRADE): je uvedeno, nakolik si jsou autoři výsledkem jistí?</li>
+    </ol>
+    <p><b>Tři otázky, které tento seznam zkracují, když je málo času:</b> Byl protokol registrován předem? Kdo byl zaslepen? Jak velký je efekt a jak široký je jeho interval spolehlivosti?</p>
+  </div>
+
+  <h2 id="ch10-9">10.9 Jak o evidenci mluvit</h2>
+  <div class="tablewrap">
+    <table>
+      <caption>Tvrzení, která si adept nesmí dovolit — a jejich korektní verze</caption>
+      <thead><tr><th>Nesprávné tvrzení</th><th>Korektní verze</th></tr></thead>
+      <tbody>
+        <tr><td>„Účinnost homeopatie je prokázána.“</td><td>„Účinnost nad rámec placeba není podle převažujícího vědeckého stanoviska prokázána; jednotlivé meta-analýzy individualizované homeopatie nacházejí malý efekt, který jejich autoři označují za nejistý.“</td></tr>
+        <tr><td>„Paměť vody je vědecky doložená.“</td><td>„Mechanismus není znám. Benvenistův pokus nebyl reprodukován; nález nanočástic neřeší otázku specificity ani vysoké potence.“</td></tr>
+        <tr><td>„WHO homeopatii uznává.“</td><td>„WHO varuje před jejím užíváním místo standardní léčby u HIV, TBC, malárie, chřipky a průjmů u dětí; zabývá se regulací tradičních a komplementárních postupů, nikoli potvrzením účinnosti.“</td></tr>
+        <tr><td>„NHMRC zprávu zmanipuloval.“</td><td>„Homeopatické organizace metodiku zpochybnily, mimo jiné kvůli minimální velikosti zahrnutých studií; nezávislé přezkoumání ombudsmanem však zásadní pochybení nepotvrdilo.“</td></tr>
+        <tr><td>„Je to registrovaný lék, tedy prokázaný.“</td><td>„Registrace ve zjednodušeném režimu hodnotí kvalitu a bezpečnost; doklad o účinnosti se výslovně nepožaduje.“</td></tr>
+        <tr><td>„Studie to nemohou zachytit, protože naše metoda je individuální.“</td><td>„Klasická RCT s fixním lékem skutečně netestuje individualizovanou praxi; existují však designy, které to umějí — individualizovaný předpis s randomizací přípravek/placebo, N-of-1 studie, globální ukazatele. Náš obor je využívá málo, a to je slabina, kterou uznávám.“</td></tr>
+        <tr><td>„Placebo je jen dojem, u mých pacientů se to mění objektivně.“</td><td>„Placebový a kontextový efekt má doložené fyziologické korreláty a u subjektivních symptomů je velký. Právě proto u svých pacientů sleduji objektivizovatelné ukazatele a předem stanovuji, co má léčba přinést.“</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="keyterms">
+    <p class="box__t">Klíčové pojmy okruhu 10</p>
+    <ul>
+      <li><a class="term" data-term="rct">randomizovaná kontrolovaná studie (RCT)</a></li>
+      <li><a class="term" data-term="meta-analyza">meta-analýza</a></li>
+      <li><a class="term" data-term="placebo">placebo</a></li>
+      <li><a class="term" data-term="kontextovy-efekt">kontextový efekt</a></li>
+      <li><a class="term" data-term="zaslepeni">zaslepení</a></li>
+      <li><a class="term" data-term="alokacni-utajeni">alokační utajení</a></li>
+      <li><a class="term" data-term="itt">analýza podle původního zařazení (ITT)</a></li>
+      <li><a class="term" data-term="publikacni-zkresleni">publikační zkreslení</a></li>
+      <li><a class="term" data-term="funnel-plot">funnel plot</a></li>
+      <li><a class="term" data-term="grade">GRADE</a></li>
+      <li><a class="term" data-term="n-of-1">N-of-1 studie</a></li>
+      <li><a class="term" data-term="externi-validita">externí validita</a></li>
+      <li><a class="term" data-term="regrese-k-prumeru">regrese k průměru</a></li>
+      <li><a class="term" data-term="nefalzifikovatelnost">nefalzifikovatelnost</a></li>
+      <li><a class="term" data-term="easac">EASAC</a></li>
+      <li><a class="term" data-term="nhmrc">NHMRC</a></li>
+    </ul>
+  </div>
+
+  <div class="qset">
+    <p class="box__t">Kontrolní otázky — okruh 10</p>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Shrňte stav evidence o účinnosti homeopatie ve třech větách.</summary>
+    <div class="a">
+      <p>„<b>Specifická účinnost nad rámec placeba není podle převažujícího vědeckého stanoviska prokázána</b> — opírá se to o tři pozorování: s rostoucí metodologickou kvalitou studií se efekt zmenšuje k nule, neexistuje reprodukovaný mechanismus ani laboratorní efekt vysokých ředění, a u žádné konkrétní diagnózy není soubor kvalitních studií prokazujících přínos.</p>
+      <p><b>Zároveň platí, že „neprokázáno“ není totéž jako „prokázáno, že nepůsobí“</b>: meta-analýzy omezené na individualizovanou homeopatii (Mathie 2014) nacházejí malý statisticky významný efekt, který sami jejich autoři pro nízkou kvalitu podkladových studií označují za nejistý.</p>
+      <p><b>Vysoké potence jsou přitom samy bezpečné</b> — hlavní riziko homeopatie je nepřímé, tedy odklad účinné léčby, plus farmaceutické riziko u matečných tinktur a nízkých potencí.“</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Jmenujte klíčové meta-analýzy a jejich výsledky.</summary>
+    <div class="a">
+      <ul>
+        <li><b>Kleijnen a kol., BMJ 1991</b> — 107 studií; převážně příznivé výsledky, ale nízká kvalita; autoři odmítli vyvodit závěr o účinnosti.</li>
+        <li><b>Linde a kol., Lancet 1997</b> — 89 studií; souhrnný efekt ve prospěch homeopatie (řádově OR ~2,4); závěr: výsledky nejsou kompatibilní s hypotézou čistě placebového efektu, ale evidence pro žádnou konkrétní indikaci není dostatečná.</li>
+        <li><b>Linde a kol., J Clin Epidemiol 1999</b> — reanalýza téhož souboru: <b>čím kvalitnější studie, tím menší efekt</b>; autoři konstatovali, že jejich původní práce účinek pravděpodobně nadhodnotila.</li>
+        <li><b>Shang a kol., Lancet 2005</b> — 110 studií párovaných s konvenčními; po omezení na velké kvalitní studie se efekt homeopatie stlačil k nule (OR ~0,88), u konvenční léčby zůstal. Kritika: klíčová analýza se opírala o 8 post hoc vybraných studií.</li>
+        <li><b>Mathie a kol., 2014</b> — individualizovaná homeopatie, 32 studií; malý významný efekt (OR ~1,5); autoři sami označili závěr za nejistý pro nízkou kvalitu dat a malý počet kvalitních studií.</li>
+        <li><b>Mathie a kol., 2017</b> — neindividualizovaná homeopatie; malý souhrnný efekt, po omezení na studie s nízkým rizikem zkreslení nespolehlivý.</li>
+        <li><b>Cochrane reviews</b> jednotlivých indikací (Oscillococcinum, ADHD, astma, demence, indukce porodu) — prakticky všude nedostatečná evidence.</li>
+      </ul>
+      <p><b>Bonus:</b> uvádět raději směr a interpretaci než přesná čísla, pokud si jimi nejste jistí. Nesprávně citované číslo působí horším dojmem než jeho absence.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Kolegyně tvrdí, že Linde 1997 dokazuje účinnost homeopatie. Jak odpovíte?</summary>
+    <div class="a">
+      <p><b>Citace je nepřesná ve dvou ohledech.</b></p>
+      <p><b>1)</b> Linde a kol. (1997) sami napsali, že výsledky <em>nejsou kompatibilní s hypotézou, že efekty jsou zcela placebové</em> — což je slabší tvrzení než „dokazuje účinnost“ — a v téže práci dodali, že <b>evidence pro žádnou konkrétní indikaci není dostatečná</b>. Meta-analýza tedy nepodpořila doporučení homeopatie u žádné diagnózy.</p>
+      <p><b>2)</b> Zásadnější: <b>tíž autoři svůj nález v roce 1999 relativizovali</b> (J Clin Epidemiol). Reanalýza s ohledem na kvalitu studií ukázala, že čím kvalitnější studie, tím menší efekt, a autoři výslovně uvedli, že původní meta-analýza účinek pravděpodobně <b>nadhodnotila</b>. Citovat Linde 1997 bez Linde 1999 je selektivní citace.</p>
+      <p><b>Doplnil bych i kontext:</b> tento vzorec — pozitivní souhrn, který se rozpadá při omezení na kvalitní studie — se opakuje i u Shanga (2005) a u Mathieho (2017). Je to nejsilnější jednotlivá námitka proti účinnosti, protože nejde o názor, nýbrž o systematickou závislost efektu na kvalitě designu.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Co je placebový a kontextový efekt a proč je homeopatická konzultace jeho ideálním prostředím?</summary>
+    <div class="a">
+      <p><b>Placebový efekt</b> je zlepšení navozené léčbou bez specifického účinku; <b>kontextový efekt</b> je širší pojem zahrnující vše kolem intervence — prostředí, chování terapeuta, očekávání, rituál. Nejde o „dojem“: jsou doloženy fyziologické korreláty, například aktivace endogenních opioidních systémů při placebové analgezii a změny dopaminergní aktivity u Parkinsonovy nemoci.</p>
+      <p><b>Proč je homeopatická konzultace ideálním prostředím:</b> (1) <b>délka a kvalita kontaktu</b> — 60–120 minut; (2) <b>pozornost k celé osobě</b> — pacient zažije, že jeho popis má váhu; (3) <b>koherentní vysvětlení nemoci</b> — vnitřně konzistentní rámec, který dává obtížím smysl; (4) <b>rituál a očekávání</b> — pravidla podávání; (5) <b>absence nežádoucích účinků</b> — dobrá snášenlivost a vytrvání v léčbě. Přesně tyto faktory zvyšují hlášené zlepšení u subjektivních symptomů, tedy u typického profilu obtíží v homeopatické praxi.</p>
+      <p><b>Dvojí čtení:</b> kritika z toho vyvozuje, že zlepšení je vysvětlitelné bez specifického účinku. Obhájci namítají, že je-li právě tento způsob práce tím, co pomáhá, je to argument pro jeho zachování. Druhé čtení je přijatelné za dvou podmínek: nelze při něm tvrdit, že působí přípravek, a nelze ho použít tam, kde existuje účinná léčba.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Popište stav základního výzkumu vysokých ředění. Které tři podmínky by musel mechanistický důkaz splnit?</summary>
+    <div class="a">
+      <p><b>Hlavní směry:</b> Benveniste (1988, degranulace basofilů — nereprodukováno, Nature vyslal vyšetřovací tým, efekt při zaslepení nenalezen); Ennis (2004, multicentrická studie basofilů — část laboratoří ano, část ne, nezávislé zaslepené replikace selhaly); termoluminiscence (Rey 2003 — nedostatečně reprodukováno); nanočástice (Chikramane 2010 — nález opakován, ale nevysvětluje specificitu ani velmi vysoké potence); Montagnier (2009+, elektromagnetické signály DNA — mimo standardní recenzi, nereprodukováno); modely na rostlinách a buňkách (nekonzistentní, signál mizí se zaslepením).</p>
+      <p><b>Tři podmínky, které by musel důkaz splnit současně:</b></p>
+      <ol>
+        <li><b>Nezávislá reprodukovatelnost</b> — efekt musí najít i laboratoře, které na výsledku nemají zájem, při zaslepení.</li>
+        <li><b>Specificita podle látky</b> — efekt se musí lišit podle výchozí substance, ne být obecnou vlastností protřepaného rozpouštědla.</li>
+        <li><b>Stabilita</b> — musí přetrvat měsíce a roky, skrze další ředicí kroky a různé výrobní dávky.</li>
+      </ol>
+      <p>Žádný z uvedených směrů tuto trojici nesplňuje. Umět ji vyslovit je cennější než umět jmenovat pokusy — ukazuje, že adept rozumí, co by vlastně bylo třeba prokázat.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Co obsahuje zpráva NHMRC 2015 a stanovisko EASAC 2017?</summary>
+    <div class="a">
+      <p><b>NHMRC (Austrálie, 2015):</b> přehled evidence pro <b>61 zdravotních stavů</b>; závěr, že <b>neexistuje spolehlivý důkaz účinnosti u žádného z nich</b>; doporučení nepoužívat homeopatii u chronických a závažných stavů a tam, kde by mohla vést k odkladu účinné léčby. Homeopatické organizace zpochybnily metodiku (vyloučení studií s méně než 150 účastníky, existence nepublikované první verze); nezávislé přezkoumání australským ombudsmanem zásadní procesní pochybení nepotvrdilo.</p>
+      <p><b>EASAC (poradní sbor akademií věd EU, 2017):</b> tvrzení o účinnosti nejsou vědecky podložena; doporučeno <b>nehradit homeopatii z veřejných prostředků</b>, uvádět na obalech absenci důkazu účinnosti a regulovat reklamu. Jde o stanovisko poradního sboru, nikoli o regulatorní akt.</p>
+      <p><b>Kontext, který patří k plné odpovědi:</b> britský parlamentní výbor (2010) a následné rozhodnutí NHS England (2017) o ukončení předepisování; Francie ukončila proplácení (plně od 2021) na základě stanoviska HAS; WHO varuje před užíváním místo standardní léčby u HIV, TBC, malárie, chřipky a průjmů u dětí.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Nakolik je platná námitka, že RCT nemůže testovat individualizovanou homeopatii?</summary>
+    <div class="a">
+      <p><b>Částečně platná, ale nikoli jako obrana proti testovatelnosti.</b></p>
+      <p><b>Co je platné:</b> studie, kde všichni pacienti dostanou tentýž lék v téže potenci, skutečně netestuje individualizovanou praxi — testuje jednu látku u nesourodé skupiny. To je metodologicky uznaná námitka a je důvodem, proč jsou meta-analýzy individualizované homeopatie relevantnější než souhrny všeho.</p>
+      <p><b>Proč to není obrana:</b> vhodné designy <b>existují a byly použity</b>:</p>
+      <ul>
+        <li><b>Individualizovaný předpis s randomizací přípravek/placebo</b> — homeopat vybere lék podle svých pravidel, pacient dostane buď ten lék, nebo placebo. Metoda zůstane nedotčena, zaslepení funguje. Takové studie jsou zahrnuty v Mathie 2014.</li>
+        <li><b>N-of-1 studie</b> — opakované zaslepené střídání léku a placeba u jednoho pacienta; ideální právě pro tvrzení o individuální reakci.</li>
+        <li><b>Enriched enrolment randomised withdrawal</b> — nejprve se najdou respondéři, pak se u nich zaslepeně vysadí lék.</li>
+        <li><b>Globální ukazatele</b> (ORIDL/ODI, MYMOP, SF-36) pro cíl „celkový stav“, nikoli jediný parametr.</li>
+      </ul>
+      <p><b>Závěr, který má adept vyslovit:</b> „Námitka je legitimní proti špatně navrženým studiím, ale není argumentem proti testovatelnosti. Designy, které by ji obešly, jsou dostupné a náš obor je využívá málo — to je slabina oboru, ne metodologie.“ A dodat, že námitka „zaslepení ruší terapeutický vztah“ je zavádějící: zaslepuje se přípravek, konzultaci dostanou obě skupiny.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Dostanete studii tvrdící, že homeopatie zlepšila kvalitu života u 80 % pacientů. Jak ji zhodnotíte?</summary>
+    <div class="a">
+      <p><b>Nejprve tři otázky, které rozhodnou téměř vše:</b></p>
+      <ol>
+        <li><b>Měla studie kontrolní skupinu?</b> Údaj „80 % pacientů se zlepšilo“ <b>bez kontroly</b> nevypovídá o léčbě vůbec nic — u fluktuujících stavů se velká část pacientů zlepší sama (regrese k průměru, přirozený průběh). Pokud šlo o observační studii bez kontroly, hodnotím ji jako popis spokojenosti, nikoli jako doklad účinnosti.</li>
+        <li><b>Kdo byl zaslepen?</b> U subjektivního ukazatele, jako je kvalita života, je zaslepení pacienta i hodnotitele rozhodující.</li>
+        <li><b>Byl primární ukazatel určen předem a byl protokol registrován?</b> Změna primárního ukazatele po odslepení je zásadní vada.</li>
+      </ol>
+      <p><b>Dále podle kontrolního seznamu:</b> PICO; způsob randomizace a alokačního utajení; velikost vzorku a analýza síly; analýza podle původního zařazení versus jen dokončivší; ztráty ze sledování (nad ~20 % činí výsledek nejistým); <b>velikost efektu a interval spolehlivosti</b>, nikoli jen p; kolik ukazatelů bylo testováno (mnohonásobné testování); konflikt zájmů a financování; hodnocení jistoty evidence (GRADE).</p>
+      <p><b>Pozor i na formulaci samu:</b> „zlepšilo 80 % pacientů“ je <b>podíl respondérů bez srovnání</b>. Klinicky relevantní je rozdíl proti kontrole a jeho interval spolehlivosti — nikoli absolutní podíl zlepšených.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Co je alokační utajení a proč je důležitější než by se zdálo?</summary>
+    <div class="a">
+      <p><b>Alokační utajení</b> (<i>allocation concealment</i>) znamená, že osoba zařazující pacienta do studie <b>nemůže předem zjistit, do které skupiny pacient přijde</b>. Zajišťuje se centrální randomizací, neprůhlednými zapečetěnými obálkami s číslováním, nebo lékárnou spravovanou nezávisle.</p>
+      <p><b>Proč je zásadní:</b> není totožné se zaslepením. Zaslepení působí <em>po</em> zařazení (pacient a terapeut nevědí, co dostali); alokační utajení působí <em>při</em> zařazení. Bez něj může zařazující — často nevědomě — přidělovat příznivější pacienty do aktivní skupiny, a tím vytvořit efekt, který není léčbou. <b>Metodologické studie ukazují, že nedostatečné alokační utajení nadhodnocuje výsledky silněji než absence zaslepení</b>, což je mezi kritérii kvality nejméně známý a nejvíce podceňovaný faktor.</p>
+      <p><b>Praktický dopad:</b> studie, která uvádí „randomizováno“ bez popisu, jak bylo utajení zajištěno, patří v hodnocení rizika zkreslení do kategorie „nejasné“ — a to není neutrální kategorie.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Pacient se zeptá: „Funguje homeopatie?“ Odpovězte tak, abyste nelhali ani ho neodmítli.</summary>
+    <div class="a">
+      <p>Modelová odpověď, kterou lze říct nahlas a zapsat do dokumentace:</p>
+      <p>„<i>Řeknu vám to poctivě, ve třech částech. Za prvé: účinnost homeopatických přípravků nad rámec placeba není podle převažujícího vědeckého stanoviska prokázána — tak to hodnotí například australský NHMRC nebo poradní sbor evropských akademií EASAC, a já s tímto hodnocením nemohu polemizovat. Za druhé: mnoho pacientů popisuje zlepšení a část studií individualizované homeopatie nachází malý efekt, který ovšem sami jejich autoři označují za nejistý. Nevíme přesně, jak velkou roli v tom hraje samotný přípravek a jak velkou to, že si na vás vezmu hodinu a půl a budeme se zabývat celou vaší situací — a to druhé má doložený vliv na to, jak se člověk cítí.</i></p>
+      <p><i>Za třetí, a to je nejdůležitější: co vám mohu nabídnout, je individualizovaný přístup, bezpečný přípravek a jasná pravidla. Domluvíme si dopředu, co má léčba přinést a do kdy; po té době to spolu poctivě zhodnotíme a když to výsledek nepřinese, nebudeme v tom pokračovat. A nikdy nebudeme nahrazovat léčbu, kterou potřebujete — vaše léky nevysazujeme a když bude třeba vyšetření, pošlu vás k lékaři.</i>“</p>
+      <p><b>Proč tato odpověď obstojí:</b> je pravdivá, respektuje autonomii pacienta, stanoví testovatelné kritérium (což ho chrání před nekonečnou léčbou), vymezuje bezpečnostní hranici a nezamlčuje nepříznivou evidenci. Je také jediná varianta, která obstojí, kdyby ji čtl kdokoli jiný — komise, kolega, komora.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Proč je věta „dvě stě let klinické zkušenosti“ slabým argumentem?</summary>
+    <div class="a">
+      <p>Protože <b>zkušenost není kontrolované pozorování</b>. Klinická zkušenost je nezastupitelná pro objevení jevu a pro individuální rozhodování, ale jako doklad účinnosti je systematicky zatížena:</p>
+      <ul>
+        <li><b>Přirozeným průběhem nemoci</b> — většina stavů se zlepší sama.</li>
+        <li><b>Regresí k průměru</b> — pacient přichází, když je nejhůř; další vývoj bude statisticky lepší bez ohledu na léčbu.</li>
+        <li><b>Selekční pamětí</b> — terapeut i pacient si pamatují úspěchy; pacienti, kterým to nepomohlo, se nevrátí a nejsou ve vzorku.</li>
+        <li><b>Efektem očekávání</b> u obou stran.</li>
+        <li><b>Absencí srovnání</b> — bez kontroly nelze vědět, co by se stalo bez léčby.</li>
+      </ul>
+      <p><b>Nejsilnější ilustrace, kterou lze u zkoušky použít:</b> puštění žilou mělo za sebou <b>dva tisíce let</b> klinické zkušenosti a bylo praktikováno nejlepšími lékaři své doby. Délka tradice tedy o účinnosti nevypovídá. Právě toto srovnání navíc ukazuje, že homeopatie ve 19. století mohla působit úspěšněji než tehdejší standard nikoli tím, co dělala, nýbrž tím, co nedělala (→ <a href="#ch1-3-1">okruh 1.3.1</a>).</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Jak byste navrhli studii, která by homeopatii testovala poctivě?</summary>
+    <div class="a">
+      <p><b>Design:</b> randomizovaná, dvojitě zaslepená studie s <b>individualizovaným předpisem</b>:</p>
+      <ol>
+        <li><b>Populace:</b> jedna definovaná diagnóza s fluktuujícím, ale měřitelným průběhem — např. recidivující infekce dýchacích cest u dětí, migréna, atopický ekzém. Jasná vstupní a vylučovací kritéria.</li>
+        <li><b>Intervence:</b> homeopat provede plný odběr a zvolí lék i potenci podle vlastních pravidel. Lékárna poté zaslepeně vydá <b>buď zvolený lék, nebo nerozlišitelné placebo</b>. Metoda tak zůstane nedotčena a zaslepení funguje.</li>
+        <li><b>Kontrola:</b> placebo; obě skupiny dostanou <b>identickou konzultaci</b> a identický režim kontrol, včetně možnosti změnit lék podle reakce (tedy včetně follow-upu, který je součástí metody).</li>
+        <li><b>Primární ukazatel</b> určený předem: kombinace objektivního parametru (počet epizod, SCORAD, spotřeba záchranné medikace, spirometrie) a validovaného globálního ukazatele (MYMOP, ORIDL, SF-36).</li>
+        <li><b>Registrace protokolu předem</b> v mezinárodním registru, včetně plánu analýzy.</li>
+        <li><b>Alokační utajení</b> centrální randomizací; zaslepení pacienta, homeopata, hodnotitele i statistika.</li>
+        <li><b>Velikost vzorku</b> podle analýzy síly na klinicky významný rozdíl, nikoli na jakýkoli statisticky zjistitelný.</li>
+        <li><b>Analýza podle původního zařazení</b>, předem definovaná, s uvedením velikosti efektu a intervalu spolehlivosti; sledování ztrát.</li>
+        <li><b>Publikace v každém případě</b>, i když výsledek bude negativní.</li>
+      </ol>
+      <p><b>Doplňkově:</b> vnořená série <b>N-of-1</b> studií u respondérů (opakované zaslepené střídání léku a placeba) — to je jediný design, který přímo testuje tvrzení o individuální reakci citlivého jedince.</p>
+      <p><b>Co takový design nedokáže:</b> odpovědět na otázku, zda je celá homeopatická péče užitečná — to je otázka pro pragmatickou studii proti běžné péči. Obě otázky je nutné držet odděleně: jedna se ptá na přípravek, druhá na péči.</p>
+    </div></details>
+
+  </div>
