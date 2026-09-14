@@ -176,7 +176,7 @@ def stats(doc):
     return {
         'bytes': len(doc.encode('utf-8')),
         'words': words,
-        'a4_pages_est': round(words / 500.0, 1),
+        'a4_lo': int(words / 500.0), 'a4_hi': int(words / 350.0),
         'glossary': len(re.findall(r'\{\s*k\s*:', read('data', 'glossary.js'))),
         'remedies': len(re.findall(r'\{\s*n\s*:', read('data', 'remedies.js'))),
         'quiz': len(re.findall(r'\{\s*id\s*:', quiz)),
@@ -189,7 +189,8 @@ if __name__ == '__main__':
     doc, missing = build()
     s = stats(doc)
     print('→ %s' % OUT)
-    print('   %.2f MB · %d slov · ~%s stran A4' % (s['bytes']/1048576.0, s['words'], s['a4_pages_est']))
+    print('   %.2f MB · %d slov · ~%d–%d stran A4 (podle sazby 350–500 slov/strana)'
+          % (s['bytes']/1048576.0, s['words'], s['a4_lo'], s['a4_hi']))
     print('   %d hesel slovníku · %d léků · %d testových otázek · %d kontrolních otázek'
           % (s['glossary'], s['remedies'], s['quiz'], s['control_q']))
     print('   %d SVG grafik · %d tabulek' % (s['figures'], s['tables']))
