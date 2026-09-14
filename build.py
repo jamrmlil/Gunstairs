@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """
 Build kompendia: sestaví jeden samostatný HTML soubor z modulů v src/.
-Použití:  python3 build.py            → build/kompendium-homeopatie.html
-          python3 build.py --check    → build + kontrola integrity
+Použití:  python3 build.py             → build/kompendium-homeopatie.html
+          python3 build.py --check     → build + kontrola integrity
+          python3 build.py --artifact  → navíc build/kompendium-artefakt.html
+                                         (bez <html>/<head>, pro publikaci jako Artifact)
 """
 import json, os, re, sys, html
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC  = os.path.join(ROOT, 'src')
 OUT  = os.path.join(ROOT, 'build', 'kompendium-homeopatie.html')
+OUT_ARTIFACT = os.path.join(ROOT, 'build', 'kompendium-artefakt.html')
 
 def read(*p):
     fp = os.path.join(SRC, *p)
@@ -85,16 +88,21 @@ def chapter_footer(c, i):
             % (c['n'], c['id'])) + chapnav(i) + '\n</div>\n</section>\n'
 
 # ---------- sestavení ----------
-def build():
+def build(artifact=False):
+    """artifact=True: varianta pro Artifact — bez doctype, <html>, <head> a <body>,
+    protože hostitel dodává vlastní skeleton. Obsah i chování jsou totožné."""
     parts = []
-    parts.append('<!DOCTYPE html>\n<html lang="cs" data-theme="light">\n<head>\n'
-                 '<meta charset="utf-8">\n'
-                 '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-                 '<meta name="description" content="%s">\n'
-                 '<meta name="color-scheme" content="light dark">\n'
-                 '<title>%s</title>\n<style>\n' % (html.escape(meta['subtitle']), html.escape(meta['title'])))
+    if artifact:
+        parts.append('<title>%s</title>\n<style>\n' % html.escape(meta['title']))
+    else:
+        parts.append('<!DOCTYPE html>\n<html lang="cs" data-theme="light">\n<head>\n'
+                     '<meta charset="utf-8">\n'
+                     '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+                     '<meta name="description" content="%s">\n'
+                     '<meta name="color-scheme" content="light dark">\n'
+                     '<title>%s</title>\n<style>\n' % (html.escape(meta['subtitle']), html.escape(meta['title'])))
     parts.append(read('base.css'))
-    parts.append('\n</style>\n</head>\n<body>\n')
+    parts.append('\n</style>\n' if artifact else '\n</style>\n</head>\n<body>\n')
 
     top = read('shell-top.html').replace('<!--SIDENAV-->', sidenav())
     parts.append(top)
@@ -118,11 +126,13 @@ def build():
     for f in ('glossary.js', 'remedies.js', 'quiz.js'):
         parts.append('<script>\n' + read('data', f) + '\n</script>\n')
     parts.append('<script>\n' + read('app.js') + '\n</script>\n')
-    parts.append('</body>\n</html>\n')
+    if not artifact:
+        parts.append('</body>\n</html>\n')
 
     doc = ''.join(parts)
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, 'w', encoding='utf-8') as f:
+    out = OUT_ARTIFACT if artifact else OUT
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    with open(out, 'w', encoding='utf-8') as f:
         f.write(doc)
     return doc, missing
 
@@ -187,6 +197,9 @@ def stats(doc):
 
 if __name__ == '__main__':
     doc, missing = build()
+    if '--artifact' in sys.argv:
+        adoc, _ = build(artifact=True)
+        print('→ %s  (varianta pro Artifact, %.2f MB)' % (OUT_ARTIFACT, len(adoc.encode('utf-8'))/1048576.0))
     s = stats(doc)
     print('→ %s' % OUT)
     print('   %.2f MB · %d slov · ~%d–%d stran A4 (podle sazby 350–500 slov/strana)'
