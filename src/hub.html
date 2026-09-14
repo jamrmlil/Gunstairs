@@ -1,0 +1,89 @@
+<section class="view active" id="view-hub" aria-labelledby="hub-h1">
+ <div class="wrap--wide">
+  <div class="hero">
+    <h1 id="hub-h1">Kompendium klasické homeopatie</h1>
+    <p class="sub">Úplný studijní materiál pro přípravu ke zkoušce z homeopatie na úrovni profesního/lékařského diplomu — jedenáct zkouškových okruhů, slovník pojmů a interaktivní test. Postaveno pro čtenáře, který o tématu dosud neví nic.</p>
+    <div class="meta">
+      <span><b>11</b> okruhů</span>
+      <span><b>100</b> léků v referenční příloze</span>
+      <span><b id="m-terms">–</b> hesel ve slovníku</span>
+      <span><b id="m-quiz">–</b> testových otázek</span>
+      <span><b id="m-ctrl">–</b> kontrolních otázek</span>
+    </div>
+  </div>
+
+  <div class="progress" role="group" aria-label="Postup studia">
+    <div class="progress__txt" id="prog-txt">Postup studia: 0 z 11 okruhů</div>
+    <div class="progress__bar" aria-hidden="true"><i id="prog-bar"></i></div>
+    <button class="btn btn--sm" id="prog-reset" type="button">Vynulovat postup</button>
+  </div>
+
+  <div class="box box--goals">
+    <p class="box__t">Jak s kompendiem pracovat</p>
+    <ul>
+      <li><b>Každý okruh je samostatná kapitola</b> se stejnou stavbou: cíle učení → kritický úvod → výklad od základů → vizuální shrnutí → box klíčových pojmů → kontrolní otázky s modelovými odpověďmi.</li>
+      <li><b>Tečkovaně podtržené pojmy</b> jsou odkazy do slovníku. Stačí na ně ukázat myší (nebo je otevřít klávesou Enter) a ukáže se definice; kliknutím přejdete na celé heslo a z hesla zpět do textu.</li>
+      <li><b>Hledání vpravo nahoře</b> prohledává celý dokument — všech jedenáct kapitol, slovník i banku testových otázek.</li>
+      <li><b>Přečtenou kapitolu si označte</b> tlačítkem na jejím konci. Postup se ukládá do prohlížeče (localStorage), stejně jako výsledky testů.</li>
+      <li><b>Kapitoly se obsahově prolínají.</b> Místo opakování téže látky najdete křížové odkazy „→ viz kapitola…“. Doporučené první čtení je v číselném pořadí; pro zkoušku pak okruhy 3 + 5 + 6 jako jeden celek.</li>
+    </ul>
+  </div>
+
+  <h2 style="font-size:var(--t-xl);margin:2rem 0 .2rem;">Zkouškové okruhy</h2>
+  <p class="small">Klikněte na dlaždici. Zelený pruh znamená okruh, který jste označili jako prostudovaný.</p>
+  <ul class="tiles" id="hub-tiles">
+    <!--TILES-->
+  </ul>
+
+  <h2 style="font-size:var(--t-xl);margin:2.4rem 0 .2rem;">Nástroje</h2>
+  <ul class="tiles">
+    <li><a class="tile tile--special" href="#slovnik">
+      <span class="tile__n">Reference</span>
+      <span class="tile__h">Slovník pojmů</span>
+      <span class="tile__d">Abecedně řazená hesla všech odborných pojmů. Každé heslo obsahuje definici a odkazy do všech kapitol, kde se pojem vyskytuje.</span>
+      <span class="tile__f"><span class="dot"></span><span id="tile-terms">–</span></span>
+    </a></li>
+    <li><a class="tile tile--special" href="#leky">
+      <span class="tile__n">Reference</span>
+      <span class="tile__h">100 léků ECH</span>
+      <span class="tile__d">Filtrovatelné karty povinného seznamu léků — říše, zkratka, klíčová vodítka, hlavní oblast působení. Příloha kapitoly 6.</span>
+      <span class="tile__f"><span class="dot"></span><span>100 karet · filtr podle říše</span></span>
+    </a></li>
+    <li><a class="tile tile--test" href="#test">
+      <span class="tile__n">Ověření znalostí</span>
+      <span class="tile__h">Interaktivní test</span>
+      <span class="tile__d">Procvičování po okruzích i souhrnný zkouškový test s náhodným výběrem. Jedna i více správných odpovědí, přiřazování, případové mini-scénáře. Okamžitá zpětná vazba a závěrečná zpráva.</span>
+      <span class="tile__f"><span class="dot" id="dot-test"></span><span id="tile-test">–</span></span>
+    </a></li>
+  </ul>
+
+  <div class="box box--crit">
+    <p class="box__t">Poznámka o povaze textu — čtěte před studiem</p>
+    <p>Tento materiál je <b>studijní příprava ke zkoušce</b>, ne obhajoba ani odsudek homeopatie. Proto v něm důsledně oddělujeme dvě vrstvy, každou vlastní grafikou:</p>
+    <ul>
+      <li><b>Nauka (doktrína).</b> Co homeopatická tradice tvrdí a co zkušební komise očekává, že adept zná a umí použít — Hahnemannův <span class="rx">Organon</span>, Kentova filozofie, Materia medica, repertorium. Tato vrstva se vykládá tak, jak ji učí obor, ve fialově značených blocích a v hlavním textu.</li>
+      <li><b>Vědecký konsensus a kritika.</b> Co o homeopatii říká současná medicína, metodologie a instituce jako EASAC či NHMRC — včetně toho, že převažující stanovisko je odmítavé. Tato vrstva je v červeně značených blocích „Limity a kritika“ a celý okruh 10 je jí věnován.</li>
+    </ul>
+    <p>Tvrzení jedné vrstvy nevydáváme za tvrzení druhé. Adept, který u zkoušky umí férově referovat i nepříznivou evidenci, stojí odborně výš než ten, který ji zamlčí — a tato schopnost je v rámci ECH explicitně očekávána.</p>
+  </div>
+
+  <div class="box box--exam">
+    <p class="box__t">Doporučený studijní plán (10 týdnů)</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Týden</th><th>Okruhy</th><th>Cíl</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1–2</td><td>1</td><td>Filozofie jako rámec. Bez ní je vše ostatní jen sbírka technik. Naučit se paragrafy Organonu, které se u zkoušky citují.</td></tr>
+          <tr><td class="num">3</td><td>2 + 3</td><td>Odběr a hodnocení jako jeden proces: co se ptát, co si zapsat, co z toho je charakteristické.</td></tr>
+          <tr><td class="num">4–5</td><td>5 + 6</td><td>Jádro praktické zkoušky. Repertorizovat nejméně 10 modelových případů dvěma metodami, ke každému dohledat lék v MM.</td></tr>
+          <tr><td class="num">6</td><td>6 (příloha 100 léků)</td><td>Systematické učení léků po říších. Deset polychrestů do hloubky, zbytek na úrovni keynotes.</td></tr>
+          <tr><td class="num">7</td><td>7 + 8</td><td>Farmacie a provingy — faktograficky exaktní okruhy, které se dají „vyhrát“ přesností.</td></tr>
+          <tr><td class="num">8</td><td>4 + 9</td><td>Bezpečnost a vedení léčby v čase. Zkouškové jádro odpovědnosti.</td></tr>
+          <tr><td class="num">9</td><td>10 + 11</td><td>Evidence a kontext. Trénovat formulace, které nepřekračují to, co data unesou.</td></tr>
+          <tr><td class="num">10</td><td>vše</td><td>Souhrnný test v režimu „zkouška“, opakovaně, dokud nejsou všechny okruhy nad 80 %.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+ </div>
+</section>

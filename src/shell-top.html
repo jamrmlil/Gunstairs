@@ -1,0 +1,43 @@
+<a class="skip-link" href="#main">Přeskočit na obsah</a>
+<div class="readbar" id="readbar" aria-hidden="true"></div>
+
+<header class="topbar">
+  <button class="btn btn--ghost navtoggle" id="navtoggle" aria-expanded="false" aria-controls="sidenav" title="Obsah">
+    <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+    <span class="sr-only">Otevřít obsah</span>
+  </button>
+
+  <a class="topbar__brand" href="#hub" id="homelink">
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+      <circle cx="10" cy="10" r="8.6" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="10" cy="10" r="5.2" fill="none" stroke="currentColor" stroke-width="1" opacity=".65"/>
+      <circle cx="10" cy="10" r="2" fill="currentColor"/>
+    </svg>
+    <span>Kompendium homeopatie</span>
+  </a>
+
+  <span class="topbar__spacer"></span>
+
+  <div class="searchbox" role="search">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.4 9.4L13 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <input type="search" id="q" placeholder="Hledat v dokumentu…" autocomplete="off"
+           aria-label="Fulltextové hledání v celém kompendiu" aria-controls="results" aria-expanded="false">
+    <div id="results" role="listbox" aria-label="Výsledky hledání"></div>
+  </div>
+
+  <a class="btn btn--sm" href="#hub" id="tohub" title="Zpět na rozcestník">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7l5-4.6L12 7M3.6 6.2V12h6.8V6.2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+    <span class="hide-sm">Rozcestník</span>
+  </a>
+  <button class="btn btn--sm btn--ghost" id="themebtn" title="Přepnout světlý/tmavý režim" aria-label="Přepnout světlý/tmavý režim">
+    <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true"><path d="M7.5 1.2a6.3 6.3 0 100 12.6A5 5 0 017.5 1.2z" fill="currentColor"/></svg>
+  </button>
+</header>
+
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Obsah kompendia">
+    <!--SIDENAV-->
+  </nav>
+
+  <main class="main" id="main">
+    <div class="crumbs" id="crumbs" aria-label="Drobečková navigace"></div>

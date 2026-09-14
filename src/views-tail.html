@@ -1,0 +1,82 @@
+<!-- ===================== SLOVNÍK ===================== -->
+<section class="view" id="view-slovnik" aria-labelledby="gl-h1">
+ <div class="wrap">
+  <h1 id="gl-h1" style="font-size:var(--t-3xl);margin:.4em 0 .2em;font-weight:750;">Slovník pojmů</h1>
+  <p class="lead">Abecední přehled odborných pojmů, které se v kompendiu vyskytují. U každého hesla je definice a seznam kapitol, ve kterých se pojem objevuje — kliknutím na kapitolu skočíte přímo na místo v textu, odkud se pojem poprvé odkazuje.</p>
+  <p class="small">Slovník je provázán obousměrně: v textu kapitol jsou pojmy <a class="term" href="#slovnik" data-term="repertorium">tečkovaně podtržené</a>, a naopak z hesla vede odkaz zpět do textu. Zpětné odkazy se vytvářejí automaticky podle skutečného výskytu pojmu v dokumentu.</p>
+  <label class="sr-only" for="gl-filter">Filtrovat hesla</label>
+  <input type="search" id="gl-filter" placeholder="Filtrovat hesla… (např. miasma, LM, rubrika)" autocomplete="off">
+  <nav class="abc" id="gl-abc" aria-label="Abecední rejstřík"></nav>
+  <div id="gl-body"></div>
+ </div>
+</section>
+
+<!-- ===================== 100 LÉKŮ ===================== -->
+<section class="view" id="view-leky" aria-labelledby="mm-h1">
+ <div class="wrap--wide">
+  <h1 id="mm-h1" style="font-size:var(--t-3xl);margin:.4em 0 .2em;font-weight:750;">Referenční příloha: 100 léků ECH</h1>
+  <p class="lead">Povinný seznam léků, jejichž obraz má adept znát. Karty jsou filtrovatelné podle říše a prohledávatelné podle názvu, zkratky i klíčového vodítka. Metodiku studia obrazu léku najdete v <a class="xref" href="#ch6">kapitole 6 — Materia medica</a>; farmaceutické zpracování surovin v <a class="xref" href="#ch7">kapitole 7</a>.</p>
+  <div class="box box--warn">
+    <p class="box__t">Jak kartu čtení nepřehnat</p>
+    <p>Karta je <b>mnemotechnická kotva, ne obraz léku</b>. Skutečný obraz léku má stovky symptomů a naučit se ho lze jen čtením Materie mediky a provingů. Kdo předepisuje podle karty, dělá právě tu chybu, kterou kapitola 6 popisuje jako „keynote prescribing bez potvrzení totalitou“. Karty slouží k orientaci v seznamu a k opakování před zkouškou.</p>
+  </div>
+  <div class="mm-tools">
+    <label class="sr-only" for="mm-q">Hledat lék</label>
+    <input type="search" id="mm-q" placeholder="Hledat lék, zkratku nebo vodítko…" autocomplete="off">
+    <div class="chips" id="mm-chips" role="group" aria-label="Filtr podle říše"></div>
+    <span class="mmcount" id="mm-count"></span>
+  </div>
+  <ul class="mmgrid" id="mm-grid"></ul>
+ </div>
+</section>
+
+<!-- ===================== TEST ===================== -->
+<section class="view" id="view-test" aria-labelledby="test-h1">
+ <div class="testwrap">
+  <h1 id="test-h1" style="font-size:var(--t-3xl);margin:.4em 0 .2em;font-weight:750;">Interaktivní test</h1>
+  <div id="test-intro">
+    <p class="lead">Banka otázek je označkovaná podle jedenácti okruhů. Vyberte režim: procvičování jednoho okruhu, nebo souhrnný zkouškový test s náhodným výběrem napříč celým kompendiem.</p>
+    <div class="box box--exam">
+      <p class="box__t">Typy otázek a bodování</p>
+      <ul>
+        <li><b>Jedna správná odpověď</b> — 1 bod za správnou volbu.</li>
+        <li><b>Více správných odpovědí</b> — bod jen za úplně přesnou sadu; chybějící i nadbytečná volba znamenají 0. (Zkouškový standard: neúplná odpověď není správná odpověď.)</li>
+        <li><b>Přiřazování</b> — např. lék ↔ keynote; bod jen za všechny páry správně.</li>
+        <li><b>Případové mini-scénáře</b> — krátká anamnéza a rozhodnutí, co dál.</li>
+      </ul>
+      <p>Po každé odpovědi se okamžitě zobrazí vysvětlení s odkazem na kapitolu a heslo ve slovníku. Na konci dostanete rozpad úspěšnosti po okruzích a doporučení, co doučit. Hranice úspěchu je nastavena na <b>70 %</b>, tedy obvyklou úroveň písemné části profesních zkoušek.</p>
+    </div>
+    <h2 style="font-size:var(--t-xl);margin:1.8rem 0 .2rem;">Souhrnné režimy</h2>
+    <div class="modes" id="test-modes-main"></div>
+    <h2 style="font-size:var(--t-xl);margin:1.8rem 0 .2rem;">Procvičování po okruzích</h2>
+    <p class="small">Číslo v závorce je počet otázek v okruhu. Poslední výsledek se ukládá.</p>
+    <div class="modes" id="test-modes-ch"></div>
+  </div>
+
+  <div id="test-run" hidden>
+    <div class="quizhead">
+      <span class="qnum" id="qnum">1 / 20</span>
+      <span class="qbar" aria-hidden="true"><i id="qbar"></i></span>
+      <span class="qscore" id="qscore">0 b.</span>
+      <button class="btn btn--sm" id="qquit" type="button">Ukončit</button>
+    </div>
+    <div id="qhost" aria-live="polite"></div>
+  </div>
+
+  <div id="test-report" hidden></div>
+
+  <div class="print-only">
+    <p class="small">Tištěná verze: interaktivní test vyžaduje prohlížeč. Kontrolní otázky ke všem okruhům jsou vytištěny na konci každé kapitoly včetně modelových odpovědí.</p>
+  </div>
+ </div>
+</section>
+
+    <footer class="foot">
+      <div class="wrap--wide">
+        <p><b>Kompendium klasické homeopatie</b> — interaktivní studijní materiál, verze 1.0. Jediný soubor HTML, bez externích závislostí; funguje offline.</p>
+        <p>Výkladové části podávají nauku tak, jak ji učí homeopatická tradice a jak ji očekává zkouška. Kritické části podávají stanovisko vědecké metodologie a institucí. Materiál <b>není lékařský návod</b> a nenahrazuje odbornou kvalifikaci ani konzultaci; rozhodnutí o léčbě patří kvalifikovanému lékaři a pacientovi.</p>
+        <p class="small">Klávesové zkratky: <kbd>/</kbd> hledání · <kbd>Esc</kbd> zavřít · <kbd>h</kbd> rozcestník · <kbd>←</kbd> <kbd>→</kbd> předchozí/další kapitola (mimo textová pole).</p>
+      </div>
+    </footer>
+  </main>
+</div>
