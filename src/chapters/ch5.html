@@ -1,0 +1,605 @@
+<section class="view chapter" id="view-ch5" aria-labelledby="ch5-h1">
+ <div class="wrap">
+  <h1 id="ch5-h1">Okruh 5 — Analýza případu a repertorizace</h1>
+  <p class="lead">Zde se láme praktická zkouška. Adept dostane napsaný případ a má z něj dojít k léku — nahlas, krok za krokem, s odůvodněním každého rozhodnutí. Není to test paměti na rubriky; je to test toho, zda adept umí přeložit lidskou výpověď do jazyka repertoria, spočítat, co z toho vychází, a pak výsledek <em>nepoužít otrocky</em>, ale potvrdit v Materii medice. Tato kapitola je proto nejpraktičtější v celém kompendiu a obsahuje povinný modelový případ se skutečnou mřížkou.</p>
+
+  <div class="box box--goals">
+    <p class="box__t">Cíle učení</p>
+    <ul>
+      <li>Popsat, kde v léčebném procesu analýza stojí a co je jejím vstupem a výstupem.</li>
+      <li>Znát historii repertoria a rozdíly mezi Kentem, Bönninghausenem, Boerickem a moderními syntézami.</li>
+      <li>Orientovat se ve struktuře repertoria (kapitoly, rubriky, podrubriky) a v gradaci léků.</li>
+      <li>Přeložit symptom pacienta na rubriku, posoudit velikost rubriky a vědět, kdy rubriku zvětšit či zúžit.</li>
+      <li>Provést repertorizaci <b>dvěma metodami</b> — kentiánskou a Boger–Bönninghausenovou — a zdůvodnit volbu metody.</li>
+      <li>Použít keynote přístup a znát jeho podmínky.</li>
+      <li>Sestavit repertorizační mřížku, ohodnotit symptomy váhou a použít eliminační rubriku.</li>
+      <li>Vysvětlit, proč se z mřížky nepředepisuje, a jak se lék potvrzuje v Materii medice.</li>
+      <li>Popsat moderní směry (Sankaran, Scholten, Mangialavori) a jejich metodické riziko.</li>
+      <li>Znát základní homeopatický software a jeho vliv na praxi.</li>
+      <li>Provést celou analýzu na modelovém případu a vyvarovat se deseti typických chyb.</li>
+    </ul>
+  </div>
+
+  <h2 id="ch5-1">5.1 Kritický úvod: co repertorizace opravdu je</h2>
+  <p>Repertorizace vypadá jako výpočet. Má tabulku, čísla, součty, žebříček. Právě tento zdánlivě kvantitativní charakter je největší past — jak pro adepta, tak pro obhajobu metody.</p>
+  <div class="box box--crit">
+    <p class="box__t">Limity a kritika</p>
+    <p><b>1. Subjektivita výběru rubrik.</b> Mezi pacientovou výpovědí a rubrikou v repertoriu leží překlad, který provádí člověk. Pacient řekne: „mám takový vnitřní tlak, jako by se to všechno hrnulo dovnitř“. Jedna homeopatka to zařadí jako <i>Mind — anxiety</i>, druhá jako <i>Chest — constriction</i>, třetí jako <i>Mind — delusion, as if surrounded by enemies</i>. Každá volba vede k jiné množině léků. Tento krok <b>není v žádném repertoriu standardizován</b> a nemá referenční řešení.</p>
+    <p><b>2. Nízká mezihodnotitelská shoda.</b> Studie, které nechaly více homeopatů analyzovat tentýž zaznamenaný případ, opakovaně zjistily malý přesah ve zvolených rubrikách a shodu ve výsledném léku často pod 50 %, u složitějších případů výrazně méně. Bez reliability nelze budovat validitu — opakované měření, které dává různé výsledky, nemůže spolehlivě měřit.</p>
+    <p><b>3. Zdánlivá kvantifikace.</b> Součet v mřížce vytváří dojem měření, ačkoli jde o součet čísel, jejichž hodnota je dána tradicí, nikoli kalibrací. Gradace léku v rubrice (1–4) vyjadřuje, jak často se symptom u léku objevoval v provingech a klinice 19. století — to je heterogenní zdroj a výsledná čísla nejsou navzájem srovnatelná ani v rámci jednoho repertoria.</p>
+    <p><b>4. Nefalzifikovatelnost výstupu.</b> Když lék nezabere, systém nabízí řadu vysvětlení, která nevyžadují revizi metody: špatná potence, překážky uzdravení, potřeba drenáže, nutnost antimiasmatického léku, pacientova nízká úroveň zdraví. Každé z nich může být pravdivé; dohromady však umožňují, aby žádný výsledek metodu nezpochybnil.</p>
+    <p><b>Co odpovídá obor.</b> (a) Repertorium není nástroj k určení léku, nýbrž k <b>zúžení okruhu kandidátů</b>; rozhoduje Materia medica. Toto tvrzení je v klasické literatuře jednoznačné — Kent sám varoval před „repertorizačním předepisováním“. (b) Rozptyl mezi homeopaty je z části dán tím, že různé rubriky vedou ke <a class="term" data-term="komplementarni-leky">komplementárním lékům</a> téhož okruhu. (c) Nízká shoda je průvodním jevem expertního úsudku obecně.</p>
+    <p><b>Nejsilnější poloha adepta.</b> Nepředstírat, že mřížka je výpočet: <i>„Repertorizace je systematizovaný způsob zúžení hypotéz. Čísla nejsou míra podobnosti, jsou pomůcka pro uspořádání. Mezihodnotitelská shoda je nízká, proto svůj výběr rubrik písemně odůvodňuji, výsledek vždy potvrzuji v Materii medice a stanovím dopředu, co má léčba přinést — jinak nelze rozlišit, zda lék působil, nebo se stav zlepšil sám.“</i></p>
+  </div>
+
+  <h2 id="ch5-2">5.2 Místo analýzy v procesu</h2>
+  <div class="figframe">
+  <figure>
+    <svg viewBox="0 0 860 360" role="img" aria-labelledby="f51t f51d">
+      <title id="f51t">Cesta od pacienta k předpisu</title>
+      <desc id="f51d">Sedm kroků: odběr případu, hodnocení symptomů, překlad na rubriky, repertorizace v mřížce, diferenciální diagnostika v Materii medice, volba potence a dávkování, follow-up. Vyznačeno, které kroky patří do kterého okruhu, a zpětná vazba z follow-upu do hodnocení.</desc>
+      <text x="24" y="26" class="s-ttl">Kde v procesu stojí repertorizace — a proč není posledním krokem</text>
+      <g>
+        <rect x="24" y="46" width="116" height="78" rx="8" class="s-box-b"/>
+        <text x="82" y="70" text-anchor="middle" class="s-lblb">1 · ODBĚR</text>
+        <text x="82" y="88" text-anchor="middle" class="s-sm">anamnéza,</text>
+        <text x="82" y="102" text-anchor="middle" class="s-sm">pozorování</text>
+        <text x="82" y="118" text-anchor="middle" class="s-sm">okruh 2</text>
+
+        <rect x="156" y="46" width="116" height="78" rx="8" class="s-box-b"/>
+        <text x="214" y="70" text-anchor="middle" class="s-lblb">2 · HODNOCENÍ</text>
+        <text x="214" y="88" text-anchor="middle" class="s-sm">hierarchie, SRP,</text>
+        <text x="214" y="102" text-anchor="middle" class="s-sm">eliminace</text>
+        <text x="214" y="118" text-anchor="middle" class="s-sm">okruh 3</text>
+
+        <rect x="288" y="46" width="116" height="78" rx="8" class="s-box-a"/>
+        <text x="346" y="70" text-anchor="middle" class="s-lblb">3 · RUBRIKY</text>
+        <text x="346" y="88" text-anchor="middle" class="s-sm">překlad symptomu</text>
+        <text x="346" y="102" text-anchor="middle" class="s-sm">do repertoria</text>
+        <text x="346" y="118" text-anchor="middle" class="s-sm">okruh 5.6</text>
+
+        <rect x="420" y="46" width="116" height="78" rx="8" class="s-box-a"/>
+        <text x="478" y="70" text-anchor="middle" class="s-lblb">4 · MŘÍŽKA</text>
+        <text x="478" y="88" text-anchor="middle" class="s-sm">vážení, součty,</text>
+        <text x="478" y="102" text-anchor="middle" class="s-sm">eliminace</text>
+        <text x="478" y="118" text-anchor="middle" class="s-sm">okruh 5.8</text>
+
+        <rect x="552" y="46" width="140" height="78" rx="8" class="s-box-d"/>
+        <text x="622" y="70" text-anchor="middle" class="s-lblb">5 · MATERIA MEDICA</text>
+        <text x="622" y="88" text-anchor="middle" class="s-sm">potvrzení obrazu,</text>
+        <text x="622" y="102" text-anchor="middle" class="s-sm">diferenciace léků</text>
+        <text x="622" y="118" text-anchor="middle" class="s-sm">okruh 6</text>
+
+        <rect x="708" y="46" width="128" height="78" rx="8" class="s-box-o"/>
+        <text x="772" y="70" text-anchor="middle" class="s-lblb">6 · PŘEDPIS</text>
+        <text x="772" y="88" text-anchor="middle" class="s-sm">potence, dávka,</text>
+        <text x="772" y="102" text-anchor="middle" class="s-sm">interval</text>
+        <text x="772" y="118" text-anchor="middle" class="s-sm">okruh 7</text>
+      </g>
+      <path class="s-arrow" d="M140 85 H156" marker-end="url(#ar51)"/>
+      <path class="s-arrow" d="M272 85 H288" marker-end="url(#ar51)"/>
+      <path class="s-arrow" d="M404 85 H420" marker-end="url(#ar51)"/>
+      <path class="s-arrow" d="M536 85 H552" marker-end="url(#ar51)"/>
+      <path class="s-arrow" d="M692 85 H708" marker-end="url(#ar51)"/>
+
+      <rect x="288" y="160" width="404" height="70" rx="8" class="s-box-w"/>
+      <text x="490" y="184" text-anchor="middle" class="s-lblb">7 · FOLLOW-UP — okruh 9</text>
+      <text x="490" y="202" text-anchor="middle" class="s-sm">hodnocení odpovědi, Heringova pravidla, rozhodnutí opakovat / změnit potenci / změnit lék</text>
+      <text x="490" y="220" text-anchor="middle" class="s-sm">Nové symptomy z reakce se vracejí do hodnocení — proces je cyklus, ne přímka.</text>
+      <path class="s-arrow" d="M772 124 V180 H692" marker-end="url(#ar51)"/>
+      <path class="s-arrow" d="M288 195 H240 Q214 195 214 170 V124" marker-end="url(#ar51)" stroke="var(--c-crit)"/>
+      <text x="120" y="168" class="s-sm" fill="var(--c-crit)">zpětná vazba</text>
+
+      <rect x="24" y="258" width="812" height="88" rx="8" class="s-box"/>
+      <text x="40" y="282" class="s-lblb">DVĚ VĚTY, KTERÉ ROZHODUJÍ O TOM, ZDA ADEPT METODĚ ROZUMÍ</text>
+      <text x="40" y="304" class="s-lbl">1. Repertorium zužuje okruh kandidátů; lék určuje Materia medica. Kdo předepisuje z mřížky, předepisuje z tabulky, ne z podobnosti.</text>
+      <text x="40" y="324" class="s-lbl">2. Kvalita výstupu nemůže být lepší než kvalita vstupu. Chybný odběr → chybné rubriky → přesně vypočtený chybný lék.</text>
+      <text x="40" y="340" class="s-sm">Obojí je citováno u Kenta i u Bönninghausena; není to moderní relativizace, nýbrž součást klasické doktríny.</text>
+      <defs><marker id="ar51" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+    </svg>
+    <figcaption>Obr. 5.1 — Proces. Mřížka je čtvrtý krok ze sedmi, ne poslední. Adept, který v ústní zkoušce dojde k součtu a řekne „takže Sulphur“, vynechal krok 5 — a to je nejčastěji hodnocená chyba celé praktické části.</figcaption>
+  </figure>
+  </div>
+
+  <h2 id="ch5-3">5.3 Repertorium: co to je a odkud se vzalo</h2>
+  <p><b><a class="term" data-term="repertorium">Repertorium</a></b> je obrácený index Materie mediky. Materia medica je organizovaná podle léků (lék → jeho symptomy); repertorium podle symptomů (symptom → léky, které jej mají). Bez repertoria by homeopat musel při každém případu přečíst všechny léky — proto je repertorium nástrojem praktické nutnosti od prvních desetiletí oboru.</p>
+  <div class="tablewrap">
+    <table>
+      <caption>Vývoj repertorií — co má adept znát</caption>
+      <thead><tr><th>Autor / dílo</th><th>Rok</th><th>Charakteristika</th><th>Kdy je užitečné dnes</th></tr></thead>
+      <tbody>
+        <tr><td><b>Hahnemann</b> — rukopisné repertorium k <i>Materia Medica Pura</i></td><td>1817+</td><td>Nepublikované indexy symptomů; základ pro Bönninghausena.</td><td>Historický zájem.</td></tr>
+        <tr><td><b>Bönninghausen</b> — <i>Systematisch-alphabetisches Repertorium</i>; <i>Therapeutisches Taschenbuch</i></td><td>1832; <b>1846</b></td><td>Organizováno podle <b>lokalizací, senzací, modalit a konkomitantů</b>. Obsahuje jen 125 léků, ale s vysokou spolehlivostí. Zavádí princip <a class="term" data-term="generalizace">generalizace</a> a „concordance“ (vztahy léků).</td><td>Akutní případy, případy s málo symptomy, nesdílní pacienti, děti. Metoda Boger–Bönninghausen.</td></tr>
+        <tr><td><b>Jahr</b> — <i>Handbuch</i></td><td>1835+</td><td>Rozsáhlé, ale bez gradace; most mezi Hahnemannem a Kentem.</td><td>Zdroj pro dohledání starých symptomů.</td></tr>
+        <tr><td><b>Kent</b> — <i>Repertory of the Homoeopathic Materia Medica</i></td><td><b>1897</b></td><td>Organizováno anatomicky a podle úrovní; <b>od generálních k partikulárním</b> uvnitř každé kapitoly; gradace léků 1–3 (typografická). Obsahuje ~650 léků. Kapitola Mind postavena na první místo — odtud primát duševních symptomů.</td><td>Chronické konstituční případy; základ pro většinu moderních syntéz.</td></tr>
+        <tr><td><b>Boericke</b> — <i>Repertory</i> (dodatek k <i>Pocket Manual</i>)</td><td>1901+</td><td>Malé, klinicky orientované, s klinickými rubrikami a diagnózami.</td><td>Rychlá orientace, akutní praxe, ambulantní pomoc; nikoli základ konstituční analýzy.</td></tr>
+        <tr><td><b>Boger</b> — <i>Boger–Bönninghausen's Characteristics and Repertory</i>; <i>Synoptic Key</i></td><td>1905; 1915</td><td>Syntéza Bönninghausenova přístupu s klinickou zkušeností; koncept <b>pathognomických „general“ modalit</b>.</td><td>Bögerovská metoda, případy s dominantní patologií.</td></tr>
+        <tr><td><b>Barthel &amp; Klunker</b> — <i>Synthetisches Repertorium</i></td><td>1974–80</td><td>Syntéza duševních a celkových symptomů z více zdrojů, německy/anglicky.</td><td>Práce s duševními rubrikami.</td></tr>
+        <tr><td><b>Schroyens</b> — <i>Synthesis</i></td><td>1993+</td><td>Moderní velká syntéza na kentovském základě; tisíce léků, zdrojové odkazy, autorské značky.</td><td>Dnešní standard (v softwaru RadarOpus).</td></tr>
+        <tr><td><b>van Zandvoort</b> — <i>Complete Repertory</i></td><td>1987+</td><td>Konkurenční velká syntéza s důsledným uvedením zdrojů; v softwaru Complete Dynamics.</td><td>Dnešní standard.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box box--warn">
+    <p class="box__t">Zásadní rozdíl, na který se u zkoušky ptají: malé versus velké repertorium</p>
+    <p><b>Bönninghausen (125 léků)</b> a <b>Synthesis / Complete (několik tisíc léků)</b> nejsou dvě velikosti téhož nástroje. Jsou to nástroje s odlišnou epistemickou hodnotou. V Bönninghausenově díle pochází většina údajů z Hahnemannových provingů a z ověřené klinické zkušenosti; údaje ve velkých syntézách přicházejí z velmi nesourodých zdrojů — provingy různé kvality, jednotlivá klinická pozorování, novodobé „meditativní“ provingy, autorské domněnky. Velké repertorium má proto <b>vyšší pokrytí a nižší spolehlivost jednotlivého údaje</b>. Praktický důsledek: v malém repertoriu má přítomnost léku v rubrice větší informační hodnotu; ve velkém je snadné dostat do výsledku lék, jehož zařazení v rubrice se opírá o jedinou nedoloženou zmínku. Dobré syntézy proto značí autora a zdroj — a adept má umět tuto značku číst.</p>
+  </div>
+
+  <h2 id="ch5-4">5.4 Struktura repertoria a gradace léků</h2>
+  <h3 id="ch5-4-1">Kapitoly</h3>
+  <p>Kentovo řazení (a po něm většina syntéz) jde takto: <b>Mind</b> (duševní) → <b>Vertigo</b> → <b>Head</b> → <b>Eye, Vision, Ear, Hearing, Nose, Face, Mouth, Teeth, Throat</b> → <b>External throat</b> → <b>Stomach, Abdomen, Rectum, Stool</b> → <b>Bladder, Kidneys, Prostate, Urethra, Urine</b> → <b>Male / Female genitalia</b> → <b>Larynx, Respiration, Cough, Expectoration, Chest</b> → <b>Back, Extremities</b> → <b>Sleep, Dreams</b> → <b>Chill, Fever, Perspiration</b> → <b>Skin</b> → <b>Generals</b>.</p>
+  <p>Dvě kapitoly stojí zvlášť a používají se nejčastěji: <b>Mind</b> (na začátku) a <b>Generals</b> (na konci). Kapitola Generals obsahuje symptomy vztahující se k celému člověku — teplotní modality, reakci na počasí, chutě a averze, cyklické zhoršení, stranovost, reakce na jídlo. Jsou-li dobře zvolené, mají největší eliminační sílu.</p>
+  <h3 id="ch5-4-2">Rubriky a podrubriky</h3>
+  <p>Uvnitř kapitoly je řazení hierarchické: obecná rubrika → podrubriky → pod-podrubriky. Například:</p>
+  <pre style="background:var(--c-surface-2);border:1px solid var(--c-border);border-radius:var(--r-sm);padding:.8rem 1rem;overflow-x:auto;font-family:var(--f-mono);font-size:var(--t-sm);line-height:1.6">HEAD
+  PAIN
+    Forehead
+      above eyes
+        right
+      extending to occiput
+    aggravated
+      bending forward, on
+      motion of eyes, on
+    ameliorated
+      pressure, from
+      cold applications</pre>
+  <p><b>Zlaté pravidlo cesty:</b> platí <em>zděděná příslušnost</em> — lék uvedený v podrubrice patří i do rubriky nadřazené, nikoli naopak. Proto zvětšení rubriky nikdy lék neztratí, zúžení ano. Tato asymetrie je základem techniky popsané v 5.6.</p>
+  <h3 id="ch5-4-3">Gradace léku v rubrice</h3>
+  <div class="tablewrap">
+    <table>
+      <caption>Gradace léku — jak ji čtete a co znamená</caption>
+      <thead><tr><th class="num">Stupeň</th><th>Typografie (Kent)</th><th>Moderní syntézy</th><th>Význam</th></tr></thead>
+      <tbody>
+        <tr><td class="num"><b>3</b></td><td>VELKÁ PÍSMENA<br>(ARSENICUM)</td><td>tučné / stupeň 3–4</td><td>Symptom byl u léku pozorován opakovaně a spolehlivě, často klinicky potvrzen. „Lék to má výrazně.“</td></tr>
+        <tr><td class="num"><b>2</b></td><td><i>Kurzíva</i><br>(<i>Arsenicum</i>)</td><td>kurzíva / stupeň 2</td><td>Pozorováno vícekrát, ale méně spolehlivě.</td></tr>
+        <tr><td class="num"><b>1</b></td><td>obyčejné písmo<br>(Arsenicum)</td><td>obyčejné / stupeň 1</td><td>Pozorováno jednou nebo výjimečně; nejnižší váha.</td></tr>
+        <tr><td class="num"><b>4</b></td><td>—</td><td>některé syntézy (Synthesis) používají 4. stupeň</td><td>Nejvyšší potvrzení; v Kentově originálu neexistuje — vznikl v moderní redakci.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Co gradace není:</b> není to míra intenzity symptomu u pacienta ani statistická pravděpodobnost. Je to <em>redakční hodnocení spolehlivosti zdroje</em> provedené v 19. a 20. století. Právě proto se čísla z různých repertorií nesmějí porovnávat mezi sebou.</p>
+
+  <h2 id="ch5-5">5.5 Překlad symptomu na rubriku</h2>
+  <p>Nejobtížnější a nejméně formalizovatelný krok. Funguje pro něj sedm zásad.</p>
+  <div class="box box--doctrine">
+    <p class="box__t">Sedm zásad výběru rubriky</p>
+    <ol>
+      <li><b>Rubrika musí odpovídat tomu, co pacient řekl, ne tomu, co si myslíte, že tím myslel.</b> Pacientovo „jsem z toho nervózní“ není <i>Mind — anxiety</i>, dokud nevíte, co „nervózní“ znamená v jeho slovníku. Doptejte se — a to je důvod, proč nelze repertorizovat bez dobrého odběru.</li>
+      <li><b>Velikost rubriky má odpovídat jistotě symptomu.</b> Jste-li si jistí, použijte úzkou rubriku (málo léků, vysoká rozlišovací síla). Jste-li si jistí jen obecněji, použijte širší rubriku — je lepší mít pravdu obecně než mýlit se přesně.</li>
+      <li><b>Malá rubrika je cenná, ale riskantní.</b> Rubrika se třemi léky vypadá lákavě, ale je-li vaše interpretace chybná, vyřadili jste správný lék nenávratně. Malé rubriky proto do <b>eliminace</b> jen tehdy, je-li symptom jistý (gradace 3, spontánně uvedený).</li>
+      <li><b>Velmi velká rubrika (nad ~200 léků) je téměř bezcenná</b> a navíc zvýhodňuje polychresty. Buď ji zúžit, nebo vynechat.</li>
+      <li><b>Symptom nezapisovat dvakrát.</b> Použití „Mind — irritability“ a současně „Mind — irritability — morning“ zdvojuje váhu téhož symptomu a zkresluje součet. Vyberte jednu úroveň.</li>
+      <li><b>Generalizovat jen tam, kde to lze obhájit.</b> Bönninghausenova generalizace („bolest kolena je lepší teplem“ → „Generals — warmth, ameliorated“) je legitimní, pokud modalita platí pro pacienta jako celek. Ověřte to otázkou, nepředpokládejte.</li>
+      <li><b>Číst rubriku v kontextu.</b> Zkontrolujte nadřazenou rubriku, sousední podrubriky a „see also“ odkazy. Značná část chyb vzniká tím, že vhodnější rubrika stála o dva řádky výš.</li>
+    </ol>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <caption>Příklady překladu — od výpovědi k rubrice</caption>
+      <thead><tr><th>Co pacient řekl</th><th>Špatná rubrika a proč</th><th>Lepší rubrika</th></tr></thead>
+      <tbody>
+        <tr><td>„Když mě někdo utěšuje, mám chuť ho uhodit.“</td><td><i>Mind — anger</i> — příliš obecné, ztrácí modalitu.</td><td><i>Mind — consolation, aggravates</i> (malá, vysoce specifická rubrika)</td></tr>
+        <tr><td>„Musím mít všechno srovnané, jinak nemůžu fungovat.“</td><td><i>Mind — anxiety</i> — vůbec nevystihuje.</td><td><i>Mind — fastidious</i>; případně <i>Mind — order, desire for</i></td></tr>
+        <tr><td>„V tom vedru nemůžu dýchat, musím k oknu.“</td><td><i>Respiration — difficult</i> — opomíjí modalitu, která je tu podstatná.</td><td><i>Generals — warm room, aggravates</i> + <i>Generals — air, open, desire for</i></td></tr>
+        <tr><td>„Budím se každou noc kolem třetí a pak už neusnu.“</td><td><i>Sleep — sleeplessness</i> — obrovská rubrika.</td><td><i>Sleep — waking — 3 h</i> nebo <i>Sleep — sleeplessness — midnight, after — 3 h</i></td></tr>
+        <tr><td>„Ta bolest jde odshora dolů po zadní straně nohy.“</td><td><i>Extremities — pain — lower limbs</i> — příliš široké.</td><td><i>Extremities — pain — sciatic nerve</i> + <i>— extending downward</i></td></tr>
+        <tr><td>„Nesnáším, když mě kdokoli lituje, ale samotu taky ne.“</td><td>Jen <i>Mind — consolation, aggravates</i> — polovina informace.</td><td><i>Mind — consolation, aggravates</i> + <i>Mind — company, desire for</i> (kombinace sama je diferencující: <span class="rx">Sepia</span>, <span class="rx">Lycopodium</span>)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="ch5-6">5.6 Postup repertorizace a mřížka</h2>
+  <p><b><a class="term" data-term="repertorizacni-mrizka">Repertorizační mřížka</a></b> je tabulka: v řádcích symptomy (rubriky), ve sloupcích léky, v polích gradace léku v dané rubrice. Sleduje se dvojí: <b>součet gradací</b> (kvalita pokrytí) a <b>počet rubrik, v nichž se lék vyskytuje</b> (šíře pokrytí). Druhé číslo je důležitější než první.</p>
+  <div class="box box--exam">
+    <p class="box__t">Postup v osmi krocích</p>
+    <ol>
+      <li><b>Vybrat 6–10 symptomů</b> podle hodnocení (→ <a class="xref" href="#ch3-9">okruh 3.9</a>). Více než dvanáct rubrik mřížku rozmělní.</li>
+      <li><b>Přeložit je na rubriky</b> podle sedmi zásad (5.5) a zapsat je i s velikostí rubriky (počtem léků).</li>
+      <li><b>Určit váhu každého symptomu</b> (1–3) podle jeho hodnoty v případu — nikoli podle intenzity obtíží, ale podle rozlišovací síly a jistoty.</li>
+      <li><b>Zvolit eliminační rubriku</b>, je-li k dispozici jistý symptom s dobrou eliminační silou. Léky mimo ni se vyřadí.</li>
+      <li><b>Sestavit mřížku</b> a vyplnit gradace.</li>
+      <li><b>Vyhodnotit dvě čísla</b>: počet pokrytých rubrik (primárně) a vážený součet (sekundárně).</li>
+      <li><b>Vybrat 3–5 kandidátů</b> — nikoli jednoho.</li>
+      <li><b>Přejít do Materie mediky</b> a rozhodnout na základě celkového obrazu, nikoli čísel (→ 5.9).</li>
+    </ol>
+  </div>
+  <div class="box box--warn">
+    <p class="box__t">Proč je počet rubrik důležitější než součet</p>
+    <p>Lék, který je přítomen v 8 z 8 rubrik se gradací 1–2, je lepším kandidátem než lék s gradací 3 ve čtyřech rubrikách a chybějící ve čtyřech. Důvod je doktrinální i logický: hledá se <b>podobnost celku</b>, ne maximální shoda v části. Lék chybějící v rubrice, která vyjadřuje jasný a silný symptom pacienta, tento symptom nepokrývá — a totalita tedy není naplněna. V softwaru se tento ukazatel zobrazuje jako počet „hitů“ nebo „rubrik“; při ručním počítání se zapisuje do druhého souhrnného řádku. Adept, který v ústní zkoušce sleduje jen součet, dostane doplňující otázku právě na tohle.</p>
+  </div>
+
+  <h2 id="ch5-7">5.7 Dvě metody: Kent a Boger–Bönninghausen</h2>
+  <div class="tablewrap">
+    <table>
+      <caption>Srovnání dvou povinných metod</caption>
+      <thead><tr><th></th><th>Kentiánská metoda</th><th>Boger–Bönninghausenova metoda</th></tr></thead>
+      <tbody>
+        <tr><td><b>Základní otázka</b></td><td>Jaký člověk je tento pacient a co se u něj změnilo?</td><td>Za jakých okolností se jeho stav mění a jaké má vzorce?</td></tr>
+        <tr><td><b>Vybírané symptomy</b></td><td>Duševní a emoční symptomy, pak generalia, nakonec charakteristické partikulární.</td><td>Lokalizace, senzace, modality, konkomitanty; s <b>generalizací</b> do celkových rubrik.</td></tr>
+        <tr><td><b>Nástroj</b></td><td>Kentovo repertorium nebo moderní syntéza (Synthesis, Complete).</td><td><i>Therapeutisches Taschenbuch</i> (1846) nebo Boger–Bönninghausen; malý okruh léků, vyšší spolehlivost.</td></tr>
+        <tr><td><b>Postup</b></td><td>Mřížka se 6–10 rubrikami napříč úrovněmi; hodnotí se pokrytí a součet.</td><td>Nejprve <b>eliminace</b> jednou či dvěma jistými rubrikami, pak shoda v modalitách a konkomitantech. Boger navíc pracuje s tzv. <b>obecnými modalitami</b> jako s páteří případu.</td></tr>
+        <tr><td><b>Typický výsledek</b></td><td>Konstituční polychrest.</td><td>Lék odpovídající aktuálnímu vzorci; často menší lék.</td></tr>
+        <tr><td><b>Kdy použít</b></td><td>Chronický případ s bohatou psychickou symptomatologií; pacient sdílný a introspektivní.</td><td>Akutní případ; případ s málo symptomy; nesdílný pacient, malé dítě, dementní pacient; případ s dominující patologií.</td></tr>
+        <tr><td><b>Typické selhání</b></td><td>„Vyhrál polychrest“ — velké léky se objevují ve všech velkých rubrikách; riziko projekce u duševních symptomů.</td><td>Neoprávněná generalizace — modalita platná pro jeden orgán se vztáhne na celek, který ji nemá.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 id="ch5-7-1">Keynote přístup jako třetí cesta</h3>
+  <p>Keynote přístup (Allen, Boericke, v moderní praxi Vithoulkasovy „charakteristiky“) nezačíná mřížkou, nýbrž nápadným symptomem, který upozorní na lék. Je legitimní, má-li tři podmínky: (1) keynote je skutečně nápadný a jistý, (2) je provedena <b>kontrola totalitou</b> — v obraze léku nesmí nic zásadně odporovat, (3) je připraven plán, co dělat, když lék nezabere. Bez druhé podmínky jde o metodickou chybu (→ <a class="xref" href="#ch3-5">okruh 3.5</a>).</p>
+
+  <h2 id="ch5-8">5.8 Modelový případ krok za krokem</h2>
+  <div class="box box--case">
+    <p class="box__t">Případ: žena, 38 let — migrény a „vyhaslost“</p>
+    <p><b>Spontánní vyprávění (fáze 1, zkráceno, v jejích slovech).</b> „Mám migrény asi tři roky, od té doby, co se mi narodilo druhé dítě. Přijde to většinou před menstruací, nad levým okem, jako by mi tam někdo tlačil palcem zvenku dovnitř. Musím si lehnout do temna. Nesnesu, aby se na mě někdo v tu chvíli mluvil. A vůbec — jsem taková vyhaslá. Dřív jsem měla ráda lidi, teď nechci nikoho vidět, ani manžela. Když mě chce utěšovat, je mi to protivné, nejradši bych utekla. Cítím se jako by mi bylo všechno jedno a stydím se za to, protože mám děti, které mám mít ráda.“</p>
+    <p><b>Upřesnění (fáze 2).</b> Bolest zhoršena pohybem a hlukem, zlepšena silným tlakem na to místo a ležením v temnu; trvá 1–2 dny, 2–3× měsíčně, vždy 2 dny před menstruací. Menstruace vydatná, s pocitem <b>tlaku dolů v podbřišku, „jako by mi mělo všechno vypadnout“</b>; musí sedět s překříženými nohami. Po menstruaci se cítí uvolněněji.</p>
+    <p><b>Generalia (fáze 3).</b> Zimomřivá, ale nesnáší dusno a horko v uzavřeném prostoru; „v místnosti s lidmi se mi dělá mdlo“. Odpolední propad energie, ale <b>po intenzivním pohybu (běh, úklid) se cítí výrazně lépe</b> — což jí samotné přijde divné, protože jinak nemá na nic sílu. Chuť na kyselé a octové; averze k mléku. Spánek přerušovaný, budí se ve 4 h a myslí na to, co nezvládá. Potí se málo. Stolice zácpa, pocit nedokončení. Po druhém porodu hubla a „nikdy se do toho nevrátila“.</p>
+    <p><b>Pozorování (§ 90).</b> Sedí zpříma, mluví vyrovnaným tichým hlasem. Když popisuje děti, ztiší se a odvrátí pohled. Během rozhovoru si dvakrát přehodí nohu přes nohu. Bez emočního projevu, ale na otázku o lhostejnosti k dětem se jí zalesknou oči a hned se ovládne.</p>
+    <p><b>Lékařsky.</b> Neurologicky vyšetřena před rokem, nález bez patologie, doporučen triptan při ataku. Bere jej 2–3× měsíčně. Gynekologicky: bez nálezu, hormonální antikoncepci neužívá. Kontrolní poznámka: nový typ bolesti hlavy nebo zvýšení frekvence nad 15 dní/měsíc by vyžadovalo nové vyšetření a posouzení nadužívání analgetik.</p>
+  </div>
+
+  <h3 id="ch5-8-1">Krok 1–2: hodnocení a výběr symptomů</h3>
+  <div class="tablewrap">
+    <table>
+      <caption>Výběr symptomů se zdůvodněním (metoda kentiánská)</caption>
+      <thead><tr><th>#</th><th>Symptom</th><th>Úroveň</th><th>Váha</th><th>Zdůvodnění</th></tr></thead>
+      <tbody>
+        <tr><td class="num">S1</td><td>Lhostejnost k blízkým, ke vlastním dětem; „všechno jedno“, s studem za to</td><td>Duševní</td><td class="num"><b>3</b></td><td>Spontánně uvedeno, intenzivní, v rozporu s jejím vlastním hodnotovým systémem — tedy změna, ne povahový rys. Nejsilnější individualizující symptom případu.</td></tr>
+        <tr><td class="num">S2</td><td>Zhoršení útěchou — „je mi protivné, nejradši bych utekla“</td><td>Duševní</td><td class="num"><b>3</b></td><td>Malá, vysoce specifická rubrika; klasické rozlišení oproti <span class="rx">Pulsatilla</span>.</td></tr>
+        <tr><td class="num">S3</td><td>Zlepšení všech obtíží intenzivním pohybem, přes celkovou slabost</td><td>Generální</td><td class="num"><b>3</b></td><td><b>SRP</b> — paradoxní: vyčerpaný člověk se zlepší námahou. Vysoká rozlišovací síla.</td></tr>
+        <tr><td class="num">S4</td><td>Pocit tlaku dolů v pánvi, „jako by mělo všechno vypadnout“; musí sedět s překříženými nohama</td><td>Partikulární + SRP</td><td class="num"><b>3</b></td><td>Neobvyklá senzace s vynucenou úlevovou polohou; pozorováno i nonverbálně (přehazování nohou).</td></tr>
+        <tr><td class="num">S5</td><td>Zimomřivá, ale nesnáší dusno; mdloba v teplé místnosti s lidmi</td><td>Generální</td><td class="num"><b>2</b></td><td>Kombinace protikladů s dobrou eliminační silou.</td></tr>
+        <tr><td class="num">S6</td><td>Bolest hlavy nad levým okem, tlačivá zvenčí dovnitř, zlepšení silným tlakem a temnem, zhoršení pohybem a hlukem</td><td>Partikulární modalizovaný</td><td class="num"><b>2</b></td><td>Kompletní symptom; lokalizace + senzace + modalita.</td></tr>
+        <tr><td class="num">S7</td><td>Bolest hlavy vázaná na období před menstruací</td><td>Generální (cyklická modalita)</td><td class="num"><b>2</b></td><td>Silná časová modalita s vazbou na cyklus.</td></tr>
+        <tr><td class="num">S8</td><td>NWS po druhém porodu; hubnutí a nevrácení se do formy</td><td>Kauza</td><td class="num"><b>2</b></td><td>Jasná časová osa, uvedena spontánně. Rubrika „ailments after childbirth“ / hormonální zlom.</td></tr>
+        <tr><td class="num">—</td><td><b>Vyřazeno:</b> „migréna“ (diagnóza) · „vydatná menstruace“ (nemodalizované, časté) · „potí se málo“ (gradace 1) · „zácpa“ bez charakteristiky (ponecháno jen jako sledovaný parametr) · „přerušovaný spánek“ v obecné podobě — použito jen upřesnění „probuzení ve 4 h s obavami“</td><td></td><td class="num">0</td><td>Společné, nekompletní nebo nejisté symptomy; zůstávají v záznamu pro sledování vývoje.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="ch5-8-2">Krok 3: rubriky</h3>
+  <div class="tablewrap">
+    <table>
+      <caption>Překlad na rubriky (Synthesis / Complete, orientační velikosti)</caption>
+      <thead><tr><th>#</th><th>Rubrika</th><th>Velikost</th><th>Poznámka k volbě</th></tr></thead>
+      <tbody>
+        <tr><td class="num">S1</td><td><i>Mind — indifference — loved ones, to</i></td><td>malá (~30)</td><td>Zvolena úzká rubrika, protože symptom je jistý a spontánní. Alternativa <i>Mind — indifference</i> (velká) by rozmělnila.</td></tr>
+        <tr><td class="num">S2</td><td><i>Mind — consolation — aggravates</i></td><td>střední (~60)</td><td>Přímý překlad výpovědi.</td></tr>
+        <tr><td class="num">S3</td><td><i>Generals — exertion — ameliorates</i> (+ <i>motion, ameliorates</i>)</td><td>malá (~40)</td><td>Bönninghausenovská generalizace obhájená otázkou — platí pro celý stav, nejen pro hlavu.</td></tr>
+        <tr><td class="num">S4</td><td><i>Female — prolapsus — sensation of</i> / <i>Abdomen — bearing down sensation</i></td><td>střední</td><td>Zvolena senzace, ne diagnóza (prolaps skutečně nemá).</td></tr>
+        <tr><td class="num">S5</td><td><i>Generals — warm — room, aggravates</i> + <i>Generals — chilly</i></td><td>střední</td><td>Dvě rubriky, protože jde o dvě samostatná tvrzení, ne o jedno.</td></tr>
+        <tr><td class="num">S6</td><td><i>Head — pain — above eyes, left</i> + <i>Head — pain — pressure, ameliorated by</i></td><td>střední</td><td>Lokalizace se stranovostí a modalita zlepšení; senzaci „zvenčí dovnitř“ lze doplnit rubrikou <i>— pressing inward</i>.</td></tr>
+        <tr><td class="num">S7</td><td><i>Head — pain — menses — before</i></td><td>střední</td><td>Cyklická modalita.</td></tr>
+        <tr><td class="num">S8</td><td><i>Generals — ailments from — childbirth, after</i></td><td>malá</td><td>Kauza jako rubrika.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="ch5-8-3">Krok 4–5: repertorizační mřížka</h3>
+  <div class="tablewrap">
+    <table class="grid-rep">
+      <caption>Mřížka — kentiánská metoda. Hodnoty = gradace léku v rubrice (1–3), v hranatých závorkách vážený součin s váhou symptomu</caption>
+      <thead>
+        <tr>
+          <th style="min-width:15rem">Rubrika</th>
+          <th class="num" style="width:3rem">váha</th>
+          <th class="num rx-col">Sepia</th>
+          <th class="num rx-col">Natrium muriaticum</th>
+          <th class="num rx-col">Lycopodium</th>
+          <th class="num rx-col">Pulsatilla</th>
+          <th class="num rx-col">Lilium tigrinum</th>
+          <th class="num rx-col">Murex</th>
+          <th class="num rx-col">Phosphorus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Mind — indifference — loved ones, to</td><td class="num">3</td>
+          <td class="num g4">3 [9]</td><td class="num g3">2 [6]</td><td class="num g1">1 [3]</td><td class="num g0">–</td><td class="num g1">1 [3]</td><td class="num g0">–</td><td class="num g1">1 [3]</td></tr>
+        <tr><td>Mind — consolation — aggravates</td><td class="num">3</td>
+          <td class="num g4">3 [9]</td><td class="num g4">3 [9]</td><td class="num g1">1 [3]</td><td class="num g0">–</td><td class="num g0">–</td><td class="num g0">–</td><td class="num g0">–</td></tr>
+        <tr><td>Generals — exertion / motion — ameliorates</td><td class="num">3</td>
+          <td class="num g4">3 [9]</td><td class="num g0">–</td><td class="num g1">1 [3]</td><td class="num g3">2 [6]</td><td class="num g3">2 [6]</td><td class="num g1">1 [3]</td><td class="num g0">–</td></tr>
+        <tr><td>Abdomen / Female — bearing down, sensation of</td><td class="num">3</td>
+          <td class="num g4">3 [9]</td><td class="num g1">1 [3]</td><td class="num g1">1 [3]</td><td class="num g1">1 [3]</td><td class="num g4">3 [9]</td><td class="num g3">2 [6]</td><td class="num g0">–</td></tr>
+        <tr><td>Generals — warm room — aggravates</td><td class="num">2</td>
+          <td class="num g3">2 [4]</td><td class="num g3">2 [4]</td><td class="num g3">2 [4]</td><td class="num g4">3 [6]</td><td class="num g1">1 [2]</td><td class="num g0">–</td><td class="num g1">1 [2]</td></tr>
+        <tr><td>Generals — chilly</td><td class="num">2</td>
+          <td class="num g4">3 [6]</td><td class="num g3">2 [4]</td><td class="num g3">2 [4]</td><td class="num g0">–</td><td class="num g1">1 [2]</td><td class="num g1">1 [2]</td><td class="num g1">1 [2]</td></tr>
+        <tr><td>Head — pain — above eyes, left</td><td class="num">2</td>
+          <td class="num g3">2 [4]</td><td class="num g3">2 [4]</td><td class="num g1">1 [2]</td><td class="num g1">1 [2]</td><td class="num g1">1 [2]</td><td class="num g0">–</td><td class="num g1">1 [2]</td></tr>
+        <tr><td>Head — pain — pressure, ameliorated by</td><td class="num">2</td>
+          <td class="num g3">2 [4]</td><td class="num g3">2 [4]</td><td class="num g1">1 [2]</td><td class="num g3">2 [4]</td><td class="num g0">–</td><td class="num g0">–</td><td class="num g0">–</td></tr>
+        <tr><td>Head — pain — menses, before</td><td class="num">2</td>
+          <td class="num g3">2 [4]</td><td class="num g4">3 [6]</td><td class="num g1">1 [2]</td><td class="num g3">2 [4]</td><td class="num g1">1 [2]</td><td class="num g0">–</td><td class="num g0">–</td></tr>
+        <tr><td>Generals — ailments from — childbirth, after</td><td class="num">2</td>
+          <td class="num g4">3 [6]</td><td class="num g1">1 [2]</td><td class="num g0">–</td><td class="num g3">2 [4]</td><td class="num g1">1 [2]</td><td class="num g0">–</td><td class="num g0">–</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td>Počet pokrytých rubrik (z 10)</td><td class="num">—</td>
+          <td class="num">10</td><td class="num">9</td><td class="num">9</td><td class="num">7</td><td class="num">8</td><td class="num">4</td><td class="num">5</td></tr>
+        <tr><td>Vážený součet</td><td class="num">—</td>
+          <td class="num">64</td><td class="num">42</td><td class="num">26</td><td class="num">29</td><td class="num">28</td><td class="num">11</td><td class="num">9</td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <p class="small">Poznámka k použití: gradace v tabulce jsou zjednodušené pro výukový účel a mohou se mezi repertorii lišit. Přesné hodnoty vždy ověřte ve vlastním repertoriu — a právě tato nutnost je jedním z důvodů, proč se výsledek mřížky nikdy nebere jako verdikt.</p>
+
+  <h3 id="ch5-8-4">Krok 6: čtení mřížky</h3>
+  <ul>
+    <li><b><span class="rx">Sepia</span></b> — pokrývá všech 10 rubrik, v pěti z nich gradací 3, nejvyšší vážený součet. Silný kandidát.</li>
+    <li><b><span class="rx">Natrium muriaticum</span></b> — 9 rubrik, druhý součet. Sedí na útěchu, bolest hlavy před menses, zimomřivost; <b>chybí však v rubrice „zlepšení námahou“</b>, což je jeden ze tří nejsilnějších symptomů případu. To je vážný argument proti.</li>
+    <li><b><span class="rx">Lycopodium</span></b> — 9 rubrik, ale téměř vše gradací 1. Typický příklad, proč se nesmí hledět jen na počet pokrytých rubrik: <b>polychrest je „všude trochu“</b>.</li>
+    <li><b><span class="rx">Lilium tigrinum</span></b> — malý lék s výraznou shodou v pánevním tlaku a zlepšení pohybem; chybí ale ve dvou klíčových duševních rubrikách.</li>
+    <li><b><span class="rx">Pulsatilla</span></b> — vypadla by hned, kdybychom použili <b>eliminační rubriku „consolation aggravates“</b>: <span class="rx">Pulsatilla</span> je naopak útěchou zlepšena. Ukázka, jak eliminační rubrika ušetří práci.</li>
+  </ul>
+
+  <h3 id="ch5-8-5">Krok 7: kontrola druhou metodou</h3>
+  <p>Boger–Bönninghausenův přístup zde postupuje jinak: nezajímá ho primárně duševní obraz, nýbrž <b>vzorec modalit</b>. Vezme jako eliminační kritéria (1) <i>zlepšení pohybem a námahou</i>, (2) <i>zhoršení v teplé místnosti při současné zimomřivosti</i>, (3) <i>pocit tlaku dolů</i>, (4) <i>zhoršení před menstruací</i>. Průsečík těchto čtyř v malém, spolehlivém okruhu léků dává rovněž <span class="rx">Sepia</span>, s <span class="rx">Lilium tigrinum</span> jako druhou možností. <b>Shoda dvou metodicky odlišných cest je nejsilnější potvrzení, které repertorizace může poskytnout</b> — a v ústní zkoušce je to argument, který zapůsobí víc než jakýkoli součet.</p>
+
+  <h3 id="ch5-8-6">Krok 8: potvrzení v Materii medice a diferenciace</h3>
+  <div class="tablewrap">
+    <table>
+      <caption>Diferenciální diagnostika tří hlavních kandidátů</caption>
+      <thead><tr><th></th><th><span class="rx">Sepia</span></th><th><span class="rx">Natrium muriaticum</span></th><th><span class="rx">Lilium tigrinum</span></th></tr></thead>
+      <tbody>
+        <tr><td><b>Jádro obrazu</b></td><td>Vyčerpání s <b>lhostejností k blízkým</b> a potřebou být sama; podráždění, když se něco žádá; vyčerpání hormonálními zlomy (porod, laktace, klimakterium).</td><td>Uzavřené hoře, staré křivdy, neschopnost plakat před lidmi; touha po blízkosti, kterou nedovolí.</td><td>Vnitřní spěch a chaos, konflikt mezi „chtíčem“ a morálkou, kmitání mezi excitací a depresí.</td></tr>
+        <tr><td><b>Útěcha</b></td><td>Zhoršuje — ale jde spíše o <b>lhostejnost a podráždění</b>, chce být nechána na pokoji.</td><td>Zhoršuje — ale s <b>bolestivou zranitelností</b>: útěcha otevírá ránu, pacientka odejde plakat sama.</td><td>Proměnlivé; potřeba mluvit o svém stavu.</td></tr>
+        <tr><td><b>Energie a pohyb</b></td><td><b>Zlepšení intenzivním pohybem</b>, přes celkovou slabost — charakteristické.</td><td>Pohyb obvykle neřeší; zhoršení sluncem a horkem.</td><td>Zlepšení pohybem a chladným vzduchem; nutkání být v pohybu.</td></tr>
+        <tr><td><b>Pánevní oblast</b></td><td>Tlak dolů, prolapsus, potřeba překřížit nohy — klíčový znak.</td><td>Suchost, bolestivý koitus, tlak méně typický.</td><td>Silný tlak dolů, urgence, „jako by pánevní orgány vypadly“ — soupeří se <span class="rx">Sepia</span>.</td></tr>
+        <tr><td><b>Termoregulace</b></td><td>Zimomřivá, ale nesnáší dusno; potřeba vzduchu.</td><td>Zimomřivá; zhoršení sluncem, u moře.</td><td>Spíše zlepšení chladem.</td></tr>
+        <tr><td><b>Chuť</b></td><td>Kyselé, ocet; averze k mléku a k tučnému.</td><td><b>Silná chuť na sůl</b>; averze k tučnému, k chlebu.</td><td>Bez charakteristické chuti.</td></tr>
+        <tr><td><b>Rozhodující rozdíl v tomto případu</b></td><td colspan="3">Pacientka má <b>lhostejnost, ne hoře</b>; <b>zlepšení námahou</b>; <b>chuť na kyselé, averze k mléku</b>; kauzu <b>po porodu</b>. To vše hovoří pro <span class="rx">Sepia</span>. <span class="rx">Natrium muriaticum</span> by vyžadovalo přítomnost uzavřeného hoře, chuti na sůl a bolestivého odmítání útěchy; <span class="rx">Lilium tigrinum</span> vnitřní spěch a morální konflikt — ani jedno v případu není.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box box--exam">
+    <p class="box__t">Předpis a plán — jak se zapisuje</p>
+    <p><b>Lék:</b> <span class="rx">Sepia officinalis</span>. <b>Potence:</b> 200C, jedna dávka (odůvodnění: chronický případ, dobrá vitalita, jasné duševní symptomy, bez hrubé patologie — viz kritéria v <a class="xref" href="#ch7-6">okruhu 7.6</a>). <b>Forma:</b> granule pod jazyk, nalačno, bez zápachů. <b>Opakování:</b> neopakovat; při návratu symptomů po předchozím zlepšení kontaktovat.</p>
+    <p><b>Predikce (zapsat před podáním):</b> do 2–3 týdnů očekávám zlepšení energie a náladového odstupu k dětem; frekvence migrén by se měla snížit do 2–3 cyklů; možná krátká aggravace do 3–5 dnů. <b>Kritérium selhání:</b> žádná změna v energii a v prožívání do 6 týdnů → přehodnotit případ, nikoli zvýšit potenci.</p>
+    <p><b>Bezpečnostní instrukce:</b> triptan při ataku užívat dále podle potřeby a vést si záznam spotřeby; při nové kvalitě bolesti hlavy, neurologickém příznaku, bolesti nad 15 dní v měsíci nebo nárůstu spotřeby analgetik neurologické vyšetření. <b>Sledované parametry:</b> počet dní s migrénou/měsíc, spotřeba triptanu, hodnocení energie 0–10, spánek.</p>
+    <p><b>Kontrola:</b> za 6 týdnů; dříve při zhoršení.</p>
+  </div>
+
+  <h2 id="ch5-9">5.9 Od repertorizace k předpisu</h2>
+  <p>Tři pravidla, která zabraňují nejčastější chybě celého okruhu — předepsat z tabulky.</p>
+  <ol>
+    <li><b>Mřížka dává kandidáty, MM dává lék.</b> Z mřížky vyjdou tři až pět léků; rozhodne se v Materii medice srovnáním celkového obrazu, „jádra“ léku a případu.</li>
+    <li><b>Chybějící symptom váží více než symptom navíc.</b> Jestliže lék nemá to, co je v případu nejvýraznější, není to simile — bez ohledu na součet. Naopak to, že lék má v MM symptomy, které pacientka nemá, není argument proti (obraz léku je souhrn všech provingů, žádný pacient nemá celý).</li>
+    <li><b>Rozhodnutí se zapisuje s důvodem.</b> Nejen „Sepia 200C“, ale „Sepia — pro lhostejnost k blízkým, zlepšení námahou, tlak dolů, kauza po porodu; proti Nat-m. mluví absence hoře a chuti na sůl“. Tento zápis je současně příprava na ústní zkoušku a jediný způsob, jak se z případu později poučit.</li>
+  </ol>
+
+  <h2 id="ch5-10">5.10 Moderní směry — přehledově</h2>
+  <div class="tablewrap">
+    <table>
+      <caption>Moderní analytické školy</caption>
+      <thead><tr><th>Autor / směr</th><th>Klíčová myšlenka</th><th>Přínos</th><th>Metodické riziko</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Rajan Sankaran</b><br><span class="small">senzační metoda, „úrovně zkušenosti“</span></td>
+          <td>Za symptomy leží <b>centrální senzace</b> a <b>vitální pocit</b> — způsob, jakým pacient prožívá svět (např. „jsem pronásledován a musím uniknout“). Léky se dělí do <b>říší</b> (rostlina/minerál/živočich) a rostliny do <b>čeledí</b> podle společné senzace; minerály podle Scholtenovy systematiky.</td>
+          <td>Otevírá cestu k lékům, které repertorium nemá dobře zmapované; dává učení MM strukturu; pomáhá u případů, kde symptomy nejsou charakteristické.</td>
+          <td>Přechod od <em>pozorovaného symptomu</em> k <em>interpretované senzaci</em> zvyšuje podíl výkladu, a tedy i riziko projekce a nepřezkoumatelnosti. Kritici v tom vidí opuštění Hahnemannova empirického základu (§ 6).</td>
+        </tr>
+        <tr>
+          <td><b>Jan Scholten</b><br><span class="small">systematika prvků, Element Theory</span></td>
+          <td>Minerální léky lze uspořádat podle <b>periodické tabulky</b>: řada (série) určuje téma života, skupina (stage) určuje fázi vývoje tématu. Z pozice prvku lze <b>dedukovat</b> obraz léku, i když nebyl proveden proving.</td>
+          <td>Umožnil systematizovat stovky dosud nepoužívaných léků; u některých byla predikce klinicky potvrzena; velmi užitečné didakticky.</td>
+          <td><b>Deduktivní odvození obrazu léku bez provingu je obrácení metody.</b> Homeopatie se z empirické stává teoretickou disciplínou. To je nejcitovanější výtka klasiků a u zkoušky je třeba ji znát.</td>
+        </tr>
+        <tr>
+          <td><b>Massimo Mangialavori</b><br><span class="small">tematické skupiny léků</span></td>
+          <td>Léky se seskupují podle <b>klinicky ověřených společných témat</b>, dokumentovaných dlouhodobě sledovanými případy.</td>
+          <td>Silná vazba na doložené kazuistiky; udržuje empirickou kotvu.</td>
+          <td>Skupinové myšlení může zastřít individuální rozdíly mezi léky.</td>
+        </tr>
+        <tr>
+          <td><b>George Vithoulkas</b><br><span class="small">úrovně zdraví</span></td>
+          <td>Pacienty lze zařadit do <b>úrovní zdraví</b> (1–12) podle reaktivity, hloubky patologie a rodinné zátěže; z úrovně se vyvozuje prognóza, volba potence i očekávaný průběh reakce.</td>
+          <td>Systematizuje prognózu a vysvětluje, proč stejný lék působí u různých pacientů jinak; užitečné pro rozhodování o potenci a o opakování.</td>
+          <td>Zařazení do úrovně je opět expertní úsudek; hrozí post hoc vysvětlování selhání („pacient byl na nízké úrovni“) — tedy nefalzifikovatelnost.</td>
+        </tr>
+        <tr>
+          <td><b>Bogerovská a „klasicky-hahnemannovská“ renesance</b></td>
+          <td>Návrat k malým spolehlivým repertoriím a k Hahnemannovu textu; skepse k dedukci a k velkým syntézám.</td>
+          <td>Metodická přísnost; dobrá dohledatelnost zdrojů.</td>
+          <td>Omezený okruh léků; riziko doktrinálního konzervatismu.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Zkoušková poloha:</b> moderní směry znát, umět je popsat a ocenit jejich přínos — a současně umět pojmenovat, kde opouštějí empirickou základnu. Nejčastější otázka zní: <i>„Je Scholtenova metoda homeopatie?“</i> Bezpečná odpověď: <i>„Je to homeopatická analytická metoda, která ale obraz léku deduktivně odvozuje, místo aby ho čerpala z provingu; tím se vzdaluje Hahnemannovu požadavku v § 20–21. V praxi ji lze použít jako heuristiku pro výběr kandidáta, výsledek je však třeba potvrdit symptomatickou shodou.“</i></p>
+
+  <h2 id="ch5-11">5.11 Software</h2>
+  <div class="tablewrap">
+    <table>
+      <caption>Hlavní homeopatický software</caption>
+      <thead><tr><th>Program</th><th>Repertoria a knihovna</th><th>Charakteristika</th></tr></thead>
+      <tbody>
+        <tr><td><b>RadarOpus</b></td><td><i>Synthesis</i> (Schroyens) jako hlavní repertorium; rozsáhlá knihovna MM, provingy, časopisy, moduly (Vithoulkas Expert System, Sankaran, Bönninghausen).</td><td>Nejrozšířenější; rozsáhlé, nákladné, vysoká konfigurovatelnost analýzy (vážení rubrik, různé algoritmy hodnocení, eliminace).</td></tr>
+        <tr><td><b>Complete Dynamics</b></td><td><i>Complete Repertory</i> (van Zandvoort); MM, Bönninghausenovo <i>Taschenbuch</i>.</td><td>Moderní rozhraní, dostupná i bezplatná prohlížecí verze; přehledná práce se zdroji rubrik a autorskými značkami.</td></tr>
+        <tr><td><b>Další</b></td><td>MacRepertory / ReferenceWorks (Kent Homeopathic Associations), Hompath, Vithoulkas Compass (webová aplikace).</td><td>MacRepertory je historicky spojen s americkou školou a grafickými analýzami (Grant Bentley, „family“ analýzy).</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box box--crit">
+    <p class="box__t">Co software mění — a v čem klame</p>
+    <ul>
+      <li><b>Co skutečně přináší:</b> rychlost, dohledatelnost zdrojů rubrik, možnost zkoušet varianty analýzy, práci s velkým počtem léků, srovnání více repertorií.</li>
+      <li><b>Kde vzniká riziko:</b> (1) snadnost přidávání rubrik vede k mřížkám s dvaceti a více rubrikami, v nichž nutně zvítězí polychresty; (2) grafické zobrazení výsledku vytváří dojem přesnosti, jakou data nemají; (3) automatické algoritmy skrývají, které vážení bylo použito — a různá nastavení dávají různé žebříčky <em>ze týchž rubrik</em>; (4) uživatel přestane číst Materii mediku.</li>
+      <li><b>Praktické pravidlo:</b> software používat pro krok 4 (mřížka) a pro dohledávání zdrojů; krok 3 (výběr rubrik) a krok 5 (potvrzení v MM) zůstávají prací homeopata. Kdo dovolí softwaru dělat krok 5, předepisuje podle tabulky.</li>
+    </ul>
+  </div>
+
+  <h2 id="ch5-12">5.12 Časté chyby</h2>
+  <div class="tablewrap">
+    <table>
+      <caption>Deset chyb repertorizace</caption>
+      <thead><tr><th>#</th><th>Chyba</th><th>Následek</th><th>Náprava</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td><b>Předpis z mřížky</b> bez potvrzení v MM</td><td>Předepsán lék, který „vyhrál tabulku“, ale nemá jádro případu.</td><td>Vždy krok 5; zapsat, co v MM potvrzuje a co odporuje.</td></tr>
+        <tr><td class="num">2</td><td><b>Příliš mnoho rubrik</b> (15–25)</td><td>Vyhrají polychresty; případ se rozmělní.</td><td>6–10 rubrik s jasnou váhou.</td></tr>
+        <tr><td class="num">3</td><td><b>Příliš velké rubriky</b></td><td>Nulová rozlišovací síla; zvýhodnění velkých léků.</td><td>Zúžit lokalizací, senzací, modalitou; nebo vynechat.</td></tr>
+        <tr><td class="num">4</td><td><b>Dvojí zápis téhož symptomu</b></td><td>Uměle zdvojená váha; zkreslený součet.</td><td>Jedna úroveň rubriky na jeden symptom.</td></tr>
+        <tr><td class="num">5</td><td><b>Neoprávněná generalizace</b></td><td>Modalita platná pro jeden orgán se vztáhne na celek.</td><td>Ověřit otázkou, zda platí i mimo dané místo.</td></tr>
+        <tr><td class="num">6</td><td><b>Repertorizace patognomických symptomů</b></td><td>Do mřížky vstoupí symptomy diagnózy, ne pacienta.</td><td>Vyřadit podle § 153 (→ <a class="xref" href="#ch3-5">okruh 3.5</a>).</td></tr>
+        <tr><td class="num">7</td><td><b>Chybná eliminační rubrika</b></td><td>Vyřazen správný lék; celá analýza je ztracena.</td><td>Eliminovat jen jistým symptomem (gradace 3, spontánní).</td></tr>
+        <tr><td class="num">8</td><td><b>Sledování jen součtu</b>, ne počtu pokrytých rubrik</td><td>Lék s výraznou shodou v části a mezerami v celku.</td><td>Hodnotit primárně pokrytí, sekundárně součet.</td></tr>
+        <tr><td class="num">9</td><td><b>Interpretace místo výpovědi</b> při volbě rubriky</td><td>Repertorizuje se terapeutův výklad.</td><td>Držet se pacientových slov; doptat se, co znamenají.</td></tr>
+        <tr><td class="num">10</td><td><b>Absence predikce a kritérií selhání</b></td><td>Nelze poznat, že volba byla chybná; léčba pokračuje bez konce.</td><td>Zapsat očekávaný vývoj, čas a kritéria, kdy měnit postup.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="keyterms">
+    <p class="box__t">Klíčové pojmy okruhu 5</p>
+    <ul>
+      <li><a class="term" data-term="repertorium">repertorium</a></li>
+      <li><a class="term" data-term="rubrika">rubrika</a></li>
+      <li><a class="term" data-term="repertorizace">repertorizace</a></li>
+      <li><a class="term" data-term="repertorizacni-mrizka">repertorizační mřížka</a></li>
+      <li><a class="term" data-term="gradace-leku">gradace léku</a></li>
+      <li><a class="term" data-term="eliminacni-rubrika">eliminační rubrika</a></li>
+      <li><a class="term" data-term="polychrest">polychrest</a></li>
+      <li><a class="term" data-term="generalizace">generalizace</a></li>
+      <li><a class="term" data-term="simile">simile</a></li>
+      <li><a class="term" data-term="komplementarni-leky">komplementární léky</a></li>
+      <li><a class="term" data-term="mezihodnotitelska-shoda">mezihodnotitelská shoda</a></li>
+      <li><a class="term" data-term="centralni-senzace">centrální senzace</a></li>
+      <li><a class="term" data-term="urovne-zdravi">úrovně zdraví</a></li>
+    </ul>
+  </div>
+
+  <div class="qset">
+    <p class="box__t">Kontrolní otázky — okruh 5</p>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Co je repertorium, jak se liší od Materie mediky a jaké je jeho místo v procesu?</summary>
+    <div class="a">
+      <p><b>Materia medica</b> je organizována podle léků: lék → jeho symptomy. <b>Repertorium</b> je obrácený index: symptom → léky, které jej mají.</p>
+      <p><b>Místo v procesu:</b> čtvrtý krok ze sedmi (odběr → hodnocení → rubriky → <b>mřížka</b> → Materia medica → předpis → follow-up). Repertorium <b>zužuje okruh kandidátů</b>, nikoli určuje lék. Lék určuje srovnání celkového obrazu v Materii medice.</p>
+      <p><b>Doplnění pro body:</b> toto není moderní relativizace — Kent sám varoval před „repertorizačním předepisováním“ a Bönninghausen své <i>Taschenbuch</i> označoval za pomůcku pro paměť, ne za rozhodovací nástroj.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Popište rozdíl mezi Kentovým a Bönninghausenovým repertoriem a řekněte, kdy použijete které.</summary>
+    <div class="a">
+      <p><b>Kent (1897):</b> anatomicky řazené, uvnitř kapitol od generálních k partikulárním; kapitola Mind na prvním místě; gradace 1–3; ~650 léků. Podporuje kentiánskou hierarchii s primátem duševních symptomů. <b>Použití:</b> chronické konstituční případy u sdílného, introspektivního pacienta.</p>
+      <p><b>Bönninghausen (<i>Therapeutisches Taschenbuch</i>, 1846):</b> řazené podle lokalizací, senzací, <b>modalit a konkomitantů</b>; jen 125 léků, ale vysoká spolehlivost údajů (převážně Hahnemannovy provingy); obsahuje princip generalizace a „concordances“ (vztahy léků). <b>Použití:</b> akutní případy, případy s málo symptomy, nesdílní pacienti, malé děti, dementní pacienti, případy s dominantní patologií.</p>
+      <p><b>Zásadní dodatek:</b> nejde o dvě velikosti téhož nástroje. Malé repertorium má nižší pokrytí, ale <b>vyšší informační hodnotu jednotlivého údaje</b>; velké syntézy (Synthesis, Complete) mají vyšší pokrytí a nižší spolehlivost jednotlivého zařazení, protože čerpají z velmi nesourodých zdrojů. Proto dobré syntézy uvádějí autora a zdroj rubriky.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Co znamená gradace léku v rubrice a co gradace není?</summary>
+    <div class="a">
+      <p><b>Znamená</b> redakční hodnocení spolehlivosti a četnosti výskytu symptomu u daného léku ve zdrojích (provingy, klinická potvrzení). Kentova typografie: VELKÁ PÍSMENA = 3, <i>kurzíva</i> = 2, obyčejné písmo = 1. Moderní syntézy používají i stupeň 4 (v Kentovi neexistuje).</p>
+      <p><b>Není to:</b> (a) míra intenzity symptomu u pacienta, (b) statistická pravděpodobnost, že lék pomůže, (c) srovnatelná hodnota mezi různými repertorii. Právě proto se čísla z různých repertorií nesmějí míchat ani porovnávat.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Pacient řekne: „Když jsem ve stresu, mám nutkání všechno srovnat a zkontrolovat, jinak nemůžu spát.“ Navrhněte rubriky a zdůvodněte.</summary>
+    <div class="a">
+      <p><b>Nejprve doptat, teprve pak rubrika.</b> „Co přesně srovnáváte? Co se stane, když to neuděláte? Je to nutkání, nebo to prostě máte rád? Kontrolujete vícekrát tu samou věc?“ Odpovědi rozhodnou mezi několika velmi odlišnými rubrikami.</p>
+      <p><b>Varianta A — pečlivost jako povahový rys s napětím:</b> <i>Mind — fastidious</i> (+ <i>Mind — order, desire for</i>). Vede k <span class="rx">Arsenicum album</span>, <span class="rx">Nux vomica</span>, <span class="rx">Anacardium</span>.</p>
+      <p><b>Varianta B — nutkavost s úzkostí při nedokončení:</b> <i>Mind — anxiety — conscientious about trifles</i>, <i>Mind — thoughts — persistent</i>, případně <i>Mind — washing — desire to wash</i> u specifických forem. Vede k <span class="rx">Silicea</span>, <span class="rx">Syphilinum</span>, <span class="rx">Carcinosinum</span>.</p>
+      <p><b>Varianta C — kontrola jako obrana proti nejistotě:</b> <i>Mind — checking, twice or more</i>, <i>Mind — irresolution</i>.</p>
+      <p><b>Co nedělat:</b> zvolit <i>Mind — anxiety</i> (obrovská rubrika, nulová rozlišovací síla) nebo si dosadit diagnózu <i>Mind — obsessive</i> bez toho, že by pacient popsal nutkavost. To by byla repertorizace vlastní interpretace, ne pacientovy výpovědi.</p>
+      <p><b>Doplnit modality:</b> kdy je to horší (večer, před termínem, po nevyspání), a čím se to zlepší — modalita zužuje vždy lépe než duševní rubrika samotná.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Proč je počet pokrytých rubrik důležitější než vážený součet?</summary>
+    <div class="a">
+      <p>Protože se hledá <b>podobnost celku</b> (totalita, § 18), ne maximální shoda v části. Lék chybějící v rubrice, která vyjadřuje jasný a silný symptom pacienta, tento symptom <b>nepokrývá</b>, a totalita tedy není naplněna — i kdyby měl ve zbývajících rubrikách gradaci 3 a nejvyšší součet.</p>
+      <p><b>Praktický důsledek:</b> lék přítomný v 8/8 rubrikách s gradací 1–2 je lepší kandidát než lék s gradací 3 ve čtyřech rubrikách a chybějící ve čtyřech.</p>
+      <p><b>Ale pozor na druhou stranu:</b> lék, který je ve všech rubrikách přítomen jen gradací 1, je typicky <b>polychrest</b> — velký lék s tisíci symptomů, který se objeví téměř všude („Lycopodium je všude trochu“). Proto se hodnotí <em>obě</em> čísla společně a k rozhodnutí se přechází do Materie mediky.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Ve vaší mřížce vyhrál <span class="rx">Sulphur</span>, ale žádný z jeho hlavních charakteristických znaků pacient nemá. Co uděláte?</summary>
+    <div class="a">
+      <p><b>Nepředepíšu ho.</b> Toto je učebnicová situace „vyhrál polychrest“ a znamená, že chyba je v mřížce, ne v pacientovi.</p>
+      <p><b>Diagnostika chyby — zkontroluji v tomto pořadí:</b></p>
+      <ol>
+        <li><b>Velikost rubrik.</b> Mám v mřížce rubriky nad ~200 léků? Polychresty jsou v každé velké rubrice. Zúžit nebo vyřadit.</li>
+        <li><b>Počet rubrik.</b> Mám jich patnáct a víc? Čím víc rubrik, tím spolehlivěji vyhraje velký lék. Zredukovat na 6–10.</li>
+        <li><b>Charakteristické symptomy.</b> Použil jsem opravdu SRP a silná generalia, nebo jen společné symptomy diagnózy? Vrátit se k okruhu 3.</li>
+        <li><b>Dvojí zápis.</b> Není tentýž symptom v mřížce dvakrát v různé obecnosti?</li>
+        <li><b>Eliminace.</b> Existuje jistý symptom, který <span class="rx">Sulphur</span> nemá? Pak ho použiji jako eliminační rubriku.</li>
+      </ol>
+      <p><b>Potom:</b> repertorizuji znovu s opravenou sadou rubrik, a pokud vyjde jiný lék, ověřím ho v Materii medice. Případně zkusím <b>druhou metodu</b> (Boger–Bönninghausen s eliminací podle modalit) — shoda dvou různých cest je nejsilnější dostupné potvrzení.</p>
+      <p><b>Co říct u zkoušky:</b> „Výsledek mřížky, který neodpovídá obrazu v Materii medice, je informace o mřížce, nikoli o pacientovi.“</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Vysvětlete na příkladu, jak funguje eliminační rubrika a jaké je její riziko.</summary>
+    <div class="a">
+      <p><b>Princip:</b> vybere se jeden symptom, o němž nemáme pochybnost a který má dobrou eliminační sílu; do další analýzy vstoupí <b>jen léky, které tuto rubriku obsahují</b>. Ostatní jsou vyřazeny bez ohledu na skóre v ostatních rubrikách.</p>
+      <p><b>Příklad z modelového případu (5.8):</b> rubrika <i>Mind — consolation — aggravates</i> vyřadí <span class="rx">Pulsatilla</span>, která je útěchou naopak zlepšena. Tím padne kandidát, který by jinak měl v mřížce slušné skóre (7/10 rubrik), a analýza se zúží na léky se správným vztahem k útěše: <span class="rx">Sepia</span>, <span class="rx">Natrium muriaticum</span>, <span class="rx">Ignatia</span>, <span class="rx">Silicea</span>.</p>
+      <p><b>Riziko:</b> je-li symptom nejistý nebo je-li rubrika zvolena chybně, <b>vyřadíme správný lék nenávratně</b> — a už se k němu nevrátíme, protože v dalších krocích vůbec nefiguruje. Eliminace je tedy nejsilnější a nejnebezpečnější nástroj repertorizace.</p>
+      <p><b>Pravidla bezpečné eliminace:</b> (1) jen symptom gradace 3, spontánně uvedený; (2) jen tam, kde jsem si jistý překladem na rubriku; (2a) raději o stupeň širší rubrika, protože ta lék neztratí (zděděná příslušnost — lék z podrubriky patří i do nadřazené); (3) po eliminaci zkontrolovat, které významné léky vypadly, a ověřit, že to je v pořádku.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Proveďte hodnocení a vyberte rubriky u tohoto případu: muž 52 let, artróza kolen; bolest horší v chladu a vlhku, lepší suchým teplem a při pokračující chůzi, horší při prvním pohybu po klidu; velmi netrpělivý, vyjede a hned se to snaží napravit; velká chuť na uzené a pivo; probouzí se v 5 h a nemůže spát dál; nesnáší kritiku.</summary>
+    <div class="a">
+      <p><b>Hodnocení:</b></p>
+      <ul>
+        <li><b>Vyřadit:</b> „artróza kolen“ (diagnóza), „bolest kolen“ bez modalit (společné).</li>
+        <li><b>SRP / nejcennější:</b> <b>zhoršení prvním pohybem a zlepšení pokračujícím pohybem</b> — paradoxní vzorec s malou rubrikou a velmi vysokou rozlišovací silou.</li>
+        <li><b>Generalia:</b> zhoršení vlhkým chladem, zlepšení suchým teplem; chuť na uzené a pivo; probuzení v 5 h.</li>
+        <li><b>Duševní:</b> netrpělivost s výbuchem a snahou napravit; nesnášení kritiky.</li>
+      </ul>
+      <p><b>Rubriky:</b></p>
+      <ol>
+        <li><i>Generals — motion — beginning to move, aggravates</i> + <i>Generals — motion — continued motion, ameliorates</i> — váha 3, eliminační kandidát.</li>
+        <li><i>Generals — damp weather, aggravates</i> — váha 3.</li>
+        <li><i>Generals — warmth — dry heat, ameliorates</i> (příp. <i>— applications, warm, ameliorate</i>) — váha 2.</li>
+        <li><i>Extremities — pain — knees — motion, on first</i> — váha 2 (partikulární s modalitou).</li>
+        <li><i>Mind — impatience</i> — váha 2; upřesnit, zda nejde spíše o <i>Mind — hurry</i> nebo <i>Mind — anger — quick, followed by repentance</i>, což by bylo specifičtější.</li>
+        <li><i>Sleep — waking — 5 h</i> (příp. <i>— early waking</i>) — váha 2.</li>
+        <li><i>Generals — food — smoked food, desire</i> a <i>— beer, desire</i> — váha 2.</li>
+        <li><i>Mind — sensitive — criticism, to</i> — váha 1–2 podle intenzity.</li>
+      </ol>
+      <p><b>Kam to vede:</b> vzorec „horší prvním pohybem, lepší pokračujícím, horší vlhkým chladem, lepší teplem“ je jádro <span class="rx">Rhus toxicodendron</span>; netrpělivost, chuť na uzené a pivo, ranní probuzení a citlivost na kritiku posouvají úvahu ke <span class="rx">Causticum</span>, <span class="rx">Calcarea carbonica</span> a <span class="rx">Nux vomica</span>. Rozhodnout v Materii medice — nikoli v mřížce.</p>
+      <p><b>Bezpečnost:</b> u artrózy ověřit, že nejde o zánětlivou artropatii (ranní ztuhlost nad hodinu, otoky malých kloubů, systémové projevy) nebo o septickou artritidu (horečka, zarudlé horké koleno) — to je lékařská záležitost.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Fakta</span>Popište Scholtenovu a Sankaranovu metodu a řekněte, v čem je jejich metodické riziko.</summary>
+    <div class="a">
+      <p><b>Scholten — systematika prvků.</b> Minerální léky se uspořádají podle periodické tabulky: řada (série) určuje téma života, skupina (stage) fázi rozvoje tématu. Z pozice prvku lze <b>dedukovat</b> obraz léku i bez provingu. <b>Přínos:</b> systematizace stovek dříve nepoužívaných léků, didaktická přehlednost, některé predikce klinicky potvrzeny.</p>
+      <p><b>Sankaran — senzační metoda.</b> Za symptomy leží <b>centrální senzace</b> a <b>vitální pocit</b> (způsob prožívání světa); léky se člení podle říší a rostlinných čeledí podle společné senzace. <b>Přínos:</b> cesta k lékům bez dobrého repertoriálního pokrytí, struktura pro učení MM, použitelnost tam, kde symptomy nejsou charakteristické.</p>
+      <p><b>Metodické riziko — společné jádro:</b> obojí posouvá základ z <em>pozorovaného symptomu</em> na <em>interpretovanou kategorii</em>. U Scholtena navíc <b>deduktivní odvození obrazu léku bez provingu obrací metodu</b>: Hahnemann v § 20–21 výslovně žádá, aby se léčivá síla poznávala z pozorovaných změn u zdravých. U Sankarana roste podíl výkladu, a tím i riziko projekce terapeuta a nepřezkoumatelnosti.</p>
+      <p><b>Zkoušková formulace:</b> „Je to homeopatická analytická metoda, která ale obraz léku částečně odvozuje místo pozorování. V praxi ji lze použít jako heuristiku k výběru kandidáta; výsledek je nutno potvrdit symptomatickou shodou.“</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Kolega přinese analýzu s 22 rubrikami a výsledkem „Sulphur, Lycopodium, Calcarea carbonica, Phosphorus“. Co mu řeknete?</summary>
+    <div class="a">
+      <p>Že jeho výsledek není odpovědí o pacientovi, ale <b>artefaktem metody</b>. Čtyři jmenované léky jsou největší polychresty repertoria; objeví se v každé mřížce, která má mnoho velkých rubrik, prakticky bez ohledu na případ.</p>
+      <p><b>Co doporučit konkrétně:</b></p>
+      <ol>
+        <li><b>Zredukovat na 6–10 rubrik</b> a u každé napsat, proč tam je.</li>
+        <li><b>Zkontrolovat velikosti</b> — vyřadit nebo zúžit vše nad ~200 léků.</li>
+        <li><b>Najít SRP</b> — co je v tomto případu nápadné, zvláštní, neobvyklé? Pokud nic, případ je jednostranný a řeší se jinak (→ <a href="#ch4-4">okruh 4.4</a>).</li>
+        <li><b>Odstranit duplicity</b> — tentýž symptom v obecné i specifické rubrice.</li>
+        <li><b>Použít eliminační rubriku</b> z jistého symptomu.</li>
+        <li><b>Zkusit druhou metodu</b> (modality podle Bögera–Bönninghausena) a porovnat.</li>
+        <li><b>Otevřít Materii mediku</b> a zjistit, zda některý z kandidátů má jádro obrazu, které pacient skutečně žije.</li>
+      </ol>
+      <p><b>A jednu obecnou poznámku:</b> snadnost přidávání rubrik je hlavní systematické riziko softwaru. Grafický výstup přitom vytváří dojem přesnosti, kterou data nemají. Různá nastavení vážení dávají ze týchž rubrik různé žebříčky — což je samo dostatečný důvod, proč se z mřížky nepředepisuje.</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>Jak byste u zkoušky odpověděli na otázku, proč se výsledky repertorizace mezi homeopaty rozcházejí?</summary>
+    <div class="a">
+      <p>Odpověď ve třech vrstvách — popis, důvody, řešení:</p>
+      <p><b>Popis (bez obcházení):</b> „Rozcházejí se prokazatelně. Studie s nezávislou analýzou téhož zaznamenaného případu nacházejí malý přesah zvolených rubrik a shodu ve výsledném léku často pod polovinou případů.“</p>
+      <p><b>Důvody:</b> (1) překlad výpovědi na rubriku není standardizován a nemá referenční řešení; (2) volba velikosti rubriky mění výsledek; (3) gradace jsou redakční hodnocení heterogenních zdrojů, nikoli kalibrovaná měřítka; (4) různá repertoria obsahují různá zařazení; (5) různá nastavení vážení dávají různé žebříčky; (6) výběr symptomů před repertorizací je expertní úsudek s vlastním rozptylem (→ <a href="#ch3-1">okruh 3.1</a>).</p>
+      <p><b>Co to znamená a co s tím:</b> „Znamená to, že repertorizace není měření, nýbrž systematizovaný způsob zúžení hypotéz, a že reliabilita je omezená. Prakticky s tím pracuji tak, že výběr rubrik písemně odůvodňuji, výsledek potvrzuji v Materii medice, používám dvě metodicky odlišné cesty a jejich shodu beru jako nejlepší dostupné potvrzení, a dopředu zapisuji, co má léčba přinést a do kdy. Tím je moje rozhodnutí přezkoumatelné a mohu se doložitelně mýlit.“</p>
+      <p><b>Čeho se vyhnout:</b> tvrzení, že rozdílné léky vedou vždy ke stejnému cíli (nedoloženo), nebo že „dobrý homeopat pozná lék intuitivně“ (ruší přezkoumatelnost a je to přesně to, co komise nechce slyšet).</p>
+    </div></details>
+
+    <details class="q"><summary><span class="qtag">Aplikace</span>V modelovém případu (5.8) by se dala zvažovat i <span class="rx">Natrium muriaticum</span>. Uveďte, které nálezy by musely být přítomny, aby se stala lékem volby.</summary>
+    <div class="a">
+      <p>Musely by být přítomny tyto znaky, které v případu <b>chybí</b>:</p>
+      <ul>
+        <li><b>Uzavřené hoře s konkrétním obsahem</b> — stará křivda, zrada, ztráta, kterou pacientka opakovaně přehrává; „nemůže na to zapomenout“.</li>
+        <li><b>Neschopnost plakat před lidmi</b> s pláčem v soukromí — a to nikoli z lhostejnosti, ale z <em>bolestivé zranitelnosti</em>. Zásadní rozdíl: u <span class="rx">Sepia</span> je vztah k blízkým <b>lhostejný</b>, u <span class="rx">Natrium muriaticum</span> <b>bolestně blokovaný</b>. Pacientka v případu uvádí lhostejnost a stud za ni, ne blokovanou touhu.</li>
+        <li><b>Silná chuť na sůl</b> (v případu je chuť na kyselé a ocet, což naopak podporuje <span class="rx">Sepia</span>).</li>
+        <li><b>Zhoršení sluncem, horkem, u moře</b>; bolest hlavy „jako by tloukly malé hamry“, často v době menses a po zrakové zátěži.</li>
+        <li><b>Averze k útěše s podrážděností, která přejde v pláč</b> po odchodu utěšujícího.</li>
+        <li><b>Neprospívající kauzalita:</b> spíše ztráta, odloučení, zrada než hormonální zlom po porodu.</li>
+      </ul>
+      <p><b>A co by muselo chybět:</b> <b>zlepšení intenzivním pohybem</b> — <span class="rx">Natrium muriaticum</span> tuto modalitu nemá, a v případu jde o jeden ze tří nejsilnějších symptomů. Právě chybějící pokrytí silného symptomu je silnější argument proti léku než jakýkoli součet v mřížce (pravidlo z 5.9).</p>
+    </div></details>
+
+  </div>
